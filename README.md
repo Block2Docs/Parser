@@ -1,6 +1,11 @@
 # Block2Docs Parser
 [CloudFest Hackathon 2026 project](https://hackathon.cloudfest.com/project/block2docs/)
 
+## The Documentation System
+
+![docs-system](https://github.com/user-attachments/assets/3dd7f16d-164b-4458-8062-6c8be75da83a)
+
+
 ## Hackathon Goals
 1. Develop a working CLI to parse PHP/JS annotations, extracting structured DocBlock data for documented and undocumented code.
 2. Implement automated changelog generation using @since and @changelog tags, with fallback to git history for untagged changes.
