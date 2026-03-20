@@ -1,0 +1,34 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "description": "[CloudFest Hackathon 2026 project](https://hackathon.cloudfest.com/project/block2docs/)",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:php",
+    "lint:js": "eslint src/js/ --no-error-on-unmatched-pattern",
+    "lint:php": "composer lint:php",
+    "lint:fix": "npm run lint:js:fix && npm run lint:php:fix",
+    "lint:js:fix": "eslint --fix src/js/ --no-error-on-unmatched-pattern",
+    "lint:php:fix": "composer lint:php:fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Block2Docs/Parser.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Block2Docs/Parser/issues"
+  },
+  "homepage": "https://github.com/Block2Docs/Parser#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.3"
+  }
+}
