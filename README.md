@@ -65,4 +65,8 @@ When this package is required as a Composer dependency in another project, Compo
 
 ## Contributing
 
+### Agent skills (Cursor)
+
+The repo includes an example layout under [`skills/example/`](skills/example/): a root `SKILL.md` plus a `references/` folder for optional supporting material. Copy or adapt it when adding project-specific Cursor agent skills; fill in `SKILL.md` with instructions the agent should follow.
+
 ## License 

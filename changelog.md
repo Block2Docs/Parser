@@ -4,6 +4,7 @@
 
 ### Added
 
+- **Example agent skill layout** (`skills/example/`): Placeholder `SKILL.md` and `references/` directory for Cursor-style agent skills.
 - **Project scaffolding**: Composer package (`cloudfest/documentation`) with PSR-4 autoloading for the `Block2Docs` namespace.
 - **CLI entrypoint** (`bin/block2docs`): Dispatches `parse` and `generate-docs` commands.
 - **Parser classes**: `BlockParser` and `PhpFileParser` stubs for extracting block metadata and PHP source structures.
@@ -17,5 +18,5 @@
 - **PHPUnit testing**: PHPUnit v11 with test suite in `tests/php/`, runnable via `composer test`.
   - `PromptBuilderTest`: Verifies template variable substitution and static template rendering.
   - `BlockParserTest`, `PhpFileParserTest`, `ClientTest`: Baseline tests for stub classes.
-- **README**: Added CLI usage instructions and documentation system overview.
+- **README**: CLI usage, documentation system overview, and Contributing notes for the example `skills/example/` agent skill layout.
 - **`.gitignore`**: Excludes `vendor/`, `node_modules/`, and `.phpunit.cache/`.
