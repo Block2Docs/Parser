@@ -1,0 +1,33 @@
+{
+    "name": "cloudfest/documentation",
+    "autoload": {
+        "psr-4": {
+            "Block2Docs\\": "src/php/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Block2Docs\\Tests\\": "tests/php/"
+        }
+    },
+    "bin": [
+        "bin/block2docs"
+    ],
+    "require": {
+        "phpdocumentor/shim": "^3.9"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpdocumentor/shim": true
+        }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^4.0",
+        "phpunit/phpunit": "^11.5"
+    },
+    "scripts": {
+        "lint:php": "phpcs",
+        "lint:php:fix": "phpcbf",
+        "test": "phpunit"
+    }
+}

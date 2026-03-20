@@ -20,6 +20,35 @@ The core parser scans PHP/JavaScript code, extracting DocBlocks and documentatio
 - Language Agnostic: Starts with PHP/JavaScript; architecture supports future languages.
 - CI/CD Ready: Integrates into existing development pipelines.
 
+## CLI
+
+From the repository root, install dependencies and run the `block2docs` entrypoint:
+
+```bash
+composer install
+./bin/block2docs help
+```
+
+If the script is not executable on your system, invoke PHP explicitly:
+
+```bash
+php bin/block2docs help
+```
+
+Commands:
+
+- `parse` — run the parser (see `Block2Docs\Command\ParseCommand`).
+- `generate-docs` or `docs` — documentation generation (`GenerateDocsCommand`).
+
+Example:
+
+```bash
+./bin/block2docs parse
+./bin/block2docs generate-docs
+```
+
+When this package is required as a Composer dependency in another project, Composer exposes the same binary as `vendor/bin/block2docs` (after `composer install` there).
+
 ## Hackathon Goals
 1. Develop a working CLI to parse PHP/JS annotations, extracting structured DocBlock data for documented and undocumented code.
 2. Implement automated changelog generation using @since and @changelog tags, with fallback to git history for untagged changes.
@@ -35,5 +64,9 @@ The core parser scans PHP/JavaScript code, extracting DocBlocks and documentatio
 ## The team
 
 ## Contributing
+
+### Agent skills (Cursor)
+
+The repo includes an example layout under [`skills/example/`](skills/example/): a root `SKILL.md` plus a `references/` folder for optional supporting material. Copy or adapt it when adding project-specific Cursor agent skills; fill in `SKILL.md` with instructions the agent should follow.
 
 ## License 
