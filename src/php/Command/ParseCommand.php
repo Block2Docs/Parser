@@ -8,6 +8,12 @@ use Block2Docs\Parsers\PhpFileParser;
 
 class ParseCommand
 {
+    /**
+     * Execute the parse command.
+     *
+     * @param array<string> $args The arguments to the command.
+     * @return void
+     */
     public function execute(array $args): void
     {
         $directory = $args[0] ?? null;

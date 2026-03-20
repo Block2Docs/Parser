@@ -16,7 +16,6 @@ use phpDocumentor\Reflection\Php\File as PhpFile;
 use phpDocumentor\Reflection\Php\Function_;
 use phpDocumentor\Reflection\Php\Interface_;
 use phpDocumentor\Reflection\Php\Method;
-use phpDocumentor\Reflection\Php\Project;
 use phpDocumentor\Reflection\Php\ProjectFactory;
 use phpDocumentor\Reflection\Php\Property;
 use phpDocumentor\Reflection\Php\Trait_;
@@ -25,9 +24,17 @@ use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
 class PhpFileParser
 {
+    /**
+     * The project factory.
+     *
+     * @var ProjectFactory
+     */
     private ProjectFactory $factory;
 
     /**
+     * Constructor.
+     *
+     * @todo Implement the project factory.
      *
      * @return void
      */
@@ -84,6 +91,9 @@ class PhpFileParser
     }
 
     /**
+     * Find PHP files in a directory.
+     *
+     * @param string $directory The directory to search.
      * @return string[]
      */
     private function findPhpFiles(string $directory): array
@@ -104,6 +114,9 @@ class PhpFileParser
     }
 
     /**
+     * Export a PHP file to a structured array.
+     *
+     * @param PhpFile $file The PHP file to export.
      * @return array<string, mixed>
      */
     private function exportFile(PhpFile $file): array
@@ -147,6 +160,12 @@ class PhpFileParser
         return $data;
     }
 
+    /**
+     * Export a class to a structured array.
+     *
+     * @param Class_ $class The class to export.
+     * @return array<string, mixed>
+     */
     private function exportClass(Class_ $class): array
     {
         $data = [
@@ -180,6 +199,12 @@ class PhpFileParser
         return $data;
     }
 
+    /**
+     * Export an interface to a structured array.
+     *
+     * @param Interface_ $interface The interface to export.
+     * @return array<string, mixed>
+     */
     private function exportInterface(Interface_ $interface): array
     {
         $data = [
@@ -204,6 +229,12 @@ class PhpFileParser
         return $data;
     }
 
+    /**
+     * Export a trait to a structured array.
+     *
+     * @param Trait_ $trait The trait to export.
+     * @return array<string, mixed>
+     */
     private function exportTrait(Trait_ $trait): array
     {
         $data = [
@@ -227,6 +258,12 @@ class PhpFileParser
         return $data;
     }
 
+    /**
+     * Export an enum to a structured array.
+     *
+     * @param Enum_ $enum The enum to export.
+     * @return array<string, mixed>
+     */
     private function exportEnum(Enum_ $enum): array
     {
         $data = [
@@ -255,6 +292,12 @@ class PhpFileParser
         return $data;
     }
 
+    /**
+     * Export a function to a structured array.
+     *
+     * @param Function_ $function The function to export.
+     * @return array<string, mixed>
+     */
     private function exportFunction(Function_ $function): array
     {
         return [
@@ -268,6 +311,12 @@ class PhpFileParser
         ];
     }
 
+    /**
+     * Export a method to a structured array.
+     *
+     * @param Method $method The method to export.
+     * @return array<string, mixed>
+     */
     private function exportMethod(Method $method): array
     {
         return [
@@ -285,6 +334,12 @@ class PhpFileParser
         ];
     }
 
+    /**
+     * Export a property to a structured array.
+     *
+     * @param Property $property The property to export.
+     * @return array<string, mixed>
+     */
     private function exportProperty(Property $property): array
     {
         return [
@@ -299,6 +354,12 @@ class PhpFileParser
         ];
     }
 
+    /**
+     * Export a constant to a structured array.
+     *
+     * @param Constant $constant The constant to export.
+     * @return array<string, mixed>
+     */
     private function exportConstant(Constant $constant): array
     {
         return [
@@ -311,7 +372,10 @@ class PhpFileParser
     }
 
     /**
+     * Export arguments to a structured array.
+     *
      * @param Argument[] $arguments
+     * @return array<string, mixed>
      */
     private function exportArguments(array $arguments): array
     {
@@ -324,6 +388,12 @@ class PhpFileParser
         ], array_values($arguments));
     }
 
+    /**
+     * Export a docblock to a structured array.
+     *
+     * @param DocBlock|null $docblock The docblock to export.
+     * @return array<string, mixed>|null
+     */
     private function exportDocBlock(?DocBlock $docblock): ?array
     {
         if ($docblock === null) {
@@ -354,6 +424,13 @@ class PhpFileParser
         ];
     }
 
+    /**
+     * Get the relative path of a file.
+     *
+     * @param string $filePath The path to the file.
+     * @param string $basePath The base path to compare against.
+     * @return string
+     */
     private function relativePath(string $filePath, string $basePath): string
     {
         $basePath = rtrim($basePath, '/') . '/';

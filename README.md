@@ -114,3 +114,8 @@ When this package is required as a Composer dependency in another project, Compo
 The repo includes an example layout under [`skills/example/`](skills/example/): a root `SKILL.md` plus a `references/` folder for optional supporting material. Copy or adapt it when adding project-specific Cursor agent skills; fill in `SKILL.md` with instructions the agent should follow.
 
 ## License
+
+### Acknowledegments
+
+The PHP parser is taken from [wordpress/phpdoc-parser](https://github.com/WordPress/phpdoc-parser).
+
