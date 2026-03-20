@@ -1,6 +1,6 @@
 <?php
 
-namespace Block2Docs\Parser;
+namespace Block2Docs\Parsers;
 
 class BlockParser
 {

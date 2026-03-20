@@ -40,10 +40,54 @@ Commands:
 - `parse` — run the parser (see `Block2Docs\Command\ParseCommand`).
 - `generate-docs` or `docs` — documentation generation (`GenerateDocsCommand`).
 
-Example:
+### `parse`
+
+Parse PHP files in a directory and output structured JSON containing all classes, interfaces, traits, enums, functions, constants, methods, properties, and their docblocks.
 
 ```bash
-./bin/block2docs parse
+./bin/block2docs parse <directory> [output-file] [--pretty]
+```
+
+| Argument | Description |
+|---|---|
+| `<directory>` | Path to the directory to scan (required). All `.php` files are found recursively. |
+| `[output-file]` | Optional file path to write JSON output to. If omitted, JSON is printed to stdout. |
+| `--pretty` | Pretty-print the JSON output. |
+
+Examples:
+
+```bash
+# Parse a directory and print JSON to stdout
+./bin/block2docs parse src/
+
+# Parse with pretty-printed output
+./bin/block2docs parse src/ --pretty
+
+# Write output to a file
+./bin/block2docs parse src/ output/parsed.json --pretty
+```
+
+The output is a JSON object keyed by relative file path. Each file entry contains:
+
+```json
+{
+  "path": "/absolute/path/to/file.php",
+  "docblock": { "summary": "...", "description": "...", "tags": [...] },
+  "includes": [],
+  "constants": [],
+  "functions": [],
+  "classes": [],
+  "interfaces": [],
+  "traits": [],
+  "enums": []
+}
+```
+
+Classes, functions, and methods include their arguments, return types, visibility, and full docblock data (summary, description, and tags such as `@param`, `@return`, `@since`, `@deprecated`).
+
+### `generate-docs`
+
+```bash
 ./bin/block2docs generate-docs
 ```
 
@@ -69,4 +113,4 @@ When this package is required as a Composer dependency in another project, Compo
 
 The repo includes an example layout under [`skills/example/`](skills/example/): a root `SKILL.md` plus a `references/` folder for optional supporting material. Copy or adapt it when adding project-specific Cursor agent skills; fill in `SKILL.md` with instructions the agent should follow.
 
-## License 
+## License
