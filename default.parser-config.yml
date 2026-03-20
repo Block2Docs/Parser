@@ -1,0 +1,115 @@
+version: 1
+
+project:
+  name: blocks2docs
+  repository: Block2Docs/Parser/
+  default_branch: main
+
+# Define the sources for the parser. 
+# Possible sources: code, test, docblocks, pull_requests, issues, comments.
+# Parameters for the source:
+# - enabled (bool): true|false
+# - include (sequence): inclusion filters (glob strings or typed rules)
+# - exclude (sequence): exclusion filters (glob strings or typed rules)
+# Typed rule format:
+# - type (string): filter kind (e.g., path, tag, author, state)
+# - value (string|sequence): filter value(s)
+# Rule types are source-specific and validated per source.
+sources:
+  code:
+    enabled: true
+    include:
+      - "packages/**"
+    exclude:
+      - "**/node_modules/**"
+      - "**/vendor/**"
+  tests:
+    enabled: true
+    include:
+      - "packages/**/test/**"
+  docblocks:
+    enabled: true
+    include:
+      - type: "tag"
+        value: ["@public", "@api", "@internal"]
+  pull_requests:
+    enabled: true
+    exclude:
+      - type: author
+        value: dependabot
+      - type: state
+        value: open
+  issues:
+    enabled: true
+    exclude:
+      - type: state
+        value: open
+  comments:
+    enabled: false
+
+# Define the docs types to generate. Each doc type can specify:
+# - enabled (bool): true|false
+# - audience (string): target audience for the doc type (e.g., developer, user)
+# - evidence_policy: rules for what evidence is required or preferred for claims in this doc type
+doc_types:
+  api_reference:
+    enabled: true
+    audience: developer
+    evidence_policy:
+      require:
+        - code
+        - docblocks
+      ignore:
+        - pull_requests
+  changelog:
+    enabled: true
+    audience: developer
+    evidence_policy:
+      require:
+        - code
+      prefer:
+        - pull_requests
+  user_guide:
+    enabled: true
+    audience: end-user
+    evidence_policy:
+      require:
+        - code
+      prefer:
+        - docblocks 
+  dev_note:
+    enabled: true
+    evidence_policy:
+      require:
+        - code
+        - pull_requests
+
+# Define the evidence requirements and policies for claims made in the generated docs.
+# This section can specify:
+# - minimum_sources: the minimum number of independent sources required to support a claim
+# - freshness: rules about how old evidence can be to be considered valid (e.g., max age in days for issues or PRs) 
+evidence:
+  minimum_sources: 2
+  freshness:
+    max_issue_age_days: 90
+    max_pr_age_days: 180
+
+# inference:
+#   mode: constrained_synthesis
+#   require_label_for_inferred_content: true
+#   allow_gap_filling: false
+
+# outputs:
+#   traceability:
+#     enabled: true
+#     include_in_final_docs: false
+#     artifact_format: json
+#   failure_behavior:
+#     on_insufficient_evidence: fail
+#     on_conflicting_evidence: mark_uncertain
+
+
+# execution:
+#   cache: true
+#   emit_intermediate_artifacts: true
+#   strict_mode: true
