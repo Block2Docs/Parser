@@ -2,23 +2,32 @@
 
 namespace Block2Docs\Parsers\WordPress;
 
-use phpDocumentor\Reflection\DocBlockFactory;
 use phpDocumentor\Reflection\Metadata\Metadata;
-use PhpParser\Node\Stmt\Expression;
-use phpDocumentor\Reflection\DocBlock\Tags\Param;
-use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
 final class AddedHook implements Metadata
 {
-    private $hook;
+    private int $line;
+    private string $name;
+    private string $type;
+    private array $args;
+    private ?array $docblock;
+
     /**
      * Construct the added hook metadata object.
      *
-     * @param Expression $hook The hook name.
+     * @param int         $line     The line number of the hook call.
+     * @param string      $name     The hook name.
+     * @param string      $type     The hook type (action or filter).
+     * @param array       $args     The hook arguments (excluding the hook name).
+     * @param array|null  $docblock The parsed docblock, if any.
      */
-    public function __construct(Expression $hook)
+    public function __construct(int $line, string $name, string $type, array $args, ?array $docblock)
     {
-        $this->hook = $hook;
+        $this->line = $line;
+        $this->name = $name;
+        $this->type = $type;
+        $this->args = $args;
+        $this->docblock = $docblock;
     }
 
     /**
@@ -28,18 +37,7 @@ final class AddedHook implements Metadata
      */
     public function key(): string
     {
-        $line = $this->hook->getStartLine();
-        return "added_hook_{$line}";
-    }
-
-    /**
-     * Get the hook name.
-     *
-     * @return string The hook name.
-     */
-    public function hook(): string
-    {
-        return $this->hook->expr->name->toString();
+        return "added_hook_{$this->line}";
     }
 
     /**
@@ -47,41 +45,7 @@ final class AddedHook implements Metadata
      */
     public function getName()
     {
-        return $this->cleanupName((string) $this->hook->expr->name);
-    }
-
-    /**
-     * @param string $name
-     *
-     * @return string
-     */
-    private function cleanupName($name)
-    {
-        $matches = array();
-
-        // quotes on both ends of a string
-        if (preg_match('/^[\'"]([^\'"]*)[\'"]$/', $name, $matches)) {
-            return $matches[1];
-        }
-
-        // two concatenated things, last one of them a variable
-        if (
-            preg_match(
-                '/(?:[\'"]([^\'"]*)[\'"]\s*\.\s*)?' . // First filter name string (optional)
-                '(\$[^\s]*)' .                        // Dynamic variable
-                '(?:\s*\.\s*[\'"]([^\'"]*)[\'"])?/',  // Second filter name string (optional)
-                $name,
-                $matches
-            )
-        ) {
-            if (isset($matches[3])) {
-                return $matches[1] . '{' . $matches[2] . '}' . $matches[3];
-            } else {
-                return $matches[1] . '{' . $matches[2] . '}';
-            }
-        }
-
-        return $name;
+        return $this->name;
     }
 
     /**
@@ -89,7 +53,7 @@ final class AddedHook implements Metadata
      */
     public function getShortName()
     {
-        return $this->getName();
+        return $this->name;
     }
 
     /**
@@ -97,17 +61,7 @@ final class AddedHook implements Metadata
      */
     public function getType()
     {
-        $type = 'filter';
-        switch ((string) $this->hook->expr->name) {
-            case 'add_filter':
-                $type = 'filter';
-                break;
-            case 'add_action':
-                $type = 'action';
-                break;
-        }
-
-        return $type;
+        return $this->type;
     }
 
     /**
@@ -115,60 +69,21 @@ final class AddedHook implements Metadata
      */
     public function getArgs()
     {
-        $args    = [];
-        foreach ($this->hook->expr->args as $arg) {
-            $args[] = $arg;
-        }
-
-        // Skip the filter name
-        array_shift($args);
-
-        return $args;
+        return $this->args;
     }
 
     public function format()
     {
         return [
-            'hook' => $this->hook,
-            'name' => $this->getName(),
-            'type' => $this->getType(),
-            'args' => $this->getArgs(),
-            'docblock' => $this->getDocBlock(),
+            'name' => $this->name,
+            'type' => $this->type,
+            'args' => $this->args,
+            'docblock' => $this->docblock,
         ];
     }
 
     public function getDocBlock(): ?array
     {
-        $comment = $this->hook->getDocComment();
-
-        if ($comment === null) {
-            return null;
-        }
-
-        $docblockFactory = DocBlockFactory::createInstance();
-        $docblock = $docblockFactory->create($comment->getText());
-
-        $tags = [];
-        foreach ($docblock->getTags() as $tag) {
-            $entry = [
-                'name'        => $tag->getName(),
-                'description' => $tag->getDescription() ? (string) $tag->getDescription() : null,
-            ];
-
-            if ($tag instanceof Param) {
-                $entry['variable'] = $tag->getVariableName();
-                $entry['type']     = $tag->getType() ? (string) $tag->getType() : null;
-            } elseif ($tag instanceof Return_) {
-                $entry['type'] = $tag->getType() ? (string) $tag->getType() : null;
-            }
-
-            $tags[] = $entry;
-        }
-
-        return [
-            'summary'     => $docblock->getSummary(),
-            'description' => (string) $docblock->getDescription(),
-            'tags'        => $tags,
-        ];
+        return $this->docblock;
     }
 }
