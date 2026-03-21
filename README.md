@@ -85,6 +85,80 @@ The output is a JSON object keyed by relative file path. Each file entry contain
 
 Classes, functions, and methods include their arguments, return types, visibility, and full docblock data (summary, description, and tags such as `@param`, `@return`, `@since`, `@deprecated`).
 
+### `parse-js`
+
+Parse JavaScript files in a directory using the JSDoc parser and output structured JSON. This mirrors the PHP `parse` command but for `.js` files with JSDoc annotations.
+
+```bash
+npm install
+node src/js/cli/parse.js <directory> [output.json] [--pretty]
+```
+
+Or via npm script:
+
+```bash
+npm run parse:js -- <directory> [output.json] [--pretty]
+```
+
+| Argument | Description |
+|---|---|
+| `<directory>` | Path to the directory to scan (required). All `.js` files are found recursively. |
+| `[output.json]` | Optional file path to write JSON output to. If omitted, JSON is printed to stdout. |
+| `--pretty` | Pretty-print the JSON output. |
+
+Examples:
+
+```bash
+# Parse a directory and print JSON to stdout
+node src/js/cli/parse.js src/
+
+# Parse with pretty-printed output
+node src/js/cli/parse.js src/ --pretty
+
+# Write output to a file
+node src/js/cli/parse.js src/ output/parsed.json --pretty
+```
+
+You can also use the parser programmatically:
+
+```js
+import { JsFileParser } from './src/js/parser/JsFileParser.js';
+
+const parser = new JsFileParser();
+
+// Parse an entire directory
+const result = parser.parseDirectory('path/to/js/src');
+
+// Or parse a single file
+const fileResult = parser.parseFile('/absolute/path/to/file.js');
+```
+
+The output shape matches the PHP parser:
+
+```json
+{
+  "path": "/absolute/path/to/file.js",
+  "docblock": { "summary": "...", "description": "...", "tags": [...] },
+  "includes": [],
+  "constants": [],
+  "functions": [],
+  "classes": [],
+  "interfaces": [],
+  "traits": [],
+  "enums": []
+}
+```
+
+Classes include `properties`, `methods`, and WordPress hook data (`hooks`, `added_hooks`). Methods and functions include `arguments`, `return_type`, `visibility`, and full docblock data parsed from JSDoc annotations (`@param`, `@return`, `@since`, `@deprecated`, etc.).
+
+The parser detects WordPress hook calls (`doAction`, `applyFilters`, `addAction`, `addFilter`) in both bare and `wp.hooks.*` member-expression forms.
+
+**Running tests:**
+
+```bash
+npm test
+```
+
 ### `generate-docs`
 
 ```bash

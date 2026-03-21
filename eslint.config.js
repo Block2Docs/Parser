@@ -14,6 +14,14 @@ export default [
         },
     },
     {
+        files: ["src/js/cli/**/*.js"],
+        languageOptions: {
+            globals: {
+                process: "readonly",
+            },
+        },
+    },
+    {
         ignores: ["node_modules/", "vendor/"],
     },
 ];
