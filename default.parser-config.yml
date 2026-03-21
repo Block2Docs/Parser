@@ -5,16 +5,43 @@ project:
   repository: Block2Docs/Parser/
   default_branch: main
 
-# Define the sources for the parser. 
+# Define the sources for the parser.
 # Possible sources: code, tests, docblocks, pull_requests, issues, issue_comments, pull_request_comments.
-# Parameters for the source:
+#
+# Common parameters per source:
 # - enabled (bool): true|false
-# - include (sequence): inclusion filters (glob strings or typed rules)
-# - exclude (sequence): exclusion filters (glob strings or typed rules)
-# Typed rule format:
-# - type (string): filter kind (e.g., path, tag, author, state)
-# - value (string|sequence): filter value(s)
-# Rule types are source-specific and validated per source.
+# - include (sequence): inclusion filters
+# - exclude (sequence): exclusion filters
+#
+# Filter item shapes:
+# 1) Plain string
+#    - For code/tests/docblocks: treated as a path/glob filter.
+#    - For tracker sources: treated as a source-native filter value.
+# 2) Typed rule object
+#    - type (string): filter kind
+#    - value (string|sequence<string>): one or more filter values
+#
+# Allowed typed rule kinds by source:
+# - code, tests: path
+# - docblocks: tag, path
+# - pull_requests, issues, issue_comments, pull_request_comments: author, state, label
+#
+# Examples:
+# - code.exclude:
+#   - "**/vendor/**"
+#   - type: path
+#     value: "packages/legacy/**"
+# - docblocks.include:
+#   - type: tag
+#     value: ["@public", "@api"]
+# - pull_requests.exclude:
+#   - type: author
+#     value: "dependabot"
+#   - type: state
+#     value: "open"
+# - issues.exclude:
+#   - type: label
+#     value: ["wontfix", "duplicate"]
 sources:
   code:
     enabled: true
