@@ -5,6 +5,10 @@
 
 Block2Docs will be a tool that bridges the gap between code and documentation by intelligent DocBlock parsing. It reads annotations from your code to identify what needs documentation, and routes everything to the appropriate output—changelog entries, GitHub issues, API references, field guides, and more.
 
+## The Documentation System
+
+![docs-system](https://github.com/user-attachments/assets/3dd7f16d-164b-4458-8062-6c8be75da83a)
+
 ### Parser/Workflow engine
 
 The core static parsers scan PHP/JavaScript code, extracting DocBlocks and documentation, and needs to:
@@ -28,9 +32,9 @@ Install node and php dependencies:
 npm install
 ```
 
-## Static parsers CLI
+## CLI
 
-### PHP static parser
+### PHP
 
 From the repository root, install dependencies and run the `block2docs` entrypoint:
 
@@ -91,6 +95,26 @@ The output is a JSON object keyed by relative file path. Each file entry contain
 ```
 
 Classes, functions, and methods include their arguments, return types, visibility, and full docblock data (summary, description, and tags such as `@param`, `@return`, `@since`, `@deprecated`).
+
+- `field-guide-template` — Generate the Field Guide Template and save to the output file.
+-
+Parse PHP files in a directory and output structured JSON containing all classes, interfaces, traits, enums, functions, constants, methods, properties, and their docblocks.
+
+```bash
+./bin/block2docs field-guid [output-path]
+```
+
+| Argument | Description |
+|---|---|
+| `[output-path]` | The file path to write the Field Guide Template to. |
+
+Examples:
+
+```bash
+# Parse a directory and print JSON to stdout
+./bin/block2docs field-guide FIELD_GUIDE_TEMPLATE.md
+```
+
 
 ### JS static parser
 
@@ -168,16 +192,12 @@ The generated Markdown includes class descriptions, constants, properties, metho
 - `@needs-docs` — displayed as a documentation-needed callout
 
 ## Hackathon Goals
+
 1. Develop a working CLI to parse PHP/JS annotations, extracting structured DocBlock data for documented and undocumented code.
 2. Implement automated changelog generation using @since and @changelog tags, with fallback to git history for untagged changes.
 3. Create a GitHub issue workflow for @needs-docs items that generates templated issues for documentation requirements (dev, user, guide).
 4. Design a flexible configuration system for customizing parsing, output, and templates.
 5. Produce a compelling demo on a real codebase (e.g., WordPress plugin), showcasing the full scanning-to-documentation/issue pipeline.
-
-
-## The Documentation System
-
-![docs-system](https://github.com/user-attachments/assets/3dd7f16d-164b-4458-8062-6c8be75da83a)
 
 ## The team
 
