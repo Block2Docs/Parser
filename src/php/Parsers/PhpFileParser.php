@@ -7,6 +7,10 @@ namespace Block2Docs\Parsers;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use phpDocumentor\Reflection\DocBlock;
+use Block2Docs\Parsers\WordPress\AddedHook;
+use Block2Docs\Parsers\WordPress\AddedHookStrategy;
+use Block2Docs\Parsers\WordPress\Hook;
+use Block2Docs\Parsers\WordPress\HookStrategy;
 use phpDocumentor\Reflection\File\LocalFile;
 use phpDocumentor\Reflection\Php\Argument;
 use phpDocumentor\Reflection\Php\Class_;
@@ -41,6 +45,9 @@ class PhpFileParser
     public function __construct()
     {
         $this->factory = ProjectFactory::createInstance();
+        // @todo Maybe make this configurable.
+        $this->factory->addStrategy(new HookStrategy());
+        $this->factory->addStrategy(new AddedHookStrategy());
     }
 
     /**
@@ -115,6 +122,9 @@ class PhpFileParser
 
     /**
      * Export a PHP file to a structured array.
+     *
+     * @todo Use config file to determine which elements to export.
+     * @todo Add WordPress specific elements to the export.
      *
      * @param PhpFile $file The PHP file to export.
      * @return array<string, mixed>
@@ -192,8 +202,25 @@ class PhpFileParser
             $data['properties'][] = $this->exportProperty($property);
         }
 
+        /**
+         * FWIW this is the update to phpdocumentor/reflection I think v5+ ?? to get the hooks.
+         */
         foreach ($class->getMethods() as $method) {
             $data['methods'][] = $this->exportMethod($method);
+            foreach ($method->getMetadata() as $metadata) {
+                if ($metadata instanceof Hook) {
+                    if (! isset($data['hooks'][ $metadata->key() ])) {
+                        $data['hooks'][ $metadata->key() ] = [];
+                    }
+                    $data['hooks'][ $metadata->key() ][] = $metadata->format();
+                }
+                if ($metadata instanceof AddedHook) {
+                    if (! isset($data['added_hooks'][ $metadata->key() ])) {
+                        $data['added_hooks'][ $metadata->key() ] = [];
+                    }
+                    $data['added_hooks'][ $metadata->key() ][] = $metadata->format();
+                }
+            }
         }
 
         return $data;
@@ -281,7 +308,7 @@ class PhpFileParser
             $data['cases'][] = [
                 'name' => $case->getName(),
                 'fqsen' => (string) $case->getFqsen(),
-                'value' => $case->getValue(),
+                'value' => ($v = $case->getValue(false)) !== null ? (string) $v : null,
             ];
         }
 
@@ -350,7 +377,7 @@ class PhpFileParser
             'static' => $property->isStatic(),
             'visibility' => $property->getVisibility() ? (string) $property->getVisibility() : 'public',
             'type' => $property->getType() ? (string) $property->getType() : null,
-            'default' => $property->getDefault(),
+            'default' => ($d = $property->getDefault(false)) !== null ? (string) $d : null,
         ];
     }
 
@@ -367,7 +394,7 @@ class PhpFileParser
             'fqsen' => (string) $constant->getFqsen(),
             'line' => $constant->getLocation()->getLineNumber(),
             'docblock' => $this->exportDocBlock($constant->getDocBlock()),
-            'value' => $constant->getValue(),
+            'value' => ($v = $constant->getValue(false)) !== null ? (string) $v : null,
         ];
     }
 
@@ -382,7 +409,7 @@ class PhpFileParser
         return array_map(fn(Argument $arg) => [
             'name' => $arg->getName(),
             'type' => $arg->getType() ? (string) $arg->getType() : null,
-            'default' => $arg->getDefault(),
+            'default' => ($d = $arg->getDefault(false)) !== null ? (string) $d : null,
             'by_reference' => $arg->isByReference(),
             'variadic' => $arg->isVariadic(),
         ], array_values($arguments));

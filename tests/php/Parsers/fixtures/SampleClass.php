@@ -34,6 +34,14 @@ class SampleClass
      */
     public function greet(string $prefix = 'Hello'): string
     {
+        /**
+         * I'm a comment.
+         *
+         * @since 1.0.1
+         *
+         * @param string $prefix Optional prefix.
+         */
+        do_action( 'hook_do_action', $prefix );
         return "{$prefix}, {$this->name}!";
     }
 
@@ -44,6 +52,11 @@ class SampleClass
      */
     public static function legacyGreet(string $name): string
     {
+        add_action( 'hook_name_add_action', function( $prefix ) {
+            return "{$prefix}, {$this->name}!";
+        }, 10, 1 );
+
+        add_filter( 'hook_name_add_filter', [ self::class, 'greet' ], 10, 1 );
         return "Hello, {$name}!";
     }
 }
