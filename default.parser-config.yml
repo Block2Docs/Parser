@@ -50,7 +50,10 @@ sources:
 # Define the docs types to generate. Each doc type can specify:
 # - enabled (bool): true|false
 # - audience (string): target audience for the doc type (e.g., developer, user)
-# - evidence_policy: rules for what evidence is required or preferred for claims in this doc type
+# - evidence_policy: rules for which evidence sources are mandatory, preferred, or ignored for claims in this doc type
+#   - require: mandatory sources; claims/doc output are invalid without them
+#   - prefer: higher-priority sources when multiple valid sources exist; not mandatory
+#   - ignore: sources that must not be used for this doc type
 doc_types:
   api_reference:
     enabled: true
@@ -83,6 +86,12 @@ doc_types:
       require:
         - code
         - pull_requests
+  field_guide:
+    enabled: true
+    evidence_policy:
+      require:
+        - code
+        - docblocks
 
 # Define the evidence requirements and policies for claims made in the generated docs.
 # This section can specify:
@@ -94,10 +103,17 @@ evidence:
     max_issue_age_days: 90
     max_pr_age_days: 180
 
-# inference:
-#   mode: constrained_synthesis
-#   require_label_for_inferred_content: true
-#   allow_gap_filling: false
+# Define inference rules and settings for generating content that is not explicitly stated in the sources but can be reasonably inferred.
+# This section can specify:
+# - mode: the inference mode (e.g., constrained_synthesis, evidence_driven, gap_filling)
+# - require_label_for_inferred_content: whether inferred content must be explicitly labeled as such
+# - label_for_inferred_content: the label to use for inferred content if required
+# - allow_gap_filling: whether the system is allowed to generate content to fill gaps in
+inference:
+  mode: constrained_synthesis
+  require_label_for_inferred_content: true
+  label_for_inferred_content: "[inferred]"
+  allow_gap_filling: false
 
 # outputs:
 #   traceability:
