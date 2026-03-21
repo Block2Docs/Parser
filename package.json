@@ -8,6 +8,7 @@
     "test": "tests"
   },
   "scripts": {
+    "preinstall": "composer install",
     "lint": "npm run lint:js && npm run lint:php",
     "lint:js": "eslint src/js/ --no-error-on-unmatched-pattern",
     "lint:php": "composer lint:php",
