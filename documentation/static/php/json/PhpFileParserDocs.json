@@ -1,1 +1,757 @@
-{"Parsers/PhpFileParser.php":{"path":"/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/PhpFileParser.php","docblock":null,"includes":[],"constants":[],"functions":[],"classes":[{"name":"PhpFileParser","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser","line":30,"end_line":494,"docblock":null,"final":false,"abstract":false,"parent":null,"interfaces":[],"traits":[],"constants":[],"properties":[{"name":"factory","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::$factory","line":37,"docblock":{"summary":"The project factory.","description":"","tags":[{"name":"var","description":""}]},"static":false,"visibility":"private","type":"\\phpDocumentor\\Reflection\\Php\\ProjectFactory","default":null}],"methods":[{"name":"__construct","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::__construct()","line":46,"end_line":52,"docblock":{"summary":"Constructor.","description":"","tags":[{"name":"todo","description":"Implement the project factory."},{"name":"return","description":"","type":"void"}]},"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"mixed","arguments":[],"hooks":[],"added_hooks":[]},{"name":"parseDirectory","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::parseDirectory()","line":60,"end_line":81,"docblock":{"summary":"Parse all PHP files in a directory and return structured documentation data.","description":"","tags":[{"name":"param","description":"The directory to parse.","variable":"directory","type":"string"},{"name":"return","description":"","type":"array<string,array>"}]},"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"array","arguments":[{"name":"directory","type":"string","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"parseFile","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::parseFile()","line":88,"end_line":99,"docblock":{"summary":"Parse a single PHP file.","description":"","tags":[{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"array","arguments":[{"name":"filePath","type":"string","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"findPhpFiles","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::findPhpFiles()","line":107,"end_line":122,"docblock":{"summary":"Find PHP files in a directory.","description":"","tags":[{"name":"param","description":"The directory to search.","variable":"directory","type":"string"},{"name":"return","description":"","type":"string[]"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"directory","type":"string","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportFile","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportFile()","line":133,"end_line":172,"docblock":{"summary":"Export a PHP file to a structured array.","description":"","tags":[{"name":"todo","description":"Use config file to determine which elements to export."},{"name":"todo","description":"Add WordPress specific elements to the export."},{"name":"param","description":"The PHP file to export.","variable":"file","type":"\\phpDocumentor\\Reflection\\Php\\File"},{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"file","type":"\\phpDocumentor\\Reflection\\Php\\File","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportClass","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportClass()","line":180,"end_line":214,"docblock":{"summary":"Export a class to a structured array.","description":"","tags":[{"name":"param","description":"The class to export.","variable":"class","type":"\\phpDocumentor\\Reflection\\Php\\Class_"},{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"class","type":"\\phpDocumentor\\Reflection\\Php\\Class_","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportInterface","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportInterface()","line":222,"end_line":244,"docblock":{"summary":"Export an interface to a structured array.","description":"","tags":[{"name":"param","description":"The interface to export.","variable":"interface","type":"\\phpDocumentor\\Reflection\\Php\\Interface_"},{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"interface","type":"\\phpDocumentor\\Reflection\\Php\\Interface_","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportTrait","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportTrait()","line":252,"end_line":273,"docblock":{"summary":"Export a trait to a structured array.","description":"","tags":[{"name":"param","description":"The trait to export.","variable":"trait","type":"\\phpDocumentor\\Reflection\\Php\\Trait_"},{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"trait","type":"\\phpDocumentor\\Reflection\\Php\\Trait_","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportEnum","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportEnum()","line":281,"end_line":307,"docblock":{"summary":"Export an enum to a structured array.","description":"","tags":[{"name":"param","description":"The enum to export.","variable":"enum","type":"\\phpDocumentor\\Reflection\\Php\\Enum_"},{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"enum","type":"\\phpDocumentor\\Reflection\\Php\\Enum_","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportFunction","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportFunction()","line":315,"end_line":326,"docblock":{"summary":"Export a function to a structured array.","description":"","tags":[{"name":"param","description":"The function to export.","variable":"function","type":"\\phpDocumentor\\Reflection\\Php\\Function_"},{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"function","type":"\\phpDocumentor\\Reflection\\Php\\Function_","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportMethod","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportMethod()","line":334,"end_line":351,"docblock":{"summary":"Export a method to a structured array.","description":"","tags":[{"name":"param","description":"The method to export.","variable":"method","type":"\\phpDocumentor\\Reflection\\Php\\Method"},{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"method","type":"\\phpDocumentor\\Reflection\\Php\\Method","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportProperty","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportProperty()","line":359,"end_line":371,"docblock":{"summary":"Export a property to a structured array.","description":"","tags":[{"name":"param","description":"The property to export.","variable":"property","type":"\\phpDocumentor\\Reflection\\Php\\Property"},{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"property","type":"\\phpDocumentor\\Reflection\\Php\\Property","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportConstant","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportConstant()","line":379,"end_line":388,"docblock":{"summary":"Export a constant to a structured array.","description":"","tags":[{"name":"param","description":"The constant to export.","variable":"constant","type":"\\phpDocumentor\\Reflection\\Php\\Constant"},{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"constant","type":"\\phpDocumentor\\Reflection\\Php\\Constant","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportArguments","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportArguments()","line":396,"end_line":405,"docblock":{"summary":"Export arguments to a structured array.","description":"","tags":[{"name":"param","description":"","variable":"arguments","type":"\\phpDocumentor\\Reflection\\Php\\Argument[]"},{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"arguments","type":"array","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportDocBlock","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportDocBlock()","line":413,"end_line":441,"docblock":{"summary":"Export a docblock to a structured array.","description":"","tags":[{"name":"param","description":"The docblock to export.","variable":"docblock","type":"\\phpDocumentor\\Reflection\\DocBlock|null"},{"name":"return","description":"","type":"array<string,mixed>|null"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"?array","arguments":[{"name":"docblock","type":"?\\phpDocumentor\\Reflection\\DocBlock","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportHooks","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportHooks()","line":449,"end_line":459,"docblock":{"summary":"Export the called hooks to a structured array.","description":"","tags":[{"name":"param","description":"The method in which the hooks are called.","variable":"method","type":"\\phpDocumentor\\Reflection\\Php\\Method"},{"name":"return","description":"The formattedcalled hooks.","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"method","type":"\\phpDocumentor\\Reflection\\Php\\Method","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"exportAddedHooks","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::exportAddedHooks()","line":467,"end_line":477,"docblock":{"summary":"Export the added hooks to a structured array.","description":"","tags":[{"name":"param","description":"The method in which the hooks are added.","variable":"method","type":"\\phpDocumentor\\Reflection\\Php\\Method"},{"name":"return","description":"The formatted added hooks.","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"array","arguments":[{"name":"method","type":"\\phpDocumentor\\Reflection\\Php\\Method","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"relativePath","fqsen":"\\Block2Docs\\Parsers\\PhpFileParser::relativePath()","line":486,"end_line":493,"docblock":{"summary":"Get the relative path of a file.","description":"","tags":[{"name":"param","description":"The path to the file.","variable":"filePath","type":"string"},{"name":"param","description":"The base path to compare against.","variable":"basePath","type":"string"},{"name":"return","description":"","type":"string"}]},"abstract":false,"final":false,"static":false,"visibility":"private","return_type":"string","arguments":[{"name":"filePath","type":"string","default":null,"by_reference":false,"variadic":false},{"name":"basePath","type":"string","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]}]}],"interfaces":[],"traits":[],"enums":[]}}
+{
+	"Parsers/PhpFileParser.php": {
+		"path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/PhpFileParser.php",
+		"docblock": null,
+		"includes": [],
+		"constants": [],
+		"functions": [],
+		"classes": [
+			{
+				"name": "PhpFileParser",
+				"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser",
+				"line": 30,
+				"end_line": 494,
+				"docblock": null,
+				"final": false,
+				"abstract": false,
+				"parent": null,
+				"interfaces": [],
+				"traits": [],
+				"constants": [],
+				"properties": [
+					{
+						"name": "factory",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::$factory",
+						"line": 37,
+						"docblock": {
+							"summary": "The project factory.",
+							"description": "",
+							"tags": [
+								{
+									"name": "var",
+									"description": ""
+								}
+							]
+						},
+						"static": false,
+						"visibility": "private",
+						"type": "\\phpDocumentor\\Reflection\\Php\\ProjectFactory",
+						"default": null
+					}
+				],
+				"methods": [
+					{
+						"name": "__construct",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::__construct()",
+						"line": 46,
+						"end_line": 52,
+						"docblock": {
+							"summary": "Constructor.",
+							"description": "",
+							"tags": [
+								{
+									"name": "todo",
+									"description": "Implement the project factory."
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "void"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "public",
+						"return_type": "mixed",
+						"arguments": [],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "parseDirectory",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::parseDirectory()",
+						"line": 60,
+						"end_line": 81,
+						"docblock": {
+							"summary": "Parse all PHP files in a directory and return structured documentation data.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The directory to parse.",
+									"variable": "directory",
+									"type": "string"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,array>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "public",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "directory",
+								"type": "string",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "parseFile",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::parseFile()",
+						"line": 88,
+						"end_line": 99,
+						"docblock": {
+							"summary": "Parse a single PHP file.",
+							"description": "",
+							"tags": [
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "public",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "filePath",
+								"type": "string",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "findPhpFiles",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::findPhpFiles()",
+						"line": 107,
+						"end_line": 122,
+						"docblock": {
+							"summary": "Find PHP files in a directory.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The directory to search.",
+									"variable": "directory",
+									"type": "string"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "string[]"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "directory",
+								"type": "string",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportFile",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportFile()",
+						"line": 133,
+						"end_line": 172,
+						"docblock": {
+							"summary": "Export a PHP file to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "todo",
+									"description": "Use config file to determine which elements to export."
+								},
+								{
+									"name": "todo",
+									"description": "Add WordPress specific elements to the export."
+								},
+								{
+									"name": "param",
+									"description": "The PHP file to export.",
+									"variable": "file",
+									"type": "\\phpDocumentor\\Reflection\\Php\\File"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "file",
+								"type": "\\phpDocumentor\\Reflection\\Php\\File",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportClass",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportClass()",
+						"line": 180,
+						"end_line": 214,
+						"docblock": {
+							"summary": "Export a class to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The class to export.",
+									"variable": "class",
+									"type": "\\phpDocumentor\\Reflection\\Php\\Class_"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "class",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Class_",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportInterface",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportInterface()",
+						"line": 222,
+						"end_line": 244,
+						"docblock": {
+							"summary": "Export an interface to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The interface to export.",
+									"variable": "interface",
+									"type": "\\phpDocumentor\\Reflection\\Php\\Interface_"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "interface",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Interface_",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportTrait",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportTrait()",
+						"line": 252,
+						"end_line": 273,
+						"docblock": {
+							"summary": "Export a trait to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The trait to export.",
+									"variable": "trait",
+									"type": "\\phpDocumentor\\Reflection\\Php\\Trait_"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "trait",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Trait_",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportEnum",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportEnum()",
+						"line": 281,
+						"end_line": 307,
+						"docblock": {
+							"summary": "Export an enum to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The enum to export.",
+									"variable": "enum",
+									"type": "\\phpDocumentor\\Reflection\\Php\\Enum_"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "enum",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Enum_",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportFunction",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportFunction()",
+						"line": 315,
+						"end_line": 326,
+						"docblock": {
+							"summary": "Export a function to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The function to export.",
+									"variable": "function",
+									"type": "\\phpDocumentor\\Reflection\\Php\\Function_"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "function",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Function_",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportMethod",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportMethod()",
+						"line": 334,
+						"end_line": 351,
+						"docblock": {
+							"summary": "Export a method to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The method to export.",
+									"variable": "method",
+									"type": "\\phpDocumentor\\Reflection\\Php\\Method"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "method",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Method",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportProperty",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportProperty()",
+						"line": 359,
+						"end_line": 371,
+						"docblock": {
+							"summary": "Export a property to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The property to export.",
+									"variable": "property",
+									"type": "\\phpDocumentor\\Reflection\\Php\\Property"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "property",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Property",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportConstant",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportConstant()",
+						"line": 379,
+						"end_line": 388,
+						"docblock": {
+							"summary": "Export a constant to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The constant to export.",
+									"variable": "constant",
+									"type": "\\phpDocumentor\\Reflection\\Php\\Constant"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "constant",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Constant",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportArguments",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportArguments()",
+						"line": 396,
+						"end_line": 405,
+						"docblock": {
+							"summary": "Export arguments to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "",
+									"variable": "arguments",
+									"type": "\\phpDocumentor\\Reflection\\Php\\Argument[]"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "arguments",
+								"type": "array",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportDocBlock",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportDocBlock()",
+						"line": 413,
+						"end_line": 441,
+						"docblock": {
+							"summary": "Export a docblock to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The docblock to export.",
+									"variable": "docblock",
+									"type": "\\phpDocumentor\\Reflection\\DocBlock|null"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>|null"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "?array",
+						"arguments": [
+							{
+								"name": "docblock",
+								"type": "?\\phpDocumentor\\Reflection\\DocBlock",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportHooks",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportHooks()",
+						"line": 449,
+						"end_line": 459,
+						"docblock": {
+							"summary": "Export the called hooks to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The method in which the hooks are called.",
+									"variable": "method",
+									"type": "\\phpDocumentor\\Reflection\\Php\\Method"
+								},
+								{
+									"name": "return",
+									"description": "The formattedcalled hooks.",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "method",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Method",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "exportAddedHooks",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportAddedHooks()",
+						"line": 467,
+						"end_line": 477,
+						"docblock": {
+							"summary": "Export the added hooks to a structured array.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The method in which the hooks are added.",
+									"variable": "method",
+									"type": "\\phpDocumentor\\Reflection\\Php\\Method"
+								},
+								{
+									"name": "return",
+									"description": "The formatted added hooks.",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "method",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Method",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "relativePath",
+						"fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::relativePath()",
+						"line": 486,
+						"end_line": 493,
+						"docblock": {
+							"summary": "Get the relative path of a file.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The path to the file.",
+									"variable": "filePath",
+									"type": "string"
+								},
+								{
+									"name": "param",
+									"description": "The base path to compare against.",
+									"variable": "basePath",
+									"type": "string"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "string"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "string",
+						"arguments": [
+							{
+								"name": "filePath",
+								"type": "string",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							},
+							{
+								"name": "basePath",
+								"type": "string",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					}
+				]
+			}
+		],
+		"interfaces": [],
+		"traits": [],
+		"enums": []
+	}
+}

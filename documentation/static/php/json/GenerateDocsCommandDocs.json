@@ -1,1 +1,73 @@
-{"Command/GenerateDocsCommand.php":{"path":"/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Command/GenerateDocsCommand.php","docblock":null,"includes":[],"constants":[],"functions":[],"classes":[{"name":"GenerateDocsCommand","fqsen":"\\Block2Docs\\Command\\GenerateDocsCommand","line":5,"end_line":20,"docblock":null,"final":false,"abstract":false,"parent":null,"interfaces":[],"traits":[],"constants":[],"properties":[],"methods":[{"name":"execute","fqsen":"\\Block2Docs\\Command\\GenerateDocsCommand::execute()","line":15,"end_line":19,"docblock":{"summary":"Execute the generate docs command.","description":"","tags":[{"name":"todo","description":"Implement docs generation command."},{"name":"param","description":"The arguments to the command.","variable":"args","type":"string[]"},{"name":"return","description":"","type":"void"}]},"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"void","arguments":[{"name":"args","type":"array","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]}]}],"interfaces":[],"traits":[],"enums":[]}}
+{
+	"Command/GenerateDocsCommand.php": {
+		"path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Command/GenerateDocsCommand.php",
+		"docblock": null,
+		"includes": [],
+		"constants": [],
+		"functions": [],
+		"classes": [
+			{
+				"name": "GenerateDocsCommand",
+				"fqsen": "\\Block2Docs\\Command\\GenerateDocsCommand",
+				"line": 5,
+				"end_line": 20,
+				"docblock": null,
+				"final": false,
+				"abstract": false,
+				"parent": null,
+				"interfaces": [],
+				"traits": [],
+				"constants": [],
+				"properties": [],
+				"methods": [
+					{
+						"name": "execute",
+						"fqsen": "\\Block2Docs\\Command\\GenerateDocsCommand::execute()",
+						"line": 15,
+						"end_line": 19,
+						"docblock": {
+							"summary": "Execute the generate docs command.",
+							"description": "",
+							"tags": [
+								{
+									"name": "todo",
+									"description": "Implement docs generation command."
+								},
+								{
+									"name": "param",
+									"description": "The arguments to the command.",
+									"variable": "args",
+									"type": "string[]"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "void"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "public",
+						"return_type": "void",
+						"arguments": [
+							{
+								"name": "args",
+								"type": "array",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					}
+				]
+			}
+		],
+		"interfaces": [],
+		"traits": [],
+		"enums": []
+	}
+}

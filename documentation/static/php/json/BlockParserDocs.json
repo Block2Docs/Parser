@@ -1,1 +1,69 @@
-{"Parsers/WordPress/BlockParser.php":{"path":"/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/WordPress/BlockParser.php","docblock":null,"includes":[],"constants":[],"functions":[],"classes":[{"name":"BlockParser","fqsen":"\\Block2Docs\\Parsers\\BlockParser","line":5,"end_line":18,"docblock":null,"final":false,"abstract":false,"parent":null,"interfaces":[],"traits":[],"constants":[],"properties":[],"methods":[{"name":"parse","fqsen":"\\Block2Docs\\Parsers\\BlockParser::parse()","line":13,"end_line":17,"docblock":{"summary":"Parse a block.","description":"","tags":[{"name":"param","description":"The path to the block.","variable":"path","type":"string"},{"name":"return","description":"","type":"array<string,mixed>"}]},"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"array","arguments":[{"name":"path","type":"string","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]}]}],"interfaces":[],"traits":[],"enums":[]}}
+{
+	"Parsers/WordPress/BlockParser.php": {
+		"path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/WordPress/BlockParser.php",
+		"docblock": null,
+		"includes": [],
+		"constants": [],
+		"functions": [],
+		"classes": [
+			{
+				"name": "BlockParser",
+				"fqsen": "\\Block2Docs\\Parsers\\BlockParser",
+				"line": 5,
+				"end_line": 18,
+				"docblock": null,
+				"final": false,
+				"abstract": false,
+				"parent": null,
+				"interfaces": [],
+				"traits": [],
+				"constants": [],
+				"properties": [],
+				"methods": [
+					{
+						"name": "parse",
+						"fqsen": "\\Block2Docs\\Parsers\\BlockParser::parse()",
+						"line": 13,
+						"end_line": 17,
+						"docblock": {
+							"summary": "Parse a block.",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "The path to the block.",
+									"variable": "path",
+									"type": "string"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "array<string,mixed>"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "public",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "path",
+								"type": "string",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					}
+				]
+			}
+		],
+		"interfaces": [],
+		"traits": [],
+		"enums": []
+	}
+}
