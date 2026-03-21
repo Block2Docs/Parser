@@ -78,25 +78,47 @@ describe( 'JsFileParser', () => {
 		fs.rmdirSync( tmpDir );
 	} );
 
-	it( 'parseFile extracts WordPress hooks', () => {
+	it( 'parseFile extracts needs-docs tag', () => {
 		const result = parser.parseFile(
 			path.resolve( import.meta.dirname, 'fixtures/SampleClass.js' )
 		);
 
 		const cls = result.classes[ 0 ];
-		assert.ok( cls.hooks, 'should have hooks' );
-		assert.ok( cls.added_hooks, 'should have added_hooks' );
+		const greet = cls.methods.find( ( m ) => m.name === 'greet' );
 
-		// Check that hook names are captured.
-		const allHooks = Object.values( cls.hooks ).flat();
-		const hookNames = allHooks.map( ( h ) => h.name );
+		assert.ok( greet, 'greet method should exist' );
+		assert.ok( greet.docblock, 'greet should have a docblock' );
+
+		const needsDocsTags = greet.docblock.tags.filter(
+			( t ) => t.name === 'needs-docs'
+		);
+		assert.ok( needsDocsTags.length > 0, 'should have needs-docs tag' );
+		assert.strictEqual(
+			needsDocsTags[ 0 ].description,
+			'Add usage examples for greeting customization.'
+		);
+	} );
+
+	it( 'parseFile extracts WordPress hooks on methods', () => {
+		const result = parser.parseFile(
+			path.resolve( import.meta.dirname, 'fixtures/SampleClass.js' )
+		);
+
+		const cls = result.classes[ 0 ];
+		const greet = cls.methods.find( ( m ) => m.name === 'greet' );
+		assert.ok( greet.hooks, 'greet should have hooks' );
+		assert.ok( greet.hooks.length > 0, 'greet should have at least one hook' );
+
+		const hookNames = greet.hooks.map( ( h ) => h.name );
 		assert.ok(
 			hookNames.includes( 'hook_do_action' ),
 			'should contain hook_do_action'
 		);
 
-		const allAddedHooks = Object.values( cls.added_hooks ).flat();
-		const addedHookNames = allAddedHooks.map( ( h ) => h.name );
+		const legacyGreet = cls.methods.find( ( m ) => m.name === 'legacyGreet' );
+		assert.ok( legacyGreet.added_hooks, 'legacyGreet should have added_hooks' );
+
+		const addedHookNames = legacyGreet.added_hooks.map( ( h ) => h.name );
 		assert.ok(
 			addedHookNames.includes( 'hook_name_add_action' ),
 			'should contain hook_name_add_action'

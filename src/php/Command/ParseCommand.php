@@ -17,7 +17,7 @@ class ParseCommand
     public function execute(array $args): void
     {
         $directory = $args[0] ?? null;
-        $outputFile = $args[1] ?? null;
+        $outputDir = $args[1] ?? null;
         $format = 'json';
 
         // Parse flags
@@ -28,14 +28,14 @@ class ParseCommand
         }
 
         if ($directory === null) {
-            fwrite(STDERR, "Usage: block2docs parse <directory> [output.json] [--pretty]\n");
+            fwrite(STDERR, "Usage: block2docs parse <directory> [output-dir] [--pretty]\n");
             exit(1);
         }
 
         // Treat non-flag arguments as positional
         $positional = array_values(array_filter($args, fn($a) => !str_starts_with($a, '--')));
         $directory = $positional[0];
-        $outputFile = $positional[1] ?? null;
+        $outputDir = $positional[1] ?? null;
 
         $directory = realpath($directory);
         if ($directory === false || !is_dir($directory)) {
@@ -64,16 +64,24 @@ class ParseCommand
             $jsonFlags |= JSON_PRETTY_PRINT;
         }
 
-        $json = json_encode($result, $jsonFlags);
-
-        if ($outputFile !== null) {
-            $bytes = file_put_contents($outputFile, $json . "\n");
-            if ($bytes === false) {
-                fwrite(STDERR, "Error: Could not write to {$outputFile}\n");
-                exit(1);
+        if ($outputDir !== null) {
+            if (!is_dir($outputDir)) {
+                mkdir($outputDir, 0755, true);
             }
-            fwrite(STDERR, "Output written to {$outputFile}\n");
+
+            foreach ($result as $fileName => $fileData) {
+                $baseName = pathinfo($fileName, PATHINFO_FILENAME);
+                $outputFile = rtrim($outputDir, '/') . '/' . $baseName . 'Docs.json';
+                $json = json_encode([$fileName => $fileData], $jsonFlags);
+                $bytes = file_put_contents($outputFile, $json . "\n");
+                if ($bytes === false) {
+                    fwrite(STDERR, "Error: Could not write to {$outputFile}\n");
+                    exit(1);
+                }
+                fwrite(STDERR, "Wrote {$outputFile}\n");
+            }
         } else {
+            $json = json_encode($result, $jsonFlags);
             echo $json . "\n";
         }
     }

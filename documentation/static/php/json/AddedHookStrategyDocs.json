@@ -1,0 +1,230 @@
+{
+	"Parsers/WordPress/AddedHookStrategy.php": {
+		"path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/WordPress/AddedHookStrategy.php",
+		"docblock": null,
+		"includes": [],
+		"constants": [],
+		"functions": [],
+		"classes": [
+			{
+				"name": "AddedHookStrategy",
+				"fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy",
+				"line": 14,
+				"end_line": 150,
+				"docblock": null,
+				"final": true,
+				"abstract": false,
+				"parent": null,
+				"interfaces": [
+					"\\phpDocumentor\\Reflection\\Php\\ProjectFactoryStrategy"
+				],
+				"traits": [],
+				"constants": [
+					{
+						"name": "HOOK_FUNCTIONS",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::HOOK_FUNCTIONS",
+						"line": 16,
+						"docblock": null,
+						"value": "['add_action', 'add_filter']"
+					},
+					{
+						"name": "TYPE_MAP",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::TYPE_MAP",
+						"line": 21,
+						"docblock": null,
+						"value": "['add_action' => 'action', 'add_filter' => 'filter']"
+					}
+				],
+				"properties": [],
+				"methods": [
+					{
+						"name": "matches",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::matches()",
+						"line": 29,
+						"end_line": 42,
+						"docblock": {
+							"summary": "Check if the object is a function call to a WordPress hook.",
+							"description": "",
+							"tags": []
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "public",
+						"return_type": "bool",
+						"arguments": [
+							{
+								"name": "context",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Factory\\ContextStack",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							},
+							{
+								"name": "object",
+								"type": "object",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "create",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::create()",
+						"line": 47,
+						"end_line": 61,
+						"docblock": {
+							"summary": "Create an added hook metadata object with all data extracted from the AST node.",
+							"description": "",
+							"tags": []
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "public",
+						"return_type": "void",
+						"arguments": [
+							{
+								"name": "context",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Factory\\ContextStack",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							},
+							{
+								"name": "object",
+								"type": "object",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							},
+							{
+								"name": "strategies",
+								"type": "\\phpDocumentor\\Reflection\\Php\\StrategyContainer",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "cleanupName",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::cleanupName()",
+						"line": 68,
+						"end_line": 95,
+						"docblock": {
+							"summary": "",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "",
+									"variable": "name",
+									"type": "string"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "string"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "mixed",
+						"arguments": [
+							{
+								"name": "name",
+								"type": "mixed",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "extractArgs",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::extractArgs()",
+						"line": 97,
+						"end_line": 108,
+						"docblock": null,
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "expression",
+								"type": "\\PhpParser\\Node\\Stmt\\Expression",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "nodeToString",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::nodeToString()",
+						"line": 110,
+						"end_line": 114,
+						"docblock": null,
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "string",
+						"arguments": [
+							{
+								"name": "node",
+								"type": "mixed",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "extractDocBlock",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::extractDocBlock()",
+						"line": 116,
+						"end_line": 149,
+						"docblock": null,
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "?array",
+						"arguments": [
+							{
+								"name": "expression",
+								"type": "\\PhpParser\\Node\\Stmt\\Expression",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					}
+				]
+			}
+		],
+		"interfaces": [],
+		"traits": [],
+		"enums": []
+	}
+}

@@ -1,0 +1,230 @@
+{
+	"Parsers/WordPress/HookStrategy.php": {
+		"path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/WordPress/HookStrategy.php",
+		"docblock": null,
+		"includes": [],
+		"constants": [],
+		"functions": [],
+		"classes": [
+			{
+				"name": "HookStrategy",
+				"fqsen": "\\Block2Docs\\Parsers\\WordPress\\HookStrategy",
+				"line": 14,
+				"end_line": 158,
+				"docblock": null,
+				"final": true,
+				"abstract": false,
+				"parent": null,
+				"interfaces": [
+					"\\phpDocumentor\\Reflection\\Php\\ProjectFactoryStrategy"
+				],
+				"traits": [],
+				"constants": [
+					{
+						"name": "HOOK_FUNCTIONS",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\HookStrategy::HOOK_FUNCTIONS",
+						"line": 16,
+						"docblock": null,
+						"value": "['do_action', 'do_action_ref_array', 'do_action_deprecated', 'apply_filters_ref_array', 'apply_filters_deprecated', 'apply_filters']"
+					},
+					{
+						"name": "TYPE_MAP",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\HookStrategy::TYPE_MAP",
+						"line": 25,
+						"docblock": null,
+						"value": "['do_action' => 'action', 'do_action_ref_array' => 'action_reference', 'do_action_deprecated' => 'action_deprecated', 'apply_filters_ref_array' => 'filter_reference', 'apply_filters_deprecated' => 'filter_deprecated', 'apply_filters' => 'filter']"
+					}
+				],
+				"properties": [],
+				"methods": [
+					{
+						"name": "matches",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\HookStrategy::matches()",
+						"line": 37,
+						"end_line": 50,
+						"docblock": {
+							"summary": "Check if the object is a function call to a WordPress hook.",
+							"description": "",
+							"tags": []
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "public",
+						"return_type": "bool",
+						"arguments": [
+							{
+								"name": "context",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Factory\\ContextStack",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							},
+							{
+								"name": "object",
+								"type": "object",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "create",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\HookStrategy::create()",
+						"line": 55,
+						"end_line": 69,
+						"docblock": {
+							"summary": "Create a hook metadata object with all data extracted from the AST node.",
+							"description": "",
+							"tags": []
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "public",
+						"return_type": "void",
+						"arguments": [
+							{
+								"name": "context",
+								"type": "\\phpDocumentor\\Reflection\\Php\\Factory\\ContextStack",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							},
+							{
+								"name": "object",
+								"type": "object",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							},
+							{
+								"name": "strategies",
+								"type": "\\phpDocumentor\\Reflection\\Php\\StrategyContainer",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "cleanupName",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\HookStrategy::cleanupName()",
+						"line": 76,
+						"end_line": 103,
+						"docblock": {
+							"summary": "",
+							"description": "",
+							"tags": [
+								{
+									"name": "param",
+									"description": "",
+									"variable": "name",
+									"type": "string"
+								},
+								{
+									"name": "return",
+									"description": "",
+									"type": "string"
+								}
+							]
+						},
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "mixed",
+						"arguments": [
+							{
+								"name": "name",
+								"type": "mixed",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "extractArgs",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\HookStrategy::extractArgs()",
+						"line": 105,
+						"end_line": 116,
+						"docblock": null,
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "array",
+						"arguments": [
+							{
+								"name": "expression",
+								"type": "\\PhpParser\\Node\\Stmt\\Expression",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "nodeToString",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\HookStrategy::nodeToString()",
+						"line": 118,
+						"end_line": 122,
+						"docblock": null,
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "string",
+						"arguments": [
+							{
+								"name": "node",
+								"type": "mixed",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					},
+					{
+						"name": "extractDocBlock",
+						"fqsen": "\\Block2Docs\\Parsers\\WordPress\\HookStrategy::extractDocBlock()",
+						"line": 124,
+						"end_line": 157,
+						"docblock": null,
+						"abstract": false,
+						"final": false,
+						"static": false,
+						"visibility": "private",
+						"return_type": "?array",
+						"arguments": [
+							{
+								"name": "expression",
+								"type": "\\PhpParser\\Node\\Stmt\\Expression",
+								"default": null,
+								"by_reference": false,
+								"variadic": false
+							}
+						],
+						"hooks": [],
+						"added_hooks": []
+					}
+				]
+			}
+		],
+		"interfaces": [],
+		"traits": [],
+		"enums": []
+	}
+}
