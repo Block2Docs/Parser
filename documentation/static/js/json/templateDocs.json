@@ -1,0 +1,58 @@
+{
+  "cli/template.js": {
+    "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/js/cli/template.js",
+    "docblock": null,
+    "includes": [
+      "node:fs",
+      "node:path",
+      "../templaters/MarkdownTemplater.js"
+    ],
+    "constants": [
+      {
+        "name": "args",
+        "fqsen": "\\args",
+        "line": 7,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "positional",
+        "fqsen": "\\positional",
+        "line": 8,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "inputDir",
+        "fqsen": "\\inputDir",
+        "line": 10,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "outputDir",
+        "fqsen": "\\outputDir",
+        "line": 11,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "resolved",
+        "fqsen": "\\resolved",
+        "line": 20,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "jsonFiles",
+        "fqsen": "\\jsonFiles",
+        "line": 31,
+        "docblock": null,
+        "value": null
+      }
+    ],
+    "functions": [],
+    "classes": [],
+    "methods": []
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "parser/hooks.js": {
+    "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/js/parser/hooks.js",
+    "docblock": null,
+    "includes": [
+      "./docblock.js"
+    ],
+    "constants": [
+      {
+        "name": "HOOK_FUNCTIONS",
+        "fqsen": "\\HOOK_FUNCTIONS",
+        "line": 6,
+        "docblock": {
+          "summary": "Names of WordPress hook-dispatching functions (do/apply).",
+          "description": "",
+          "tags": []
+        },
+        "value": null
+      },
+      {
+        "name": "ADDED_HOOK_FUNCTIONS",
+        "fqsen": "\\ADDED_HOOK_FUNCTIONS",
+        "line": 17,
+        "docblock": {
+          "summary": "Names of WordPress hook-registering functions (add).",
+          "description": "",
+          "tags": []
+        },
+        "value": null
+      }
+    ],
+    "functions": [
+      {
+        "name": "matchCallee",
+        "fqsen": "\\matchCallee()",
+        "line": 35,
+        "end_line": 51,
+        "docblock": {
+          "summary": "Check whether a CallExpression callee matches a hook function name.",
+          "description": "Supports bare calls like `doAction(...)` and member calls like `wp.hooks.doAction(...)`.",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The AST callee node.",
+              "variable": "callee",
+              "type": "object"
+            },
+            {
+              "name": "param",
+              "description": "Set of function names to match.",
+              "variable": "nameSet",
+              "type": "Set<string>"
+            },
+            {
+              "name": "return",
+              "description": "matched function name, or null.",
+              "type": "string|null"
+            }
+          ]
+        },
+        "return_type": "string|null",
+        "arguments": [
+          {
+            "name": "callee",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "nameSet",
+            "type": "Set<string>",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "getHookType",
+        "fqsen": "\\getHookType()",
+        "line": 59,
+        "end_line": 61,
+        "docblock": {
+          "summary": "Get the hook type from the function name.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The function name.",
+              "variable": "fnName",
+              "type": "string"
+            },
+            {
+              "name": "return",
+              "description": "or 'filter'.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "fnName",
+            "type": "string",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "extractHookName",
+        "fqsen": "\\extractHookName()",
+        "line": 69,
+        "end_line": 89,
+        "docblock": {
+          "summary": "Extract the hook name from the first argument of a call expression.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The first argument AST node.",
+              "variable": "node",
+              "type": "object"
+            },
+            {
+              "name": "return",
+              "description": "hook name string.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "node",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "findLeadingComment",
+        "fqsen": "\\findLeadingComment()",
+        "line": 98,
+        "end_line": 109,
+        "docblock": {
+          "summary": "Find the leading JSDoc comment for a given line from the comments array.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "All block comments from the file.",
+              "variable": "comments",
+              "type": "Array"
+            },
+            {
+              "name": "param",
+              "description": "The line number of the node.",
+              "variable": "line",
+              "type": "number"
+            },
+            {
+              "name": "return",
+              "description": "comment value or null.",
+              "type": "string|null"
+            }
+          ]
+        },
+        "return_type": "string|null",
+        "arguments": [
+          {
+            "name": "comments",
+            "type": "Array",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "line",
+            "type": "number",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "extractHooks",
+        "fqsen": "\\extractHooks()",
+        "line": 118,
+        "end_line": 167,
+        "docblock": {
+          "summary": "Extract WordPress hooks from an array of AST statements.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The array of statement nodes to search.",
+              "variable": "body",
+              "type": "Array"
+            },
+            {
+              "name": "param",
+              "description": "All comments from the file.",
+              "variable": "comments",
+              "type": "Array"
+            },
+            {
+              "name": "return",
+              "description": "hooks keyed by hook_{line}.",
+              "type": "{ hooks: Object, addedHooks: Object }"
+            }
+          ]
+        },
+        "return_type": "{ hooks: Object, addedHooks: Object }",
+        "arguments": [
+          {
+            "name": "body",
+            "type": "Array",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "comments",
+            "type": "Array",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "walkStatements",
+        "fqsen": "\\walkStatements()",
+        "line": 175,
+        "end_line": 222,
+        "docblock": {
+          "summary": "Recursively walk statements looking for expression statements containing calls.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "AST nodes to walk.",
+              "variable": "nodes",
+              "type": "Array"
+            },
+            {
+              "name": "param",
+              "description": "Called for each statement node.",
+              "variable": "callback",
+              "type": "Function"
+            }
+          ]
+        },
+        "return_type": null,
+        "arguments": [
+          {
+            "name": "nodes",
+            "type": "Array",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "callback",
+            "type": "Function",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      }
+    ],
+    "classes": [],
+    "methods": []
+  }
+}

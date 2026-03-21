@@ -13,13 +13,7 @@
     "bin": [
         "bin/block2docs"
     ],
-    "require": {
-        "phpdocumentor/shim": "^3.9"
-    },
     "config": {
-        "allow-plugins": {
-            "phpdocumentor/shim": true
-        }
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^4.0",
@@ -29,5 +23,8 @@
         "lint:php": "phpcs",
         "lint:php:fix": "phpcbf",
         "test": "phpunit"
+    },
+    "require": {
+        "phpdocumentor/reflection": "^6.4"
     }
 }

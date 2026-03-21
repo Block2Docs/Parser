@@ -1,3 +1,6 @@
 /vendor/
 /node_modules/
 /.phpunit.cache/
+# Currently all .json files in the output directory are ignored for testing purposes.
+output
+

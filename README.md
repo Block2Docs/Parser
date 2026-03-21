@@ -40,10 +40,180 @@ Commands:
 - `parse` — run the parser (see `Block2Docs\Command\ParseCommand`).
 - `generate-docs` or `docs` — documentation generation (`GenerateDocsCommand`).
 
-Example:
+### `parse`
+
+Parse PHP files in a directory and output structured JSON containing all classes, interfaces, traits, enums, functions, constants, methods, properties, and their docblocks.
 
 ```bash
-./bin/block2docs parse
+./bin/block2docs parse <directory> [output-dir] [--pretty]
+```
+
+| Argument | Description |
+|---|---|
+| `<directory>` | Path to the directory to scan (required). All `.php` files are found recursively. |
+| `[output-dir]` | Optional directory to write JSON output files to. One file is created per parsed source file, named `<filename>Docs.json` (e.g., `SampleClass.php` produces `SampleClassDocs.json`). If omitted, all results are printed to stdout as a single JSON object. |
+| `--pretty` | Pretty-print the JSON output. |
+
+Examples:
+
+```bash
+# Parse a directory and print JSON to stdout
+./bin/block2docs parse src/
+
+# Parse with pretty-printed output
+./bin/block2docs parse src/ --pretty
+
+# Write one JSON file per source file to a directory
+./bin/block2docs parse src/ output/ --pretty
+```
+
+The output is a JSON object keyed by relative file path. Each file entry contains:
+
+```json
+{
+  "path": "/absolute/path/to/file.php",
+  "docblock": { "summary": "...", "description": "...", "tags": [...] },
+  "includes": [],
+  "constants": [],
+  "functions": [],
+  "classes": [],
+  "interfaces": [],
+  "traits": [],
+  "enums": []
+}
+```
+
+Classes, functions, and methods include their arguments, return types, visibility, and full docblock data (summary, description, and tags such as `@param`, `@return`, `@since`, `@deprecated`).
+
+### `parse-js`
+
+Parse JavaScript files in a directory using the JSDoc parser and output structured JSON. This mirrors the PHP `parse` command but for `.js` files with JSDoc annotations.
+
+```bash
+npm install
+node src/js/cli/parse.js <directory> [output-dir] [--pretty]
+```
+
+Or via npm script:
+
+```bash
+npm run parse:js -- <directory> [output-dir] [--pretty]
+```
+
+| Argument | Description |
+|---|---|
+| `<directory>` | Path to the directory to scan (required). All `.js` files are found recursively. |
+| `[output-dir]` | Optional directory to write JSON output files to. One file is created per parsed source file, named `<filename>Docs.json` (e.g., `SampleClass.js` produces `SampleClassDocs.json`). If omitted, all results are printed to stdout as a single JSON object. |
+| `--pretty` | Pretty-print the JSON output. |
+
+Examples:
+
+```bash
+# Parse a directory and print JSON to stdout
+node src/js/cli/parse.js src/
+
+# Parse with pretty-printed output
+node src/js/cli/parse.js src/ --pretty
+
+# Write one JSON file per source file to a directory
+node src/js/cli/parse.js src/ output/ --pretty
+```
+
+You can also use the parser programmatically:
+
+```js
+import { JsFileParser } from './src/js/parser/JsFileParser.js';
+
+const parser = new JsFileParser();
+
+// Parse an entire directory
+const result = parser.parseDirectory('path/to/js/src');
+
+// Or parse a single file
+const fileResult = parser.parseFile('/absolute/path/to/file.js');
+```
+
+The output shape matches the PHP parser:
+
+```json
+{
+  "path": "/absolute/path/to/file.js",
+  "docblock": { "summary": "...", "description": "...", "tags": [...] },
+  "includes": [],
+  "constants": [],
+  "functions": [],
+  "classes": [],
+  "interfaces": [],
+  "traits": [],
+  "enums": []
+}
+```
+
+Classes include `properties`, `methods`, and WordPress hook data (`hooks`, `added_hooks`). Methods and functions include `arguments`, `return_type`, `visibility`, and full docblock data parsed from JSDoc annotations (`@param`, `@return`, `@since`, `@deprecated`, etc.).
+
+The parser detects WordPress hook calls (`doAction`, `applyFilters`, `addAction`, `addFilter`) in both bare and `wp.hooks.*` member-expression forms.
+
+**Running tests:**
+
+```bash
+npm test
+```
+
+### `template:md`
+
+Generate human-readable Markdown documentation from the JSON output of either parser.
+
+```bash
+node src/js/cli/template.js <input-dir> [output-dir]
+```
+
+Or via npm script:
+
+```bash
+npm run template:md -- <input-dir> [output-dir]
+```
+
+| Argument | Description |
+|---|---|
+| `<input-dir>` | Directory containing parser JSON output files (required). All `.json` files in the directory are processed. |
+| `[output-dir]` | Directory to write `.md` files to. If omitted, Markdown is printed to stdout. |
+
+Examples:
+
+```bash
+# Parse PHP, then generate Markdown docs
+./bin/block2docs parse src/ output/json/ --pretty
+node src/js/cli/template.js output/json/ output/docs/
+
+# Parse JS, then generate Markdown docs
+node src/js/cli/parse.js src/ output/json/ --pretty
+node src/js/cli/template.js output/json/ output/docs/
+
+# Preview Markdown in the terminal
+node src/js/cli/template.js output/json/
+```
+
+You can also use the templater programmatically:
+
+```js
+import { renderAll, renderFile } from './src/js/templaters/MarkdownTemplater.js';
+
+// Render all files from a parsed JSON result
+const markdownFiles = renderAll(parsedData);
+// Returns { "SampleClass.md": "# SampleClass\n...", ... }
+
+// Or render a single file entry
+const md = renderFile('SampleClass.js', parsedData['SampleClass.js']);
+```
+
+The generated Markdown includes class descriptions, constants, properties, methods (with signatures, parameters, return types, visibility), and WordPress hooks. Special tags are rendered as callouts:
+
+- `@deprecated` — displayed as a warning blockquote
+- `@needs-docs` — displayed as a documentation-needed callout
+
+### `generate-docs`
+
+```bash
 ./bin/block2docs generate-docs
 ```
 
@@ -69,4 +239,9 @@ When this package is required as a Composer dependency in another project, Compo
 
 The repo includes an example layout under [`skills/example/`](skills/example/): a root `SKILL.md` plus a `references/` folder for optional supporting material. Copy or adapt it when adding project-specific Cursor agent skills; fill in `SKILL.md` with instructions the agent should follow.
 
-## License 
+## License
+
+### Acknowledegments
+
+The PHP parser is taken from [wordpress/phpdoc-parser](https://github.com/WordPress/phpdoc-parser).
+
