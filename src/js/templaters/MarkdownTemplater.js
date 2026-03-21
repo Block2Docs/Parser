@@ -1,6 +1,7 @@
 /**
  * Renders parsed JSON output into human-readable Markdown documentation.
  */
+import reassurance from '../../../config/reassurance.json' with { type: 'json' };
 
 /**
  * Render a docblock's summary and description lines.
@@ -240,6 +241,17 @@ function renderMethod(method) {
 		lines.push('', `> **Needs docs:** ${needsDocs.description || ''}`);
 	}
 
+	const needsReassuranceMethod = findTag(
+		method.docblock,
+		'needs-reassurance',
+	);
+	if (needsReassuranceMethod) {
+		lines.push(
+			'',
+			`> **Reassurance:** ${reassurance[Math.floor(Math.random() * reassurance.length)]}`,
+		);
+	}
+
 	const desc = renderDocblock(method.docblock);
 	if (desc) {
 		lines.push('', `**Description:** ${desc}`);
@@ -351,6 +363,17 @@ function renderHooksSection(hooksList, heading) {
  */
 function renderClass(cls) {
 	const lines = [`# ${cls.name}`];
+
+	const needsReassuranceClassTag = findTag(cls.docblock, 'needs-reassurance');
+	if (
+		needsReassuranceClassTag &&
+		needsReassuranceClassTag.name === 'needs-reassurance'
+	) {
+		lines.push(
+			'',
+			`> **Reassurance:** ${reassurance[Math.floor(Math.random() * reassurance.length)]}`,
+		);
+	}
 
 	const desc = renderDocblock(cls.docblock);
 	if (desc) {
