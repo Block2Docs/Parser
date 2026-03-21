@@ -115,15 +115,54 @@ inference:
   label_for_inferred_content: "[inferred]"
   allow_gap_filling: false
 
-# outputs:
-#   traceability:
-#     enabled: true
-#     include_in_final_docs: false
-#     artifact_format: json
-#   failure_behavior:
-#     on_insufficient_evidence: fail
-#     on_conflicting_evidence: mark_uncertain
-
+# Define the traceability and documentation generation settings, including how to handle insufficient or conflicting evidence.
+# 
+# - traceability: settings for generating traceability artifacts that link claims back to their supporting evidence
+# - failure_behavior: rules for how to handle cases where evidence is insufficient or conflicting (e.g., fail, mark_uncertain, ignore)
+# The traceability settings specify:
+# - enabled: whether to generate traceability artifacts
+# - include_in_final_docs: whether to include traceability information in the final generated documentation
+# - artifact_format: the format for traceability artifacts (e.g., json, csv)
+# The failure_behavior settings specify:
+# - on_insufficient_evidence: the action to take when a claim does not have enough supporting evidence (e.g., fail, mark_uncertain, ignore)
+# - on_conflicting_evidence: the action to take when there are conflicting pieces of evidence for a claim (e.g., fail, mark_uncertain, ignore)
+# 
+# Example of a claim with supporting evidence from multiple sources, demonstrating how the system can extract and correlate information to generate a well-supported documentation claim.
+#
+# ## Authentication
+#
+# The API supports token-based authentication via bearer tokens.
+#
+# {
+#   "doc_type": "api_reference",
+#   "claims": [
+#     {
+#       "id": "claim.auth.bearer_tokens",
+#       "text": "The API supports token-based authentication via bearer tokens.",
+#       "status": "supported",
+#       "evidence": [
+#         {
+#           "source": "code",
+#           "location": "packages/auth/src/AuthMiddleware.php:42",
+#           "excerpt": "if (str_starts_with($header, 'Bearer ')) { ... }"
+#         },
+#         {
+#           "source": "docblocks",
+#           "location": "packages/auth/src/AuthMiddleware.php:10",
+#           "excerpt": "@description Validates Bearer tokens from Authorization header."
+#         }
+#       ]
+#     }
+#   ]
+# }
+outputs:
+  traceability:
+    enabled: true
+    include_in_final_docs: false
+    artifact_format: json
+  failure_behavior:
+    on_insufficient_evidence: fail
+    on_conflicting_evidence: mark_uncertain
 
 # execution:
 #   cache: true
