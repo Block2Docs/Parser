@@ -1,0 +1,86 @@
+{
+  "cli/parse.js": {
+    "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/js/cli/parse.js",
+    "docblock": null,
+    "includes": [
+      "node:fs",
+      "node:path",
+      "../parser/JsFileParser.js"
+    ],
+    "constants": [
+      {
+        "name": "args",
+        "fqsen": "\\args",
+        "line": 7,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "flags",
+        "fqsen": "\\flags",
+        "line": 8,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "positional",
+        "fqsen": "\\positional",
+        "line": 9,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "pretty",
+        "fqsen": "\\pretty",
+        "line": 10,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "directory",
+        "fqsen": "\\directory",
+        "line": 12,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "outputDir",
+        "fqsen": "\\outputDir",
+        "line": 13,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "resolved",
+        "fqsen": "\\resolved",
+        "line": 22,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "parser",
+        "fqsen": "\\parser",
+        "line": 31,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "result",
+        "fqsen": "\\result",
+        "line": 32,
+        "docblock": null,
+        "value": null
+      },
+      {
+        "name": "fileCount",
+        "fqsen": "\\fileCount",
+        "line": 34,
+        "docblock": null,
+        "value": null
+      }
+    ],
+    "functions": [],
+    "classes": [],
+    "methods": []
+  }
+}

@@ -1,0 +1,567 @@
+{
+  "parser/exporters.js": {
+    "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/js/parser/exporters.js",
+    "docblock": null,
+    "includes": [
+      "./docblock.js",
+      "./hooks.js"
+    ],
+    "constants": [],
+    "functions": [
+      {
+        "name": "findLeadingJSDoc",
+        "fqsen": "\\findLeadingJSDoc()",
+        "line": 11,
+        "end_line": 27,
+        "docblock": {
+          "summary": "Find the leading JSDoc comment for an AST node.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The AST node.",
+              "variable": "node",
+              "type": "object"
+            },
+            {
+              "name": "param",
+              "description": "All block comments from the file.",
+              "variable": "comments",
+              "type": "Array"
+            },
+            {
+              "name": "return",
+              "description": "raw comment string or null.",
+              "type": "string|null"
+            }
+          ]
+        },
+        "return_type": "string|null",
+        "arguments": [
+          {
+            "name": "node",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "comments",
+            "type": "Array",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "getDocBlock",
+        "fqsen": "\\getDocBlock()",
+        "line": 36,
+        "end_line": 39,
+        "docblock": {
+          "summary": "Get the docblock for an AST node.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The AST node.",
+              "variable": "node",
+              "type": "object"
+            },
+            {
+              "name": "param",
+              "description": "All block comments.",
+              "variable": "comments",
+              "type": "Array"
+            },
+            {
+              "name": "return",
+              "description": null,
+              "type": "{ summary: string, description: string, tags: Array }|null"
+            }
+          ]
+        },
+        "return_type": "{ summary: string, description: string, tags: Array }|null",
+        "arguments": [
+          {
+            "name": "node",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "comments",
+            "type": "Array",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "getVisibility",
+        "fqsen": "\\getVisibility()",
+        "line": 48,
+        "end_line": 73,
+        "docblock": {
+          "summary": "Get visibility from a class element node and its docblock.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The AST node (MethodDefinition or PropertyDefinition).",
+              "variable": "node",
+              "type": "object"
+            },
+            {
+              "name": "param",
+              "description": "The parsed docblock.",
+              "variable": "docblock",
+              "type": "object|null"
+            },
+            {
+              "name": "return",
+              "description": "'private', or 'protected'.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "node",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "docblock",
+            "type": "object|null",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "getKeyName",
+        "fqsen": "\\getKeyName()",
+        "line": 81,
+        "end_line": 92,
+        "docblock": {
+          "summary": "Get the name from an AST key node.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The AST key node.",
+              "variable": "key",
+              "type": "object"
+            },
+            {
+              "name": "return",
+              "description": "name.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "key",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "getReturnType",
+        "fqsen": "\\getReturnType()",
+        "line": 100,
+        "end_line": 106,
+        "docblock": {
+          "summary": "Get the return type from a docblock.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The parsed docblock.",
+              "variable": "docblock",
+              "type": "object|null"
+            },
+            {
+              "name": "return",
+              "description": null,
+              "type": "string|null"
+            }
+          ]
+        },
+        "return_type": "string|null",
+        "arguments": [
+          {
+            "name": "docblock",
+            "type": "object|null",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "exportArguments",
+        "fqsen": "\\exportArguments()",
+        "line": 115,
+        "end_line": 156,
+        "docblock": {
+          "summary": "Export function/method arguments.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "AST parameter nodes.",
+              "variable": "params",
+              "type": "Array"
+            },
+            {
+              "name": "param",
+              "description": "Parsed docblock to get types from.",
+              "variable": "docblock",
+              "type": "object|null"
+            },
+            {
+              "name": "return",
+              "description": "arguments.",
+              "type": "Array"
+            }
+          ]
+        },
+        "return_type": "Array",
+        "arguments": [
+          {
+            "name": "params",
+            "type": "Array",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "docblock",
+            "type": "object|null",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "extractDefault",
+        "fqsen": "\\extractDefault()",
+        "line": 164,
+        "end_line": 188,
+        "docblock": {
+          "summary": "Extract a default value as a string.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The AST node for the default value.",
+              "variable": "node",
+              "type": "object"
+            },
+            {
+              "name": "return",
+              "description": null,
+              "type": "string|null"
+            }
+          ]
+        },
+        "return_type": "string|null",
+        "arguments": [
+          {
+            "name": "node",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "exportClass",
+        "fqsen": "\\exportClass()",
+        "line": 197,
+        "end_line": 239,
+        "docblock": {
+          "summary": "Export a class declaration to structured data.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "ClassDeclaration AST node.",
+              "variable": "node",
+              "type": "object"
+            },
+            {
+              "name": "param",
+              "description": "All comments from the file.",
+              "variable": "comments",
+              "type": "Array"
+            },
+            {
+              "name": "return",
+              "description": "class data.",
+              "type": "object"
+            }
+          ]
+        },
+        "return_type": "object",
+        "arguments": [
+          {
+            "name": "node",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "comments",
+            "type": "Array",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "exportMethod",
+        "fqsen": "\\exportMethod()",
+        "line": 249,
+        "end_line": 278,
+        "docblock": {
+          "summary": "Export a method definition to structured data.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "MethodDefinition AST node.",
+              "variable": "node",
+              "type": "object"
+            },
+            {
+              "name": "param",
+              "description": "All comments from the file.",
+              "variable": "comments",
+              "type": "Array"
+            },
+            {
+              "name": "param",
+              "description": "The owning class name.",
+              "variable": "className",
+              "type": "string"
+            },
+            {
+              "name": "return",
+              "description": "method data.",
+              "type": "object"
+            }
+          ]
+        },
+        "return_type": "object",
+        "arguments": [
+          {
+            "name": "node",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "comments",
+            "type": "Array",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "default": "''",
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "exportFunction",
+        "fqsen": "\\exportFunction()",
+        "line": 287,
+        "end_line": 300,
+        "docblock": {
+          "summary": "Export a function declaration to structured data.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "FunctionDeclaration AST node.",
+              "variable": "node",
+              "type": "object"
+            },
+            {
+              "name": "param",
+              "description": "All comments from the file.",
+              "variable": "comments",
+              "type": "Array"
+            },
+            {
+              "name": "return",
+              "description": "function data.",
+              "type": "object"
+            }
+          ]
+        },
+        "return_type": "object",
+        "arguments": [
+          {
+            "name": "node",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "comments",
+            "type": "Array",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "exportProperty",
+        "fqsen": "\\exportProperty()",
+        "line": 310,
+        "end_line": 333,
+        "docblock": {
+          "summary": "Export a property definition to structured data.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "PropertyDefinition AST node.",
+              "variable": "node",
+              "type": "object"
+            },
+            {
+              "name": "param",
+              "description": "All comments from the file.",
+              "variable": "comments",
+              "type": "Array"
+            },
+            {
+              "name": "param",
+              "description": "The owning class name.",
+              "variable": "className",
+              "type": "string"
+            },
+            {
+              "name": "return",
+              "description": "property data.",
+              "type": "object"
+            }
+          ]
+        },
+        "return_type": "object",
+        "arguments": [
+          {
+            "name": "node",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "comments",
+            "type": "Array",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "default": "''",
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "exportConstant",
+        "fqsen": "\\exportConstant()",
+        "line": 343,
+        "end_line": 356,
+        "docblock": {
+          "summary": "Export a top-level constant (const declaration) to structured data.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "VariableDeclarator AST node.",
+              "variable": "declarator",
+              "type": "object"
+            },
+            {
+              "name": "param",
+              "description": "Parsed docblock.",
+              "variable": "docblock",
+              "type": "object|null"
+            },
+            {
+              "name": "param",
+              "description": "Line number.",
+              "variable": "line",
+              "type": "number"
+            },
+            {
+              "name": "return",
+              "description": "constant data.",
+              "type": "object"
+            }
+          ]
+        },
+        "return_type": "object",
+        "arguments": [
+          {
+            "name": "declarator",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "docblock",
+            "type": "object|null",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "line",
+            "type": "number",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      }
+    ],
+    "classes": [],
+    "methods": []
+  }
+}
