@@ -25,11 +25,6 @@ if ($cmd === 'parse') {
     exit(0);
 }
 
-if ($cmd === 'generate-docs' || $cmd === 'docs') {
-    (new Block2Docs\Command\GenerateDocsCommand())->execute($argv);
-    exit(0);
-}
-
 if ($cmd === 'field-guide-template' || $cmd === 'field-guide') {
     (new Block2Docs\Command\FieldGuideTemplateCommand())->execute($argv);
     exit(0);

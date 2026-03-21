@@ -32,9 +32,9 @@ Install node and php dependencies:
 npm install
 ```
 
-## Static parsers CLI
+## CLI
 
-### PHP static parser
+### PHP
 
 From the repository root, install dependencies and run the `block2docs` entrypoint:
 
@@ -95,6 +95,26 @@ The output is a JSON object keyed by relative file path. Each file entry contain
 ```
 
 Classes, functions, and methods include their arguments, return types, visibility, and full docblock data (summary, description, and tags such as `@param`, `@return`, `@since`, `@deprecated`).
+
+- `field-guide-template` — Generate the Field Guide Template and save to the output file.
+-
+Parse PHP files in a directory and output structured JSON containing all classes, interfaces, traits, enums, functions, constants, methods, properties, and their docblocks.
+
+```bash
+./bin/block2docs field-guid [output-path]
+```
+
+| Argument | Description |
+|---|---|
+| `[output-path]` | The file path to write the Field Guide Template to. |
+
+Examples:
+
+```bash
+# Parse a directory and print JSON to stdout
+./bin/block2docs field-guide FIELD_GUIDE_TEMPLATE.md
+```
+
 
 ### JS static parser
 
