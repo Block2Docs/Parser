@@ -1,5 +1,11 @@
 # Hook
 
+> **Reassurance:** You're a great friend.
+
+## Description
+
+This class adds WordPress hook metadata.
+
 | | |
 |---|---|
 | **FQSEN** | `\Block2Docs\Parsers\WordPress\Hook` |
