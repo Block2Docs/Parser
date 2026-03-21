@@ -3,15 +3,15 @@
 
 ## Objective
 
-Block2Docs is a tool that bridges the gap between code and documentation by intelligent DocBlock parsing. It reads annotations from your code to identify what needs documentation, and routes everything to the appropriate output—changelog entries, GitHub issues, API references, field guides, and more.
+Block2Docs will be a tool that bridges the gap between code and documentation by intelligent DocBlock parsing. It reads annotations from your code to identify what needs documentation, and routes everything to the appropriate output—changelog entries, GitHub issues, API references, field guides, and more.
 
 ### Parser/Workflow engine
 
-The core parser scans PHP/JavaScript code, extracting DocBlocks and documentation, and needs to:
-- Generate API Docs: Create structured API documentation from inline comments.
-- Generate Changelogs: Extract version history from @since and @changelog tags.
-- Structure Field Guides: Automatically build release documentation frameworks.
-- Create GitHub Issues: Generate issues for items tagged @needs-docs, routed by doc type (dev note, end-user guide, how-to, tutorial).
+The core static parsers scan PHP/JavaScript code, extracting DocBlocks and documentation, and needs to:
+-[x] Generate API Docs: Create structured API documentation from inline comments.
+-[] Generate Changelogs: Extract version history from @since and @changelog tags.
+-[] Structure Field Guides: Automatically build release documentation frameworks.
+-[] Create GitHub Issues: Generate issues for items tagged @needs-docs, routed by doc type (dev note, end-user guide, how-to, tutorial).
 
 ### Flexible Configuration
 
@@ -20,13 +20,22 @@ The core parser scans PHP/JavaScript code, extracting DocBlocks and documentatio
 - Language Agnostic: Starts with PHP/JavaScript; architecture supports future languages.
 - CI/CD Ready: Integrates into existing development pipelines.
 
-## CLI
+## Local setup
+
+Install node and php dependencies:
+
+```bash
+npm install
+```
+
+## Static parsers CLI
+
+### PHP static parser
 
 From the repository root, install dependencies and run the `block2docs` entrypoint:
 
 ```bash
-composer install
-./bin/block2docs help
+bin/blocks2docs help
 ```
 
 If the script is not executable on your system, invoke PHP explicitly:
@@ -35,12 +44,9 @@ If the script is not executable on your system, invoke PHP explicitly:
 php bin/block2docs help
 ```
 
-Commands:
+#### Commands:
 
 - `parse` — run the parser (see `Block2Docs\Command\ParseCommand`).
-- `generate-docs` or `docs` — documentation generation (`GenerateDocsCommand`).
-
-### `parse`
 
 Parse PHP files in a directory and output structured JSON containing all classes, interfaces, traits, enums, functions, constants, methods, properties, and their docblocks.
 
@@ -79,22 +85,16 @@ The output is a JSON object keyed by relative file path. Each file entry contain
   "classes": [],
   "interfaces": [],
   "traits": [],
-  "enums": []
+  "enums": [],
+  "methods": []
 }
 ```
 
 Classes, functions, and methods include their arguments, return types, visibility, and full docblock data (summary, description, and tags such as `@param`, `@return`, `@since`, `@deprecated`).
 
-### `parse-js`
+### JS static parser
 
 Parse JavaScript files in a directory using the JSDoc parser and output structured JSON. This mirrors the PHP `parse` command but for `.js` files with JSDoc annotations.
-
-```bash
-npm install
-node src/js/cli/parse.js <directory> [output-dir] [--pretty]
-```
-
-Or via npm script:
 
 ```bash
 npm run parse:js -- <directory> [output-dir] [--pretty]
@@ -110,27 +110,10 @@ Examples:
 
 ```bash
 # Parse a directory and print JSON to stdout
-node src/js/cli/parse.js src/
+npm run parse:js -- src/js/cli src/
 
 # Parse with pretty-printed output
-node src/js/cli/parse.js src/ --pretty
-
-# Write one JSON file per source file to a directory
-node src/js/cli/parse.js src/ output/ --pretty
-```
-
-You can also use the parser programmatically:
-
-```js
-import { JsFileParser } from './src/js/parser/JsFileParser.js';
-
-const parser = new JsFileParser();
-
-// Parse an entire directory
-const result = parser.parseDirectory('path/to/js/src');
-
-// Or parse a single file
-const fileResult = parser.parseFile('/absolute/path/to/file.js');
+npm run parse:js -- src/js/cli src/ --pretty
 ```
 
 The output shape matches the PHP parser:
@@ -149,7 +132,7 @@ The output shape matches the PHP parser:
 }
 ```
 
-Classes include `properties`, `methods`, and WordPress hook data (`hooks`, `added_hooks`). Methods and functions include `arguments`, `return_type`, `visibility`, and full docblock data parsed from JSDoc annotations (`@param`, `@return`, `@since`, `@deprecated`, etc.).
+Classes include `properties`, `methods`. Methods and functions include `arguments`, `return_type`, `visibility`, full docblock data parsed from JSDoc annotations (`@param`, `@return`, `@since`, `@deprecated`, etc.) and WordPress hook data (`hooks`, `added_hooks`).
 
 The parser detects WordPress hook calls (`doAction`, `applyFilters`, `addAction`, `addFilter`) in both bare and `wp.hooks.*` member-expression forms.
 
@@ -159,15 +142,9 @@ The parser detects WordPress hook calls (`doAction`, `applyFilters`, `addAction`
 npm test
 ```
 
-### `template:md`
+### Generating Markdown files from static site analysis
 
 Generate human-readable Markdown documentation from the JSON output of either parser.
-
-```bash
-node src/js/cli/template.js <input-dir> [output-dir]
-```
-
-Or via npm script:
 
 ```bash
 npm run template:md -- <input-dir> [output-dir]
@@ -181,43 +158,14 @@ npm run template:md -- <input-dir> [output-dir]
 Examples:
 
 ```bash
-# Parse PHP, then generate Markdown docs
-./bin/block2docs parse src/ output/json/ --pretty
-node src/js/cli/template.js output/json/ output/docs/
-
 # Parse JS, then generate Markdown docs
-node src/js/cli/parse.js src/ output/json/ --pretty
-node src/js/cli/template.js output/json/ output/docs/
-
-# Preview Markdown in the terminal
-node src/js/cli/template.js output/json/
-```
-
-You can also use the templater programmatically:
-
-```js
-import { renderAll, renderFile } from './src/js/templaters/MarkdownTemplater.js';
-
-// Render all files from a parsed JSON result
-const markdownFiles = renderAll(parsedData);
-// Returns { "SampleClass.md": "# SampleClass\n...", ... }
-
-// Or render a single file entry
-const md = renderFile('SampleClass.js', parsedData['SampleClass.js']);
+npm run template:md -- src/ documentation/ --pretty
 ```
 
 The generated Markdown includes class descriptions, constants, properties, methods (with signatures, parameters, return types, visibility), and WordPress hooks. Special tags are rendered as callouts:
 
 - `@deprecated` — displayed as a warning blockquote
 - `@needs-docs` — displayed as a documentation-needed callout
-
-### `generate-docs`
-
-```bash
-./bin/block2docs generate-docs
-```
-
-When this package is required as a Composer dependency in another project, Composer exposes the same binary as `vendor/bin/block2docs` (after `composer install` there).
 
 ## Hackathon Goals
 1. Develop a working CLI to parse PHP/JS annotations, extracting structured DocBlock data for documented and undocumented code.
