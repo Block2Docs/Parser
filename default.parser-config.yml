@@ -164,7 +164,19 @@ outputs:
     on_insufficient_evidence: fail
     on_conflicting_evidence: mark_uncertain
 
-# execution:
-#   cache: true
-#   emit_intermediate_artifacts: true
-#   strict_mode: true
+# Define execution settings for the parser, including caching, debug file generation, and strict mode.
+# 
+# - cache: whether to enable caching of intermediate results to speed up subsequent runs
+# - save_debug_files: whether to save debug files with intermediate data and processing details for troubleshooting
+# - strict_mode: whether to enforce strict validation of sources and evidence, causing the parser to fail if any issues are detected with the input data or evidence quality
+# 
+# Cache
+# Uses cached results so repeated runs are faster and avoid reprocessing unchanged inputs.
+# Debug Files
+# Writes intermediate outputs (parsed source snapshots, evidence maps, temporary generation artifacts) for debugging and auditability.
+# Strict Mode
+# Enforces strict validation/error handling. Missing required config, invalid evidence, or schema/rule violations fail the run instead of continuing with warnings.
+execution:
+  cache: true
+  save_debug_files: true
+  strict_mode: true
