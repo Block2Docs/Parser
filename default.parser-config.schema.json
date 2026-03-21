@@ -51,7 +51,8 @@
                 "docblocks",
                 "pull_requests",
                 "issues",
-                "comments"
+                "issue_comments",
+                "pull_request_comments"
             ],
             "properties": {
                 "code": {
@@ -69,7 +70,10 @@
                 "issues": {
                     "$ref": "#/$defs/trackerSource"
                 },
-                "comments": {
+                "issue_comments": {
+                    "$ref": "#/$defs/trackerSource"
+                },
+                "pull_request_comments": {
                     "$ref": "#/$defs/trackerSource"
                 }
             }
@@ -255,7 +259,8 @@
                 "docblocks",
                 "pull_requests",
                 "issues",
-                "comments"
+                "issue_comments",
+                "pull_request_comments"
             ]
         },
         "failureAction": {

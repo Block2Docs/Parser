@@ -6,7 +6,7 @@ project:
   default_branch: main
 
 # Define the sources for the parser. 
-# Possible sources: code, test, docblocks, pull_requests, issues, comments.
+# Possible sources: code, tests, docblocks, pull_requests, issues, issue_comments, pull_request_comments.
 # Parameters for the source:
 # - enabled (bool): true|false
 # - include (sequence): inclusion filters (glob strings or typed rules)
@@ -44,7 +44,9 @@ sources:
     exclude:
       - type: state
         value: open
-  comments:
+  issue_comments:
+    enabled: false
+  pull_request_comments:
     enabled: false
 
 # Define the docs types to generate. Each doc type can specify:
@@ -54,6 +56,18 @@ sources:
 #   - require: mandatory sources; claims/doc output are invalid without them
 #   - prefer: higher-priority sources when multiple valid sources exist; not mandatory
 #   - ignore: sources that must not be used for this doc type
+#
+# Possible extensions for the future:
+# - `evidence_policy` params with `evidence_overrides` per `doc_type`.
+# - `output_format` to specify the desired output format for each doc type (e.g., markdown, html, pdf).
+# - `template` to specify a custom template for rendering each doc type, allowing for different layouts or styles based on the audience or content type.
+#
+# Example:
+#   api_reference:
+#     output:
+#       format: markdown
+#       template: api_reference
+
 doc_types:
   api_reference:
     enabled: true
