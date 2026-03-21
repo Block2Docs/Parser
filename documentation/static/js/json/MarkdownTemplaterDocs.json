@@ -1,0 +1,543 @@
+{
+  "templaters/MarkdownTemplater.js": {
+    "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/js/templaters/MarkdownTemplater.js",
+    "docblock": {
+      "summary": "Renders parsed JSON output into human-readable Markdown documentation.",
+      "description": "",
+      "tags": []
+    },
+    "includes": [],
+    "constants": [],
+    "functions": [
+      {
+        "name": "renderDocblock",
+        "fqsen": "\\renderDocblock()",
+        "line": 11,
+        "end_line": 27,
+        "docblock": {
+          "summary": "Render a docblock's summary and description lines.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The docblock object.",
+              "variable": "docblock",
+              "type": "object|null"
+            },
+            {
+              "name": "return",
+              "description": "text.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "docblock",
+            "type": "object|null",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "findTag",
+        "fqsen": "\\findTag()",
+        "line": 36,
+        "end_line": 41,
+        "docblock": {
+          "summary": "Find a specific tag from a docblock.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The docblock object.",
+              "variable": "docblock",
+              "type": "object|null"
+            },
+            {
+              "name": "param",
+              "description": "Tag name to find.",
+              "variable": "name",
+              "type": "string"
+            },
+            {
+              "name": "return",
+              "description": "first matching tag, or null.",
+              "type": "object|null"
+            }
+          ]
+        },
+        "return_type": "object|null",
+        "arguments": [
+          {
+            "name": "docblock",
+            "type": "object|null",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "findTags",
+        "fqsen": "\\findTags()",
+        "line": 50,
+        "end_line": 55,
+        "docblock": {
+          "summary": "Find all tags with a given name from a docblock.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The docblock object.",
+              "variable": "docblock",
+              "type": "object|null"
+            },
+            {
+              "name": "param",
+              "description": "Tag name to find.",
+              "variable": "name",
+              "type": "string"
+            },
+            {
+              "name": "return",
+              "description": "tags.",
+              "type": "object[]"
+            }
+          ]
+        },
+        "return_type": "object[]",
+        "arguments": [
+          {
+            "name": "docblock",
+            "type": "object|null",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "escapeCell",
+        "fqsen": "\\escapeCell()",
+        "line": 63,
+        "end_line": 68,
+        "docblock": {
+          "summary": "Escape pipe characters for use in markdown table cells.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The text to escape.",
+              "variable": "text",
+              "type": "string"
+            },
+            {
+              "name": "return",
+              "description": "text.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "text",
+            "type": "string",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "renderSignature",
+        "fqsen": "\\renderSignature()",
+        "line": 76,
+        "end_line": 106,
+        "docblock": {
+          "summary": "Render a method or function signature.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The method data.",
+              "variable": "method",
+              "type": "object"
+            },
+            {
+              "name": "return",
+              "description": "signature string.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "method",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "renderParamsTable",
+        "fqsen": "\\renderParamsTable()",
+        "line": 115,
+        "end_line": 141,
+        "docblock": {
+          "summary": "Render a parameters table for arguments with docblock info.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The arguments array.",
+              "variable": "args",
+              "type": "object[]"
+            },
+            {
+              "name": "param",
+              "description": "The docblock object.",
+              "variable": "docblock",
+              "type": "object|null"
+            },
+            {
+              "name": "return",
+              "description": "table.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "args",
+            "type": "object[]",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "docblock",
+            "type": "object|null",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "renderConstant",
+        "fqsen": "\\renderConstant()",
+        "line": 149,
+        "end_line": 164,
+        "docblock": {
+          "summary": "Render a single class constant.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The constant data.",
+              "variable": "constant",
+              "type": "object"
+            },
+            {
+              "name": "return",
+              "description": "section.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "constant",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "renderProperty",
+        "fqsen": "\\renderProperty()",
+        "line": 172,
+        "end_line": 210,
+        "docblock": {
+          "summary": "Render a single property.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The property data.",
+              "variable": "property",
+              "type": "object"
+            },
+            {
+              "name": "return",
+              "description": "section.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "property",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "renderMethod",
+        "fqsen": "\\renderMethod()",
+        "line": 218,
+        "end_line": 283,
+        "docblock": {
+          "summary": "Render a single method.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The method data.",
+              "variable": "method",
+              "type": "object"
+            },
+            {
+              "name": "return",
+              "description": "section.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "method",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "renderFunction",
+        "fqsen": "\\renderFunction()",
+        "line": 291,
+        "end_line": 293,
+        "docblock": {
+          "summary": "Render a single function (file-level).",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The function data.",
+              "variable": "func",
+              "type": "object"
+            },
+            {
+              "name": "return",
+              "description": "section.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "func",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "renderHooksSection",
+        "fqsen": "\\renderHooksSection()",
+        "line": 302,
+        "end_line": 344,
+        "docblock": {
+          "summary": "Render hook entries from a hooks or added_hooks array.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "Array of hook objects, or a legacy map keyed by hook_<line>.",
+              "variable": "hooksList",
+              "type": "object[]|object"
+            },
+            {
+              "name": "param",
+              "description": "Section heading, e.g. 'Hooks' or 'Added Hooks'.",
+              "variable": "heading",
+              "type": "string"
+            },
+            {
+              "name": "return",
+              "description": "section.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "hooksList",
+            "type": "object[]|object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "heading",
+            "type": "string",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "renderClass",
+        "fqsen": "\\renderClass()",
+        "line": 352,
+        "end_line": 420,
+        "docblock": {
+          "summary": "Render a single class to Markdown.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The class data.",
+              "variable": "cls",
+              "type": "object"
+            },
+            {
+              "name": "return",
+              "description": "Markdown for the class.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "cls",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "renderFile",
+        "fqsen": "\\renderFile()",
+        "line": 429,
+        "end_line": 473,
+        "docblock": {
+          "summary": "Render a full file entry to Markdown.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The file name key.",
+              "variable": "fileName",
+              "type": "string"
+            },
+            {
+              "name": "param",
+              "description": "The parsed file data.",
+              "variable": "fileData",
+              "type": "object"
+            },
+            {
+              "name": "return",
+              "description": "Markdown document.",
+              "type": "string"
+            }
+          ]
+        },
+        "return_type": "string",
+        "arguments": [
+          {
+            "name": "fileName",
+            "type": "string",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          },
+          {
+            "name": "fileData",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      },
+      {
+        "name": "renderAll",
+        "fqsen": "\\renderAll()",
+        "line": 481,
+        "end_line": 490,
+        "docblock": {
+          "summary": "Render an entire parsed JSON result (multiple files) to a map of Markdown strings.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The full parsed JSON output (keyed by filename).",
+              "variable": "data",
+              "type": "object"
+            },
+            {
+              "name": "return",
+              "description": "of output filename to Markdown content.",
+              "type": "Object<string, string>"
+            }
+          ]
+        },
+        "return_type": "Object<string, string>",
+        "arguments": [
+          {
+            "name": "data",
+            "type": "object",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      }
+    ],
+    "classes": [],
+    "methods": []
+  }
+}

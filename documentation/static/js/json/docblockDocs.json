@@ -1,0 +1,47 @@
+{
+  "parser/docblock.js": {
+    "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/js/parser/docblock.js",
+    "docblock": null,
+    "includes": [
+      "comment-parser"
+    ],
+    "constants": [],
+    "functions": [
+      {
+        "name": "exportDocBlock",
+        "fqsen": "\\exportDocBlock()",
+        "line": 9,
+        "end_line": 61,
+        "docblock": {
+          "summary": "Parse a JSDoc comment string into a structured docblock object.",
+          "description": "",
+          "tags": [
+            {
+              "name": "param",
+              "description": "The raw comment text (without leading/trailing delimiters handled by espree).",
+              "variable": "commentValue",
+              "type": "string|null"
+            },
+            {
+              "name": "return",
+              "description": null,
+              "type": "{ summary: string, description: string, tags: Array }|null"
+            }
+          ]
+        },
+        "return_type": "{ summary: string, description: string, tags: Array }|null",
+        "arguments": [
+          {
+            "name": "commentValue",
+            "type": "string|null",
+            "default": null,
+            "by_reference": false,
+            "variadic": false
+          }
+        ]
+      }
+    ],
+    "classes": [],
+    "methods": []
+  }
+}

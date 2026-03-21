@@ -1,0 +1,425 @@
+{
+  "parser/JsFileParser.js": {
+    "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/js/parser/JsFileParser.js",
+    "docblock": null,
+    "includes": [
+      "node:fs",
+      "node:path",
+      "espree",
+      "./docblock.js",
+      "./exporters.js"
+    ],
+    "constants": [],
+    "functions": [],
+    "classes": [
+      {
+        "name": "JsFileParser",
+        "fqsen": "\\JsFileParser",
+        "line": 12,
+        "end_line": 313,
+        "docblock": null,
+        "final": false,
+        "abstract": false,
+        "parent": null,
+        "methods": [
+          {
+            "name": "parseDirectory",
+            "fqsen": "\\JsFileParser::parseDirectory()",
+            "line": 19,
+            "end_line": 32,
+            "docblock": {
+              "summary": "Parse all JS files in a directory and return structured documentation data.",
+              "description": "",
+              "tags": [
+                {
+                  "name": "param",
+                  "description": "The directory to parse.",
+                  "variable": "directory",
+                  "type": "string"
+                },
+                {
+                  "name": "return",
+                  "description": "file data keyed by relative path.",
+                  "type": "Object<string, object>"
+                }
+              ]
+            },
+            "abstract": false,
+            "final": false,
+            "static": false,
+            "visibility": "public",
+            "return_type": "Object<string, object>",
+            "arguments": [
+              {
+                "name": "directory",
+                "type": "string",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              }
+            ],
+            "hooks": [],
+            "added_hooks": []
+          },
+          {
+            "name": "parseFile",
+            "fqsen": "\\JsFileParser::parseFile()",
+            "line": 40,
+            "end_line": 64,
+            "docblock": {
+              "summary": "Parse a single JS file.",
+              "description": "",
+              "tags": [
+                {
+                  "name": "param",
+                  "description": "Absolute path to the JS file.",
+                  "variable": "filePath",
+                  "type": "string"
+                },
+                {
+                  "name": "return",
+                  "description": "documentation data.",
+                  "type": "object"
+                }
+              ]
+            },
+            "abstract": false,
+            "final": false,
+            "static": false,
+            "visibility": "public",
+            "return_type": "object",
+            "arguments": [
+              {
+                "name": "filePath",
+                "type": "string",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              }
+            ],
+            "hooks": [],
+            "added_hooks": []
+          },
+          {
+            "name": "exportFile",
+            "fqsen": "\\JsFileParser::exportFile()",
+            "line": 73,
+            "end_line": 166,
+            "docblock": {
+              "summary": "Convert a parsed AST to the output structure.",
+              "description": "",
+              "tags": [
+                {
+                  "name": "param",
+                  "description": "The espree AST.",
+                  "variable": "ast",
+                  "type": "object"
+                },
+                {
+                  "name": "param",
+                  "description": "The file path.",
+                  "variable": "filePath",
+                  "type": "string"
+                },
+                {
+                  "name": "return",
+                  "description": "file data.",
+                  "type": "object"
+                }
+              ]
+            },
+            "abstract": false,
+            "final": false,
+            "static": false,
+            "visibility": "public",
+            "return_type": "object",
+            "arguments": [
+              {
+                "name": "ast",
+                "type": "object",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              },
+              {
+                "name": "filePath",
+                "type": "string",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              }
+            ],
+            "hooks": [],
+            "added_hooks": []
+          },
+          {
+            "name": "exportDeclaration",
+            "fqsen": "\\JsFileParser::exportDeclaration()",
+            "line": 176,
+            "end_line": 232,
+            "docblock": {
+              "summary": "Handle an exported declaration.",
+              "description": "",
+              "tags": [
+                {
+                  "name": "param",
+                  "description": "The declaration node.",
+                  "variable": "decl",
+                  "type": "object"
+                },
+                {
+                  "name": "param",
+                  "description": "The export statement node (for location/comments).",
+                  "variable": "exportNode",
+                  "type": "object"
+                },
+                {
+                  "name": "param",
+                  "description": "The file data being built.",
+                  "variable": "data",
+                  "type": "object"
+                },
+                {
+                  "name": "param",
+                  "description": "All comments.",
+                  "variable": "comments",
+                  "type": "Array"
+                }
+              ]
+            },
+            "abstract": false,
+            "final": false,
+            "static": false,
+            "visibility": "public",
+            "return_type": null,
+            "arguments": [
+              {
+                "name": "decl",
+                "type": "object",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              },
+              {
+                "name": "exportNode",
+                "type": "object",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              },
+              {
+                "name": "data",
+                "type": "object",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              },
+              {
+                "name": "comments",
+                "type": "Array",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              }
+            ],
+            "hooks": [],
+            "added_hooks": []
+          },
+          {
+            "name": "getFileDocBlock",
+            "fqsen": "\\JsFileParser::getFileDocBlock()",
+            "line": 241,
+            "end_line": 265,
+            "docblock": {
+              "summary": "Get the file-level docblock (first comment in the file if it's a JSDoc block).",
+              "description": "",
+              "tags": [
+                {
+                  "name": "param",
+                  "description": "The parsed AST.",
+                  "variable": "ast",
+                  "type": "object"
+                },
+                {
+                  "name": "param",
+                  "description": "All comments.",
+                  "variable": "comments",
+                  "type": "Array"
+                },
+                {
+                  "name": "return",
+                  "description": "docblock or null.",
+                  "type": "object|null"
+                }
+              ]
+            },
+            "abstract": false,
+            "final": false,
+            "static": false,
+            "visibility": "public",
+            "return_type": "object|null",
+            "arguments": [
+              {
+                "name": "ast",
+                "type": "object",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              },
+              {
+                "name": "comments",
+                "type": "Array",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              }
+            ],
+            "hooks": [],
+            "added_hooks": []
+          },
+          {
+            "name": "findJsFiles",
+            "fqsen": "\\JsFileParser::findJsFiles()",
+            "line": 273,
+            "end_line": 278,
+            "docblock": {
+              "summary": "Find all JS files in a directory recursively.",
+              "description": "",
+              "tags": [
+                {
+                  "name": "param",
+                  "description": "The directory to search.",
+                  "variable": "directory",
+                  "type": "string"
+                },
+                {
+                  "name": "return",
+                  "description": "of absolute file paths.",
+                  "type": "string[]"
+                }
+              ]
+            },
+            "abstract": false,
+            "final": false,
+            "static": false,
+            "visibility": "public",
+            "return_type": "string[]",
+            "arguments": [
+              {
+                "name": "directory",
+                "type": "string",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              }
+            ],
+            "hooks": [],
+            "added_hooks": []
+          },
+          {
+            "name": "walkDirectory",
+            "fqsen": "\\JsFileParser::walkDirectory()",
+            "line": 286,
+            "end_line": 297,
+            "docblock": {
+              "summary": "Recursively walk a directory collecting .js files.",
+              "description": "",
+              "tags": [
+                {
+                  "name": "param",
+                  "description": "The directory to walk.",
+                  "variable": "dir",
+                  "type": "string"
+                },
+                {
+                  "name": "param",
+                  "description": "Accumulator for file paths.",
+                  "variable": "files",
+                  "type": "string[]"
+                }
+              ]
+            },
+            "abstract": false,
+            "final": false,
+            "static": false,
+            "visibility": "public",
+            "return_type": null,
+            "arguments": [
+              {
+                "name": "dir",
+                "type": "string",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              },
+              {
+                "name": "files",
+                "type": "string[]",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              }
+            ],
+            "hooks": [],
+            "added_hooks": []
+          },
+          {
+            "name": "relativePath",
+            "fqsen": "\\JsFileParser::relativePath()",
+            "line": 306,
+            "end_line": 312,
+            "docblock": {
+              "summary": "Get the relative path of a file.",
+              "description": "",
+              "tags": [
+                {
+                  "name": "param",
+                  "description": "The absolute file path.",
+                  "variable": "filePath",
+                  "type": "string"
+                },
+                {
+                  "name": "param",
+                  "description": "The base directory path.",
+                  "variable": "basePath",
+                  "type": "string"
+                },
+                {
+                  "name": "return",
+                  "description": "relative path.",
+                  "type": "string"
+                }
+              ]
+            },
+            "abstract": false,
+            "final": false,
+            "static": false,
+            "visibility": "public",
+            "return_type": "string",
+            "arguments": [
+              {
+                "name": "filePath",
+                "type": "string",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              },
+              {
+                "name": "basePath",
+                "type": "string",
+                "default": null,
+                "by_reference": false,
+                "variadic": false
+              }
+            ],
+            "hooks": [],
+            "added_hooks": []
+          }
+        ],
+        "properties": [],
+        "constants": []
+      }
+    ],
+    "methods": []
+  }
+}
