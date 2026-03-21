@@ -34,7 +34,9 @@
                 },
                 "repository": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "description": "GitHub owner/repo slug, e.g. \"owner/repo\"",
+                    "pattern": "^[^/]+/[^/]+$"
                 },
                 "default_branch": {
                     "type": "string",
