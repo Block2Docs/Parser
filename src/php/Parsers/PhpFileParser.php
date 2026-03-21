@@ -7,6 +7,7 @@ namespace Block2Docs\Parsers;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use phpDocumentor\Reflection\DocBlock;
+use phpDocumentor\Reflection\Metadata;
 use Block2Docs\Parsers\WordPress\AddedHook;
 use Block2Docs\Parsers\WordPress\AddedHookStrategy;
 use Block2Docs\Parsers\WordPress\Hook;
@@ -207,20 +208,6 @@ class PhpFileParser
          */
         foreach ($class->getMethods() as $method) {
             $data['methods'][] = $this->exportMethod($method);
-            foreach ($method->getMetadata() as $metadata) {
-                if ($metadata instanceof Hook) {
-                    if (! isset($data['hooks'][ $metadata->key() ])) {
-                        $data['hooks'][ $metadata->key() ] = [];
-                    }
-                    $data['hooks'][ $metadata->key() ][] = $metadata->format();
-                }
-                if ($metadata instanceof AddedHook) {
-                    if (! isset($data['added_hooks'][ $metadata->key() ])) {
-                        $data['added_hooks'][ $metadata->key() ] = [];
-                    }
-                    $data['added_hooks'][ $metadata->key() ][] = $metadata->format();
-                }
-            }
         }
 
         return $data;
@@ -358,6 +345,8 @@ class PhpFileParser
             'visibility' => $method->getVisibility() ? (string) $method->getVisibility() : 'public',
             'return_type' => (string) $method->getReturnType(),
             'arguments' => $this->exportArguments($method->getArguments()),
+            'hooks' => $this->exportHooks($method),
+            'added_hooks' => $this->exportAddedHooks($method),
         ];
     }
 
@@ -449,6 +438,42 @@ class PhpFileParser
             'description' => (string) $docblock->getDescription(),
             'tags' => $tags,
         ];
+    }
+
+    /**
+     * Export the called hooks to a structured array.
+     *
+     * @param Method $method The method in which the hooks are called.
+     * @return array<string, mixed> The formattedcalled hooks.
+     */
+    private function exportHooks(Method $method): array
+    {
+        $metadata = $method->getMetadata();
+        $hooks = [];
+        foreach ($metadata as $metadata) {
+            if ($metadata instanceof Hook) {
+                $hooks[] = $metadata->format();
+            }
+        }
+        return $hooks;
+    }
+
+    /**
+     * Export the added hooks to a structured array.
+     *
+     * @param Method $method The method in which the hooks are added.
+     * @return array<string, mixed> The formatted added hooks.
+     */
+    private function exportAddedHooks(Method $method): array
+    {
+        $metadata = $method->getMetadata();
+        $hooks = [];
+        foreach ($metadata as $item) {
+            if ($item instanceof AddedHook) {
+                $hooks[] = $item->format();
+            }
+        }
+        return $hooks;
     }
 
     /**

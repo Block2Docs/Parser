@@ -23,6 +23,8 @@ export class SampleClass {
 	/**
 	 * Return a greeting.
 	 *
+	 * @needs-docs Add usage examples for greeting customization.
+	 *
 	 * @param {string} prefix Optional prefix.
 	 * @return {string} The greeting string.
 	 */

@@ -110,4 +110,50 @@ class PhpFileParserTest extends TestCase
 
         rmdir($tmpDir);
     }
+
+    /**
+     * Test that the parse file method extracts the needs-docs tag.
+     *
+     * @return void
+     */
+    public function testParseFileExtractsNeedsDocsTag(): void
+    {
+        $result = $this->parser->parseFile(__DIR__ . '/fixtures/SampleClass.php');
+        $class = $result['classes'][0];
+
+        $greet = null;
+        foreach ($class['methods'] as $method) {
+            if ($method['name'] === 'greet') {
+                $greet = $method;
+                break;
+            }
+        }
+
+        $this->assertNotNull($greet);
+        $needsDocsTags = array_filter($greet['docblock']['tags'], fn($t) => $t['name'] === 'needs-docs');
+        $this->assertNotEmpty($needsDocsTags);
+
+        $needsDocs = array_values($needsDocsTags)[0];
+        $this->assertSame('Add usage examples for greeting customization.', $needsDocs['description']);
+    }
+
+    /**
+     * Test the parse file method returns hooks.
+     *
+     * @return void
+     */
+    public function testParseFileReturnsHooksAndAddedHooks(): void
+    {
+        $result = $this->parser->parseFile(__DIR__ . '/fixtures/SampleClass.php');
+        $class = $result['classes'][0];
+
+        $this->assertArrayHasKey('hooks', $class);
+        $this->assertArrayHasKey('added_hooks', $class);
+
+        $this->assertNotEmpty($class['hooks']);
+        $this->assertNotEmpty($class['added_hooks']);
+
+        $this->assertContains('edit_post', $class['hooks']);
+        $this->assertContains('the_title', $class['added_hooks']);
+    }
 }

@@ -16,7 +16,8 @@
     "lint:php:fix": "composer lint:php:fix",
     "test": "node --test tests/js/**/*.test.js",
     "test:js": "node --test tests/js/**/*.test.js",
-    "parse:js": "node src/js/cli/parse.js"
+    "parse:js": "node src/js/cli/parse.js",
+    "template:md": "node src/js/cli/template.js"
   },
   "repository": {
     "type": "git",

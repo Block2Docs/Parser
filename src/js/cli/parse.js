@@ -10,11 +10,11 @@ const positional = args.filter( ( a ) => ! a.startsWith( '--' ) );
 const pretty = flags.includes( '--pretty' );
 
 const directory = positional[ 0 ];
-const outputFile = positional[ 1 ] || null;
+const outputDir = positional[ 1 ] || null;
 
 if ( ! directory ) {
 	process.stderr.write(
-		'Usage: node src/js/cli/parse.js <directory> [output.json] [--pretty]\n'
+		'Usage: node src/js/cli/parse.js <directory> [output-dir] [--pretty]\n'
 	);
 	process.exit( 1 );
 }
@@ -44,11 +44,21 @@ process.stderr.write(
 	`Parsed ${ fileCount } files, ${ classCount } classes, ${ functionCount } functions.\n`
 );
 
-const json = JSON.stringify( result, null, pretty ? 2 : undefined );
+if ( outputDir ) {
+	const outResolved = path.resolve( outputDir );
 
-if ( outputFile ) {
-	fs.writeFileSync( outputFile, json + '\n' );
-	process.stderr.write( `Output written to ${ outputFile }\n` );
+	if ( ! fs.existsSync( outResolved ) ) {
+		fs.mkdirSync( outResolved, { recursive: true } );
+	}
+
+	for ( const [ fileName, fileData ] of Object.entries( result ) ) {
+		const baseName = path.basename( fileName, path.extname( fileName ) );
+		const outputFile = path.join( outResolved, `${ baseName }Docs.json` );
+		const json = JSON.stringify( { [ fileName ]: fileData }, null, pretty ? 2 : undefined );
+		fs.writeFileSync( outputFile, json + '\n' );
+		process.stderr.write( `Wrote ${ outputFile }\n` );
+	}
 } else {
+	const json = JSON.stringify( result, null, pretty ? 2 : undefined );
 	process.stdout.write( json + '\n' );
 }

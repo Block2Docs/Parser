@@ -216,30 +216,6 @@ export function exportClass(node, comments) {
 		if (element.type === 'MethodDefinition') {
 			const method = exportMethod(element, comments, className);
 			data.methods.push(method);
-
-			// Extract hooks from method body.
-			if (
-				element.value &&
-				element.value.body &&
-				element.value.body.body
-			) {
-				const { hooks, addedHooks } = extractHooks(
-					element.value.body.body,
-					comments,
-				);
-				if (Object.keys(hooks).length > 0) {
-					if (!data.hooks) {
-						data.hooks = {};
-					}
-					Object.assign(data.hooks, hooks);
-				}
-				if (Object.keys(addedHooks).length > 0) {
-					if (!data.added_hooks) {
-						data.added_hooks = {};
-					}
-					Object.assign(data.added_hooks, addedHooks);
-				}
-			}
 		} else if (element.type === 'PropertyDefinition') {
 			const prop = exportProperty(element, comments, className);
 
@@ -275,6 +251,15 @@ export function exportMethod(node, comments, className = '') {
 	const name = getKeyName(node.key);
 	const fqsen = className ? `\\${className}::${name}()` : name;
 
+	let hooks = [];
+	let addedHooks = [];
+
+	if (node.value && node.value.body && node.value.body.body) {
+		const extracted = extractHooks(node.value.body.body, comments);
+		hooks = Object.values(extracted.hooks).flat();
+		addedHooks = Object.values(extracted.addedHooks).flat();
+	}
+
 	return {
 		name,
 		fqsen,
@@ -287,6 +272,8 @@ export function exportMethod(node, comments, className = '') {
 		visibility: getVisibility(node, docblock),
 		return_type: getReturnType(docblock),
 		arguments: exportArguments(node.value.params, docblock),
+		hooks,
+		added_hooks: addedHooks,
 	};
 }
 

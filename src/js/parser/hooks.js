@@ -57,10 +57,7 @@ function matchCallee(callee, nameSet) {
  * @return {string} 'action' or 'filter'.
  */
 function getHookType(fnName) {
-	if (fnName === 'doAction' || fnName === 'addAction') {
-		return 'action';
-	}
-	return 'filter';
+	return fnName;
 }
 
 /**

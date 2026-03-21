@@ -43,6 +43,13 @@ export function exportDocBlock( commentValue ) {
 		} else if ( tag.tag === 'return' || tag.tag === 'returns' ) {
 			entry.name = 'return';
 			entry.type = tag.type || null;
+		} else if ( tag.tag === 'needs-docs' ) {
+			// comment-parser splits the body into type/name/description;
+			// rejoin them into a single description for free-text tags.
+			entry.description = [ tag.type, tag.name, tag.description ]
+				.filter( Boolean )
+				.join( ' ' )
+				.trim() || null;
 		} else if ( tag.type ) {
 			entry.type = tag.type;
 		}
