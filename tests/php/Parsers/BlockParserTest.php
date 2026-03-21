@@ -9,6 +9,13 @@ use PHPUnit\Framework\TestCase;
 
 class BlockParserTest extends TestCase
 {
+    /**
+     * Test that the block parser returns an array.
+     *
+     * @todo Implement the block parser.
+     *
+     * @return void
+     */
     public function testParseReturnsArray(): void
     {
         $parser = new BlockParser();
