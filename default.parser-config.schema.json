@@ -1,0 +1,552 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://block2docs.dev/schemas/default.parser-config.schema.json",
+    "title": "Block2Docs Parser Config",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "version",
+        "project",
+        "sources",
+        "doc_types",
+        "evidence",
+        "inference",
+        "outputs",
+        "execution"
+    ],
+    "properties": {
+        "version": {
+            "type": "integer",
+            "const": 1
+        },
+        "project": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "name",
+                "repository",
+                "default_branch"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "repository": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "default_branch": {
+                    "type": "string",
+                    "minLength": 1
+                }
+            }
+        },
+        "sources": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "code",
+                "tests",
+                "docblocks",
+                "pull_requests",
+                "issues",
+                "comments"
+            ],
+            "properties": {
+                "code": {
+                    "$ref": "#/$defs/codeSource"
+                },
+                "tests": {
+                    "$ref": "#/$defs/codeSource"
+                },
+                "docblocks": {
+                    "$ref": "#/$defs/docblocksSource"
+                },
+                "pull_requests": {
+                    "$ref": "#/$defs/trackerSource"
+                },
+                "issues": {
+                    "$ref": "#/$defs/trackerSource"
+                },
+                "comments": {
+                    "$ref": "#/$defs/trackerSource"
+                }
+            }
+        },
+        "doc_types": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": {
+                "$ref": "#/$defs/docTypeConfig"
+            },
+            "properties": {
+                "api_reference": {
+                    "$ref": "#/$defs/docTypeConfig"
+                },
+                "changelog": {
+                    "$ref": "#/$defs/docTypeConfig"
+                },
+                "user_guide": {
+                    "$ref": "#/$defs/docTypeConfig"
+                },
+                "dev_note": {
+                    "$ref": "#/$defs/docTypeConfig"
+                },
+                "field_guide": {
+                    "$ref": "#/$defs/docTypeConfig"
+                }
+            }
+        },
+        "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "minimum_sources",
+                "freshness"
+            ],
+            "properties": {
+                "minimum_sources": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "freshness": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "max_issue_age_days",
+                        "max_pr_age_days"
+                    ],
+                    "properties": {
+                        "max_issue_age_days": {
+                            "type": "integer",
+                            "minimum": 0
+                        },
+                        "max_pr_age_days": {
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                }
+            }
+        },
+        "inference": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "mode",
+                "require_label_for_inferred_content",
+                "allow_gap_filling"
+            ],
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "enum": [
+                        "constrained_synthesis",
+                        "evidence_driven",
+                        "gap_filling"
+                    ]
+                },
+                "require_label_for_inferred_content": {
+                    "type": "boolean"
+                },
+                "label_for_inferred_content": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "allow_gap_filling": {
+                    "type": "boolean"
+                }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "require_label_for_inferred_content": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "label_for_inferred_content"
+                        ]
+                    }
+                }
+            ]
+        },
+        "outputs": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "traceability",
+                "failure_behavior"
+            ],
+            "properties": {
+                "traceability": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "enabled",
+                        "include_in_final_docs",
+                        "artifact_format"
+                    ],
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "include_in_final_docs": {
+                            "type": "boolean"
+                        },
+                        "artifact_format": {
+                            "type": "string",
+                            "enum": [
+                                "json",
+                                "csv"
+                            ]
+                        }
+                    }
+                },
+                "failure_behavior": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "on_insufficient_evidence",
+                        "on_conflicting_evidence"
+                    ],
+                    "properties": {
+                        "on_insufficient_evidence": {
+                            "$ref": "#/$defs/failureAction"
+                        },
+                        "on_conflicting_evidence": {
+                            "$ref": "#/$defs/failureAction"
+                        }
+                    }
+                }
+            }
+        },
+        "execution": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "cache",
+                "save_debug_files",
+                "strict_mode"
+            ],
+            "properties": {
+                "cache": {
+                    "type": "boolean"
+                },
+                "save_debug_files": {
+                    "type": "boolean"
+                },
+                "strict_mode": {
+                    "type": "boolean"
+                }
+            }
+        }
+    },
+    "$defs": {
+        "sourceName": {
+            "type": "string",
+            "enum": [
+                "code",
+                "tests",
+                "docblocks",
+                "pull_requests",
+                "issues",
+                "comments"
+            ]
+        },
+        "failureAction": {
+            "type": "string",
+            "enum": [
+                "fail",
+                "mark_uncertain",
+                "ignore"
+            ]
+        },
+        "docTypeConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "enabled",
+                "evidence_policy"
+            ],
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "audience": {
+                    "type": "string",
+                    "enum": [
+                        "developer",
+                        "end-user",
+                        "user"
+                    ]
+                },
+                "evidence_policy": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "require"
+                    ],
+                    "properties": {
+                        "require": {
+                            "$ref": "#/$defs/sourceList"
+                        },
+                        "prefer": {
+                            "$ref": "#/$defs/sourceList"
+                        },
+                        "ignore": {
+                            "$ref": "#/$defs/sourceList"
+                        }
+                    }
+                }
+            }
+        },
+        "sourceList": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "$ref": "#/$defs/sourceName"
+            }
+        },
+        "typedRule": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "value"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "path",
+                        "tag",
+                        "author",
+                        "state",
+                        "label"
+                    ]
+                },
+                "value": {
+                    "oneOf": [
+                        {
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "type": "string",
+                                "minLength": 1
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "pathFilter": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "minLength": 1
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "type",
+                        "value"
+                    ],
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "const": "path"
+                        },
+                        "value": {
+                            "oneOf": [
+                                {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                        "type": "string",
+                                        "minLength": 1
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "docblockFilter": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "minLength": 1
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "type",
+                        "value"
+                    ],
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "enum": [
+                                "tag",
+                                "path"
+                            ]
+                        },
+                        "value": {
+                            "oneOf": [
+                                {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                        "type": "string",
+                                        "minLength": 1
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "trackerFilter": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "minLength": 1
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "type",
+                        "value"
+                    ],
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "enum": [
+                                "author",
+                                "state",
+                                "label"
+                            ]
+                        },
+                        "value": {
+                            "oneOf": [
+                                {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                        "type": "string",
+                                        "minLength": 1
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "codeSource": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "enabled"
+            ],
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "include": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/$defs/pathFilter"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/$defs/pathFilter"
+                    }
+                }
+            }
+        },
+        "docblocksSource": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "enabled"
+            ],
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "include": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/$defs/docblockFilter"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/$defs/docblockFilter"
+                    }
+                }
+            }
+        },
+        "trackerSource": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "enabled"
+            ],
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "include": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/$defs/trackerFilter"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/$defs/trackerFilter"
+                    }
+                }
+            }
+        }
+    }
+}
