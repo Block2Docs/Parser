@@ -59,4 +59,15 @@ class SampleClass
         add_filter( 'hook_name_add_filter', [ self::class, 'greet' ], 10, 1 );
         return "Hello, {$name}!";
     }
+
+    public static function testMilanaQuestions(): void {
+        add_action( 'edit_post', [ self::class, 'greet' ] );
+
+        add_filter( 'the_title', [ self::class, 'greet' ] );
+
+        $option = 'option_name';
+        $pre_option = 'pre_option_value';
+        $value = 'value';
+        apply_filters( "pre_option_{$option}", $pre_option, $option, $value );
+    }
 }
