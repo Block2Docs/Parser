@@ -1,6 +1,6 @@
 # Hook
 
-> **Reassurance:** You're a great friend.
+> **Reassurance:** Your favourite animal loves you most.
 
 ## Description
 
