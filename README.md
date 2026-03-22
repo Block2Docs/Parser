@@ -5,15 +5,28 @@
 
 Doc2Me will be a tool that bridges the gap between code and documentation by intelligent DocBlock parsing. It reads annotations from your code to identify what needs documentation, and routes everything to the appropriate output—changelog entries, GitHub issues, API references, field guides, and more.
 
-## TLDR: Just tell me what it can do
+## TLDR: How to use
 
 This is an example of a documentation workflow. It generates PHP and JS docs from static analysis and also introduces skills for AI agents.
 
-Skills for AI agents which can be called by slash commands:
+### Skills for AI agents:
 
 - `generate-static-docs`: This generates JSON files from the js and php parser output then uses those to create code documentation. This skill is used in `create-changelog` and `create-github-issues`. Generally this does not need to be run separately.
 - `create-changelog`: This generates a changelog entry from the changes from the `main` branch. It uses the static analysis as well as contextual clues from the diff.
 - `create-github-issues`: This creates github issues from any new tags defined in the YAML config, eg "todo" and "needs-docs".
+
+### CLI only commands:
+
+Currently you can generate the static code documentation via CLI. The skills use these commands which should be run in order:
+
+1. Generate JSON files with the results of static analysis:
+
+- for php files: `bin/doc2me parse [input directory] [output directory] --pretty` scans the directory in the input directory for php files and does the static analysis, saving the output to the output directory. The `--pretty` flag pretty prints the JSON object.
+- for js files: `npm run parse:js [input directory] [output directory] --pretty` does much the same thing as the above command but for php files.
+
+2. Generate the markdown files for human readable code documentation.
+
+- for all the output files use: `npm run template:md -- [input directory] [output directory]` outputs the markdown files from the JSON files in input directory to output directory.
 
 ## The Documentation System
 
