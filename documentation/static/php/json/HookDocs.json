@@ -9,7 +9,7 @@
             {
                 "name": "Hook",
                 "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook",
-                "line": 19,
+                "line": 17,
                 "end_line": 106,
                 "docblock": {
                     "summary": "This class adds WordPress hook metadata.",
@@ -36,14 +36,6 @@
                             "description": "MIT"
                         },
                         {
-                            "name": "copyright",
-                            "description": "2026 Doc2Me"
-                        },
-                        {
-                            "name": "link",
-                            "description": null
-                        },
-                        {
                             "name": "needs-reassurance",
                             "description": null
                         }
@@ -61,7 +53,7 @@
                     {
                         "name": "line",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::$line",
-                        "line": 21,
+                        "line": 19,
                         "docblock": null,
                         "static": false,
                         "visibility": "private",
@@ -71,7 +63,7 @@
                     {
                         "name": "name",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::$name",
-                        "line": 22,
+                        "line": 20,
                         "docblock": null,
                         "static": false,
                         "visibility": "private",
@@ -81,7 +73,7 @@
                     {
                         "name": "type",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::$type",
-                        "line": 23,
+                        "line": 21,
                         "docblock": null,
                         "static": false,
                         "visibility": "private",
@@ -91,7 +83,7 @@
                     {
                         "name": "args",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::$args",
-                        "line": 24,
+                        "line": 22,
                         "docblock": null,
                         "static": false,
                         "visibility": "private",
@@ -101,7 +93,7 @@
                     {
                         "name": "docblock",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::$docblock",
-                        "line": 25,
+                        "line": 23,
                         "docblock": null,
                         "static": false,
                         "visibility": "private",
@@ -113,8 +105,8 @@
                     {
                         "name": "__construct",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::__construct()",
-                        "line": 38,
-                        "end_line": 45,
+                        "line": 36,
+                        "end_line": 43,
                         "docblock": {
                             "summary": "Construct the hook metadata object.",
                             "description": "",
@@ -203,8 +195,8 @@
                     {
                         "name": "key",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::key()",
-                        "line": 52,
-                        "end_line": 55,
+                        "line": 50,
+                        "end_line": 53,
                         "docblock": {
                             "summary": "Get the key for the hook metadata.",
                             "description": "",
@@ -228,8 +220,8 @@
                     {
                         "name": "getName",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::getName()",
-                        "line": 60,
-                        "end_line": 63,
+                        "line": 58,
+                        "end_line": 61,
                         "docblock": {
                             "summary": "",
                             "description": "",
@@ -253,8 +245,8 @@
                     {
                         "name": "getShortName",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::getShortName()",
-                        "line": 68,
-                        "end_line": 71,
+                        "line": 66,
+                        "end_line": 69,
                         "docblock": {
                             "summary": "",
                             "description": "",
@@ -278,8 +270,8 @@
                     {
                         "name": "getType",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::getType()",
-                        "line": 79,
-                        "end_line": 82,
+                        "line": 77,
+                        "end_line": 80,
                         "docblock": {
                             "summary": "",
                             "description": "",
@@ -313,6 +305,10 @@
                             "summary": "",
                             "description": "",
                             "tags": [
+                                {
+                                    "name": "todo",
+                                    "description": "Explain what an arg is."
+                                },
                                 {
                                     "name": "return",
                                     "description": "",

@@ -80,6 +80,8 @@ final class Hook implements Metadata
     }
 
     /**
+     *
+     * @todo Explain what an arg is.
      * @return array
      */
     public function getArgs()
