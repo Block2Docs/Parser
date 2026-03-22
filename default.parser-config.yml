@@ -71,6 +71,9 @@ sources:
     exclude:
       - type: state
         value: open
+    include:
+      - type: tag
+        value: ["needs-docs", "todo" ]
   issue_comments:
     enabled: false
   pull_request_comments:
@@ -120,7 +123,7 @@ doc_types:
       require:
         - code
       prefer:
-        - docblocks 
+        - docblocks
   dev_note:
     enabled: true
     evidence_policy:
@@ -137,7 +140,7 @@ doc_types:
 # Define the evidence requirements and policies for claims made in the generated docs.
 # This section can specify:
 # - minimum_sources: the minimum number of independent sources required to support a claim
-# - freshness: rules about how old evidence can be to be considered valid (e.g., max age in days for issues or PRs) 
+# - freshness: rules about how old evidence can be to be considered valid (e.g., max age in days for issues or PRs)
 evidence:
   minimum_sources: 2
   freshness:
@@ -157,7 +160,7 @@ inference:
   allow_gap_filling: false
 
 # Define the traceability and documentation generation settings, including how to handle insufficient or conflicting evidence.
-# 
+#
 # - traceability: settings for generating traceability artifacts that link claims back to their supporting evidence
 # - failure_behavior: rules for how to handle cases where evidence is insufficient or conflicting (e.g., fail, mark_uncertain, ignore)
 # The traceability settings specify:
@@ -167,7 +170,7 @@ inference:
 # The failure_behavior settings specify:
 # - on_insufficient_evidence: the action to take when a claim does not have enough supporting evidence (e.g., fail, mark_uncertain, ignore)
 # - on_conflicting_evidence: the action to take when there are conflicting pieces of evidence for a claim (e.g., fail, mark_uncertain, ignore)
-# 
+#
 # Example of a claim with supporting evidence from multiple sources, demonstrating how the system can extract and correlate information to generate a well-supported documentation claim.
 #
 # ## Authentication
@@ -206,11 +209,11 @@ outputs:
     on_conflicting_evidence: mark_uncertain
 
 # Define execution settings for the parser, including caching, debug file generation, and strict mode.
-# 
+#
 # - cache: whether to enable caching of intermediate results to speed up subsequent runs
 # - save_debug_files: whether to save debug files with intermediate data and processing details for troubleshooting
 # - strict_mode: whether to enforce strict validation of sources and evidence, causing the parser to fail if any issues are detected with the input data or evidence quality
-# 
+#
 # Cache
 # Uses cached results so repeated runs are faster and avoid reprocessing unchanged inputs.
 # Debug Files

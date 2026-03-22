@@ -4,7 +4,6 @@ description: Create a changelog based on the changes made in the current branch 
 disable-model-invocation: true
 user-invocable: true
 ---
-
 # Create changelog
 
 Creates a changelog based on the changes in the current branch compared to `main` branch.
@@ -17,11 +16,11 @@ Read `default.parser-config.yml` and find the `changelog` entry in `doc_type`. U
 
 ## Step 1b: Check the changelog is enabled
 
-If `enabled` is `false`, tell the user the changelog is not enabled and ask for instructions. Do not proceed.
+If `enabled` is `false`, tell the user the changelog is not enabled and use `AskQuestion` for instructions. Do not proceed.
 
 The default is `true`.
 
-## Step 1c: Find the audience for the changelog is
+## Step 1c: Find the audience for the changelog
 
 The audience for the changelog is in `audience`. Target your changelog to this audience.
 
@@ -29,7 +28,7 @@ The default is `developer`.
 
 ## Step 2: Make sure the documentation has been generated
 
-Ask the user if you should use `/generate-static-docs` to ensure the project is built and generate the up to date documentation.
+Use `AskQuestion` to ask the user if you should use `/generate-static-docs` to ensure the project is built and generate the up to date documentation.
 
 ## Step 3: Find features, fixes and security updates
 
@@ -59,7 +58,7 @@ git diff main .agents/skills
 
 ### Step 3d: Get any executables changes
 
-Find any new or changed npm scripts and executables for {{executables-changes}}.
+Find any new or changed npm scripts and executables for {{exectuables-changes}}.
 
 ```bash
 git diff main package.json
@@ -80,7 +79,7 @@ Collate all changes and create a changelog entry at the top of the changelog.md 
 
 #### Rules
 
-- If there is already an entry for these changes, ask the user if you should do a new full analysis.
+- If there is already an entry for these changes, use `AskQuestion` to ask if you should do a new full analysis.
 - Use the `changelog-entry-template.md` as a guide to formatting the changelog.
 - Do not include file paths.
 - Do not include sections without any changes.

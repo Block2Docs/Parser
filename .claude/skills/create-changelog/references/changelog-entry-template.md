@@ -1,8 +1,5 @@
 ## {{version}} ({{release-date release-time}})
 
-### Security
-{{security-issues}}
-
 ### Features
 {{security-update}}
 
@@ -15,8 +12,8 @@
 ### Documentation changes
 {{documentation-changes}}
 
+### Security
+{{security-issues}}
+
 ### Skills changes
 {{skills-changes}}
-
-### Executables changes
-{{executables-changes}}

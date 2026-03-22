@@ -10,7 +10,7 @@
                 "name": "Hook",
                 "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook",
                 "line": 19,
-                "end_line": 101,
+                "end_line": 103,
                 "docblock": {
                     "summary": "This class adds WordPress hook metadata.",
                     "description": "",
@@ -113,12 +113,16 @@
                     {
                         "name": "__construct",
                         "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::__construct()",
-                        "line": 36,
-                        "end_line": 43,
+                        "line": 38,
+                        "end_line": 45,
                         "docblock": {
                             "summary": "Construct the hook metadata object.",
                             "description": "",
                             "tags": [
+                                {
+                                    "name": "needs-docs",
+                                    "description": "Add an example of how to use this class in a strategy."
+                                },
                                 {
                                     "name": "param",
                                     "description": "The line number of the hook call.",
@@ -199,8 +203,8 @@
                     {
                         "name": "key",
                         "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::key()",
-                        "line": 50,
-                        "end_line": 53,
+                        "line": 52,
+                        "end_line": 55,
                         "docblock": {
                             "summary": "Get the key for the hook metadata.",
                             "description": "",
@@ -224,8 +228,8 @@
                     {
                         "name": "getName",
                         "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getName()",
-                        "line": 58,
-                        "end_line": 61,
+                        "line": 60,
+                        "end_line": 63,
                         "docblock": {
                             "summary": "",
                             "description": "",
@@ -249,8 +253,8 @@
                     {
                         "name": "getShortName",
                         "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getShortName()",
-                        "line": 66,
-                        "end_line": 69,
+                        "line": 68,
+                        "end_line": 71,
                         "docblock": {
                             "summary": "",
                             "description": "",
@@ -274,8 +278,8 @@
                     {
                         "name": "getType",
                         "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getType()",
-                        "line": 74,
-                        "end_line": 77,
+                        "line": 76,
+                        "end_line": 79,
                         "docblock": {
                             "summary": "",
                             "description": "",
@@ -299,8 +303,8 @@
                     {
                         "name": "getArgs",
                         "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getArgs()",
-                        "line": 82,
-                        "end_line": 85,
+                        "line": 84,
+                        "end_line": 87,
                         "docblock": {
                             "summary": "",
                             "description": "",
@@ -324,8 +328,8 @@
                     {
                         "name": "format",
                         "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::format()",
-                        "line": 87,
-                        "end_line": 95,
+                        "line": 89,
+                        "end_line": 97,
                         "docblock": null,
                         "abstract": false,
                         "final": false,
@@ -339,8 +343,8 @@
                     {
                         "name": "getDocBlock",
                         "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getDocBlock()",
-                        "line": 97,
-                        "end_line": 100,
+                        "line": 99,
+                        "end_line": 102,
                         "docblock": null,
                         "abstract": false,
                         "final": false,
