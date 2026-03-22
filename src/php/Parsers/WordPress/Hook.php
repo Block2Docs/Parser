@@ -27,6 +27,8 @@ final class Hook implements Metadata
     /**
      * Construct the hook metadata object.
      *
+     * @needs-docs Add an example of how to use this class in a strategy.
+     *
      * @param int         $line     The line number of the hook call.
      * @param string      $name     The hook name.
      * @param string      $type     The hook type (action, filter, etc.).
