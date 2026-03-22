@@ -5,6 +5,16 @@
 
 Doc2Me will be a tool that bridges the gap between code and documentation by intelligent DocBlock parsing. It reads annotations from your code to identify what needs documentation, and routes everything to the appropriate output—changelog entries, GitHub issues, API references, field guides, and more.
 
+## TLDR: Just tell me what it can do
+
+This is an example of a documentation workflow. It generates PHP and JS docs from static analysis and also introduces skills for AI agents.
+
+Skills for AI agents which can be called by slash commands:
+
+- `generate-static-docs`: This generates JSON files from the js and php parser output then uses those to create code documentation. This skill is used in `create-changelog` and `create-github-issues`. Generally this does not need to be run separately.
+- `create-changelog`: This generates a changelog entry from the changes from the `main` branch. It uses the static analysis as well as contextual clues from the diff.
+- `create-github-issues`: This creates github issues from any new tags defined in the YAML config, eg "todo" and "needs-docs".
+
 ## The Documentation System
 
 ![docs-system](https://github.com/user-attachments/assets/3dd7f16d-164b-4458-8062-6c8be75da83a)
@@ -24,6 +34,7 @@ The core static parsers scan PHP/JavaScript code, extracting DocBlocks and docum
 - Template System: Starts with set templates; plans for configurable templates and overrides.
 - Language Agnostic: Starts with PHP/JavaScript; architecture supports future languages.
 - CI/CD: Could be integrated into existing development pipelines.
+
 
 ## Local setup
 
