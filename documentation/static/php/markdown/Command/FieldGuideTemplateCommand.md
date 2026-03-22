@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **FQSEN** | `\Block2Docs\Command\FieldGuideTemplateCommand` |
+| **FQSEN** | `\Doc2Me\Command\FieldGuideTemplateCommand` |
 
 ---
 

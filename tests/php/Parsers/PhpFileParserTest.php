@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Block2Docs\Tests\Parser;
+namespace Doc2Me\Tests\Parser;
 
-use Block2Docs\Parsers\PhpFileParser;
+use Doc2Me\Parsers\PhpFileParser;
 use PHPUnit\Framework\TestCase;
 
 class PhpFileParserTest extends TestCase

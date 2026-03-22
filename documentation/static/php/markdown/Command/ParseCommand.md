@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **FQSEN** | `\Block2Docs\Command\ParseCommand` |
+| **FQSEN** | `\Doc2Me\Command\ParseCommand` |
 
 ---
 

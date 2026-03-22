@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Block2Docs\Parsers;
+namespace Doc2Me\Parsers;
 
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use phpDocumentor\Reflection\DocBlock;
 use phpDocumentor\Reflection\Metadata;
-use Block2Docs\Parsers\WordPress\AddedHook;
-use Block2Docs\Parsers\WordPress\AddedHookStrategy;
-use Block2Docs\Parsers\WordPress\Hook;
-use Block2Docs\Parsers\WordPress\HookStrategy;
+use Doc2Me\Parsers\WordPress\AddedHook;
+use Doc2Me\Parsers\WordPress\AddedHookStrategy;
+use Doc2Me\Parsers\WordPress\Hook;
+use Doc2Me\Parsers\WordPress\HookStrategy;
 use phpDocumentor\Reflection\File\LocalFile;
 use phpDocumentor\Reflection\Php\Argument;
 use phpDocumentor\Reflection\Php\Class_;
@@ -133,7 +133,7 @@ class PhpFileParser
     private function exportFile(PhpFile $file): array
     {
         $data = [
-            'path' => $file->getPath(),
+            'path' => $this->relativePath($file->getPath(), dirname(__DIR__, 3)),
             'docblock' => $this->exportDocBlock($file->getDocBlock()),
             'includes' => $file->getIncludes(),
             'constants' => [],

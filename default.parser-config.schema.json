@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://block2docs.dev/schemas/default.parser-config.schema.json",
-    "title": "Block2Docs Parser Config",
+    "title": "Doc2Me Parser Config",
     "type": "object",
     "additionalProperties": false,
     "required": [

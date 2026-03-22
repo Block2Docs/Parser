@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **FQSEN** | `\Block2Docs\Parsers\BlockParser` |
+| **FQSEN** | `\Doc2Me\Parsers\BlockParser` |
 
 ---
 

@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **FQSEN** | `\Block2Docs\Parsers\PhpFileParser` |
+| **FQSEN** | `\Doc2Me\Parsers\PhpFileParser` |
 
 ---
 

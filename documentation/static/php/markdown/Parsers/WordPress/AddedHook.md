@@ -6,7 +6,7 @@ This class adds WordPress added hook metadata.
 
 | | |
 |---|---|
-| **FQSEN** | `\Block2Docs\Parsers\WordPress\AddedHook` |
+| **FQSEN** | `\Doc2Me\Parsers\WordPress\AddedHook` |
 | **Final** | Yes |
 
 ---

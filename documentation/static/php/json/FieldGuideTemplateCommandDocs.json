@@ -1,6 +1,6 @@
 {
     "Command/FieldGuideTemplateCommand.php": {
-        "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Command/FieldGuideTemplateCommand.php",
+        "path": "src/php/Command/FieldGuideTemplateCommand.php",
         "docblock": null,
         "includes": [],
         "constants": [],
@@ -8,7 +8,7 @@
         "classes": [
             {
                 "name": "FieldGuideTemplateCommand",
-                "fqsen": "\\Block2Docs\\Command\\FieldGuideTemplateCommand",
+                "fqsen": "\\Doc2Me\\Command\\FieldGuideTemplateCommand",
                 "line": 5,
                 "end_line": 81,
                 "docblock": null,
@@ -22,7 +22,7 @@
                 "methods": [
                     {
                         "name": "execute",
-                        "fqsen": "\\Block2Docs\\Command\\FieldGuideTemplateCommand::execute()",
+                        "fqsen": "\\Doc2Me\\Command\\FieldGuideTemplateCommand::execute()",
                         "line": 7,
                         "end_line": 80,
                         "docblock": null,

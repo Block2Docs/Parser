@@ -22,15 +22,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Block2Docs/Parser.git"
+    "url": "git+https://github.com/Doc2Me/Parser.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Block2Docs/Parser/issues"
+    "url": "https://github.com/Doc2Me/Parser/issues"
   },
-  "homepage": "https://github.com/Block2Docs/Parser#readme",
+  "homepage": "https://github.com/Doc2Me/Parser#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.0.3",

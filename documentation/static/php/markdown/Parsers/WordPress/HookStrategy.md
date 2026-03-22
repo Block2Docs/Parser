@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **FQSEN** | `\Block2Docs\Parsers\WordPress\HookStrategy` |
+| **FQSEN** | `\Doc2Me\Parsers\WordPress\HookStrategy` |
 | **Final** | Yes |
 
 ---

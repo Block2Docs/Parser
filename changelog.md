@@ -1,30 +1,23 @@
 # Changelog
 
-## Unreleased (2026-03-22 12:00)
+## Unreleased (2026-03-22 14:00)
 
 ### Features
 
-- Added `FieldGuideTemplateCommand` class documentation with JSON and Markdown output
-- Added `@needs-docs` tag to the `Hook` class constructor docblock
-- Added `@todo` tag to `MarkdownTemplater` for planned config file support in `renderAll`
-- Added `js-yaml` dev dependency for YAML parsing support
-- Added `issues` include config with `needs-docs` and `todo` tags to parser config
-- Added class-level docblock to `AddedHook` with summary, `@todo`, and `@since` tags
+- Renamed project from `Block2Docs` to `Doc2Me` across all PHP namespaces, composer autoload, tests, and configuration
+- Added new `bin/doc2me` executable as the primary CLI entry point with `parse`, `generate-docs`, and `field-guide-template` commands
+- Added `@todo` tag to `Hook::getType()` for planned type clarification
 
 ### Removed
 
-- Removed legacy prompt templates: `describe-block`, `generate-docs`, and `summarize-function`
-- Removed old `skills/example/` directory in favour of `.agents/skills/`
+- Removed unused `Param` and `Return_` imports from `HookStrategy`
 
 ### Documentation changes
 
-- Reformatted all PHP JSON documentation files to pretty-printed JSON for improved readability
-- Updated `MarkdownTemplater` docs to reflect new include path and line number adjustments
-- Updated `Hook` reassurance messages and added `@needs-docs` annotation
-- Updated `AddedHook` documentation to include new class-level docblock metadata
+- Updated all PHP JSON and Markdown documentation to reflect `Doc2Me` namespace rename
+- Updated `Hook` documentation with `Doc2Me` authorship and updated line references
+- Updated README to reflect `Doc2Me` branding and new CLI command (`bin/doc2me help`)
 
 ### Skills changes
 
-- Added `create-changelog` skill for generating changelogs from branch diffs with configurable audience and template support
-- Added `generate-static-docs` skill for static documentation generation via PHP and JS parsers
-- Added `create-issues` skill for creating GitHub issues from code tags with diff-based detection
+- Updated `generate-docs` and `generate-static-docs` skills to use `git merge origin/main` instead of `git merge main`

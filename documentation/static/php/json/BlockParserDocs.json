@@ -1,6 +1,6 @@
 {
     "Parsers/WordPress/BlockParser.php": {
-        "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/WordPress/BlockParser.php",
+        "path": "src/php/Parsers/WordPress/BlockParser.php",
         "docblock": null,
         "includes": [],
         "constants": [],
@@ -8,7 +8,7 @@
         "classes": [
             {
                 "name": "BlockParser",
-                "fqsen": "\\Block2Docs\\Parsers\\BlockParser",
+                "fqsen": "\\Doc2Me\\Parsers\\BlockParser",
                 "line": 5,
                 "end_line": 18,
                 "docblock": null,
@@ -22,7 +22,7 @@
                 "methods": [
                     {
                         "name": "parse",
-                        "fqsen": "\\Block2Docs\\Parsers\\BlockParser::parse()",
+                        "fqsen": "\\Doc2Me\\Parsers\\BlockParser::parse()",
                         "line": 13,
                         "end_line": 17,
                         "docblock": {

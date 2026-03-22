@@ -1,6 +1,6 @@
 <?php
 
-namespace Block2Docs\Tests\Fixtures;
+namespace Doc2Me\Tests\Fixtures;
 
 /**
  * A sample class for testing.

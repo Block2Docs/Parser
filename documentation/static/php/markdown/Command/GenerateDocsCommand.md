@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **FQSEN** | `\Block2Docs\Command\GenerateDocsCommand` |
+| **FQSEN** | `\Doc2Me\Command\GenerateDocsCommand` |
 
 ---
 

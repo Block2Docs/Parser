@@ -2,12 +2,12 @@
     "name": "cloudfest/documentation",
     "autoload": {
         "psr-4": {
-            "Block2Docs\\": "src/php/"
+            "Doc2Me\\": "src/php/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Block2Docs\\Tests\\": "tests/php/"
+            "Doc2Me\\Tests\\": "tests/php/"
         }
     },
     "bin": [

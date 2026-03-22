@@ -1,6 +1,6 @@
 {
     "Parsers/WordPress/AddedHookStrategy.php": {
-        "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/WordPress/AddedHookStrategy.php",
+        "path": "src/php/Parsers/WordPress/AddedHookStrategy.php",
         "docblock": null,
         "includes": [],
         "constants": [],
@@ -8,7 +8,7 @@
         "classes": [
             {
                 "name": "AddedHookStrategy",
-                "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy",
+                "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHookStrategy",
                 "line": 14,
                 "end_line": 150,
                 "docblock": null,
@@ -22,14 +22,14 @@
                 "constants": [
                     {
                         "name": "HOOK_FUNCTIONS",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::HOOK_FUNCTIONS",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHookStrategy::HOOK_FUNCTIONS",
                         "line": 16,
                         "docblock": null,
                         "value": "['add_action', 'add_filter']"
                     },
                     {
                         "name": "TYPE_MAP",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::TYPE_MAP",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHookStrategy::TYPE_MAP",
                         "line": 21,
                         "docblock": null,
                         "value": "['add_action' => 'action', 'add_filter' => 'filter']"
@@ -39,7 +39,7 @@
                 "methods": [
                     {
                         "name": "matches",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::matches()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHookStrategy::matches()",
                         "line": 29,
                         "end_line": 42,
                         "docblock": {
@@ -73,7 +73,7 @@
                     },
                     {
                         "name": "create",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::create()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHookStrategy::create()",
                         "line": 47,
                         "end_line": 61,
                         "docblock": {
@@ -114,7 +114,7 @@
                     },
                     {
                         "name": "cleanupName",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::cleanupName()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHookStrategy::cleanupName()",
                         "line": 68,
                         "end_line": 95,
                         "docblock": {
@@ -153,7 +153,7 @@
                     },
                     {
                         "name": "extractArgs",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::extractArgs()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHookStrategy::extractArgs()",
                         "line": 97,
                         "end_line": 108,
                         "docblock": null,
@@ -176,7 +176,7 @@
                     },
                     {
                         "name": "nodeToString",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::nodeToString()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHookStrategy::nodeToString()",
                         "line": 110,
                         "end_line": 114,
                         "docblock": null,
@@ -199,7 +199,7 @@
                     },
                     {
                         "name": "extractDocBlock",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHookStrategy::extractDocBlock()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHookStrategy::extractDocBlock()",
                         "line": 116,
                         "end_line": 149,
                         "docblock": null,

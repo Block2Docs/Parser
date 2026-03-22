@@ -1,9 +1,9 @@
-# Block2Docs Parser
+# Doc2Me Parser
 [CloudFest Hackathon 2026 project](https://hackathon.cloudfest.com/project/block2docs/)
 
 ## Objective
 
-Block2Docs will be a tool that bridges the gap between code and documentation by intelligent DocBlock parsing. It reads annotations from your code to identify what needs documentation, and routes everything to the appropriate output—changelog entries, GitHub issues, API references, field guides, and more.
+Doc2Me will be a tool that bridges the gap between code and documentation by intelligent DocBlock parsing. It reads annotations from your code to identify what needs documentation, and routes everything to the appropriate output—changelog entries, GitHub issues, API references, field guides, and more.
 
 ## The Documentation System
 
@@ -12,17 +12,18 @@ Block2Docs will be a tool that bridges the gap between code and documentation by
 ### Parser/Workflow engine
 
 The core static parsers scan PHP/JavaScript code, extracting DocBlocks and documentation, and needs to:
--[x] Generate API Docs: Create structured API documentation from inline comments.
--[] Generate Changelogs: Extract version history from @since and @changelog tags.
--[] Structure Field Guides: Automatically build release documentation frameworks.
--[] Create GitHub Issues: Generate issues for items tagged @needs-docs, routed by doc type (dev note, end-user guide, how-to, tutorial).
+
+- Generate API Docs: Create structured API documentation from inline comments.
+- Generate Changelogs: Extract version history from git diffs.
+- Structure Field Guides: Automatically build release documentation frameworks.
+- Create GitHub Issues: Generate issues for items with configurable tags.
 
 ### Flexible Configuration
 
-- Config-driven: Use YAML/JSON for easy project customization.
-- Template System: Extensible templates; override defaults or create new ones.
+- Config-driven: Use YAML for easy project customization.
+- Template System: Starts with set templates; plans for configurable templates and overrides.
 - Language Agnostic: Starts with PHP/JavaScript; architecture supports future languages.
-- CI/CD Ready: Integrates into existing development pipelines.
+- CI/CD: Could be integrated into existing development pipelines.
 
 ## Local setup
 
@@ -39,7 +40,7 @@ npm install
 From the repository root, install dependencies and run the `block2docs` entrypoint:
 
 ```bash
-bin/blocks2docs help
+bin/doc2me help
 ```
 
 If the script is not executable on your system, invoke PHP explicitly:
@@ -50,7 +51,7 @@ php bin/block2docs help
 
 #### Commands:
 
-- `parse` — run the parser (see `Block2Docs\Command\ParseCommand`).
+- `parse` — run the parser (see `Doc2Me\Command\ParseCommand`).
 
 Parse PHP files in a directory and output structured JSON containing all classes, interfaces, traits, enums, functions, constants, methods, properties, and their docblocks.
 
@@ -97,7 +98,7 @@ The output is a JSON object keyed by relative file path. Each file entry contain
 Classes, functions, and methods include their arguments, return types, visibility, and full docblock data (summary, description, and tags such as `@param`, `@return`, `@since`, `@deprecated`).
 
 - `field-guide-template` — Generate the Field Guide Template and save to the output file.
--
+
 Parse PHP files in a directory and output structured JSON containing all classes, interfaces, traits, enums, functions, constants, methods, properties, and their docblocks.
 
 ```bash

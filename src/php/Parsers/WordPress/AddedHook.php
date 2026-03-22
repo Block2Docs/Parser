@@ -1,6 +1,6 @@
 <?php
 
-namespace Block2Docs\Parsers\WordPress;
+namespace Doc2Me\Parsers\WordPress;
 
 use phpDocumentor\Reflection\Metadata\Metadata;
 

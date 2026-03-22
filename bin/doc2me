@@ -16,17 +16,17 @@ $cmd = $argv[0] ?? '';
 array_shift($argv);
 
 if ($cmd === '' || $cmd === 'help' || $cmd === '--help' || $cmd === '-h') {
-    echo "Usage: block2docs <command> [args...]\n\nCommands:\n  parse\n  generate-docs\n  field-guide-template [output-path]\n";
+    echo "Usage: doc2me <command> [args...]\n\nCommands:\n  parse\n  generate-docs\n  field-guide-template [output-path]\n";
     exit($cmd === '' ? 1 : 0);
 }
 
 if ($cmd === 'parse') {
-    (new Block2Docs\Command\ParseCommand())->execute($argv);
+    (new Doc2Me\Command\ParseCommand())->execute($argv);
     exit(0);
 }
 
 if ($cmd === 'field-guide-template' || $cmd === 'field-guide') {
-    (new Block2Docs\Command\FieldGuideTemplateCommand())->execute($argv);
+    (new Doc2Me\Command\FieldGuideTemplateCommand())->execute($argv);
     exit(0);
 }
 

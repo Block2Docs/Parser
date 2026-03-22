@@ -1,6 +1,6 @@
 {
     "Command/ParseCommand.php": {
-        "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Command/ParseCommand.php",
+        "path": "src/php/Command/ParseCommand.php",
         "docblock": null,
         "includes": [],
         "constants": [],
@@ -8,7 +8,7 @@
         "classes": [
             {
                 "name": "ParseCommand",
-                "fqsen": "\\Block2Docs\\Command\\ParseCommand",
+                "fqsen": "\\Doc2Me\\Command\\ParseCommand",
                 "line": 9,
                 "end_line": 88,
                 "docblock": null,
@@ -22,7 +22,7 @@
                 "methods": [
                     {
                         "name": "execute",
-                        "fqsen": "\\Block2Docs\\Command\\ParseCommand::execute()",
+                        "fqsen": "\\Doc2Me\\Command\\ParseCommand::execute()",
                         "line": 17,
                         "end_line": 87,
                         "docblock": {
