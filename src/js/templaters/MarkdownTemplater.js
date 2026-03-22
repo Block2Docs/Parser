@@ -1,5 +1,6 @@
 /**
  * Renders parsed JSON output into human-readable Markdown documentation.
+ *
  */
 import reassurance from '../../../config/reassurance.json' with { type: 'json' };
 
@@ -497,6 +498,8 @@ export function renderFile(fileName, fileData) {
 
 /**
  * Render an entire parsed JSON result (multiple files) to a map of Markdown strings.
+ *
+ * @todo Add support for a config file with an arbitrary list of tags to include in the documentation in `renderAll`.
  *
  * @param {object} data The full parsed JSON output (keyed by filename).
  * @return {Object<string, string>} Map of output filename to Markdown content.

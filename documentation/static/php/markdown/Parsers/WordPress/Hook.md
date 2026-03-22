@@ -1,6 +1,6 @@
 # Hook
 
-> **Reassurance:** Your favourite animal loves you most.
+> **Reassurance:** This is the most beautiful code you've ever written.
 
 ## Description
 
@@ -55,6 +55,8 @@ This class adds WordPress hook metadata.
 ## Methods
 
 ### `public function __construct()`
+
+> **Needs docs:** Add an example of how to use this class in a strategy.
 
 **Description:** Construct the hook metadata object.
 

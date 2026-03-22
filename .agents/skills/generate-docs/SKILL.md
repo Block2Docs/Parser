@@ -1,7 +1,7 @@
 ---
 name: generate-static-docs
 description: Generate the static documentation for a project.
-disable-model-invocation: true
+disable-model-invocation: false
 user-invocable: true
 ---
 

@@ -11,7 +11,7 @@
         "name": "exportDocBlock",
         "fqsen": "\\exportDocBlock()",
         "line": 9,
-        "end_line": 61,
+        "end_line": 62,
         "docblock": {
           "summary": "Parse a JSDoc comment string into a structured docblock object.",
           "description": "",

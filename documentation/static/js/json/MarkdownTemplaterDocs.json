@@ -10,8 +10,8 @@
       {
         "name": "renderDocblock",
         "fqsen": "\\renderDocblock()",
-        "line": 12,
-        "end_line": 28,
+        "line": 13,
+        "end_line": 29,
         "docblock": {
           "summary": "Render a docblock's summary and description lines.",
           "description": "",
@@ -43,8 +43,8 @@
       {
         "name": "findTag",
         "fqsen": "\\findTag()",
-        "line": 37,
-        "end_line": 42,
+        "line": 38,
+        "end_line": 43,
         "docblock": {
           "summary": "Find a specific tag from a docblock.",
           "description": "",
@@ -89,8 +89,8 @@
       {
         "name": "findTags",
         "fqsen": "\\findTags()",
-        "line": 51,
-        "end_line": 56,
+        "line": 52,
+        "end_line": 57,
         "docblock": {
           "summary": "Find all tags with a given name from a docblock.",
           "description": "",
@@ -135,8 +135,8 @@
       {
         "name": "escapeCell",
         "fqsen": "\\escapeCell()",
-        "line": 64,
-        "end_line": 69,
+        "line": 65,
+        "end_line": 70,
         "docblock": {
           "summary": "Escape pipe characters for use in markdown table cells.",
           "description": "",
@@ -168,8 +168,8 @@
       {
         "name": "renderSignature",
         "fqsen": "\\renderSignature()",
-        "line": 77,
-        "end_line": 107,
+        "line": 78,
+        "end_line": 108,
         "docblock": {
           "summary": "Render a method or function signature.",
           "description": "",
@@ -201,8 +201,8 @@
       {
         "name": "renderParamsTable",
         "fqsen": "\\renderParamsTable()",
-        "line": 116,
-        "end_line": 142,
+        "line": 117,
+        "end_line": 143,
         "docblock": {
           "summary": "Render a parameters table for arguments with docblock info.",
           "description": "",
@@ -247,8 +247,8 @@
       {
         "name": "renderConstant",
         "fqsen": "\\renderConstant()",
-        "line": 150,
-        "end_line": 165,
+        "line": 151,
+        "end_line": 166,
         "docblock": {
           "summary": "Render a single class constant.",
           "description": "",
@@ -280,8 +280,8 @@
       {
         "name": "renderProperty",
         "fqsen": "\\renderProperty()",
-        "line": 173,
-        "end_line": 211,
+        "line": 174,
+        "end_line": 212,
         "docblock": {
           "summary": "Render a single property.",
           "description": "",
@@ -313,8 +313,8 @@
       {
         "name": "renderMethod",
         "fqsen": "\\renderMethod()",
-        "line": 219,
-        "end_line": 295,
+        "line": 220,
+        "end_line": 296,
         "docblock": {
           "summary": "Render a single method.",
           "description": "",
@@ -346,8 +346,8 @@
       {
         "name": "renderFunction",
         "fqsen": "\\renderFunction()",
-        "line": 303,
-        "end_line": 305,
+        "line": 304,
+        "end_line": 306,
         "docblock": {
           "summary": "Render a single function (file-level).",
           "description": "",
@@ -379,8 +379,8 @@
       {
         "name": "renderHooksSection",
         "fqsen": "\\renderHooksSection()",
-        "line": 314,
-        "end_line": 356,
+        "line": 315,
+        "end_line": 357,
         "docblock": {
           "summary": "Render hook entries from a hooks or added_hooks array.",
           "description": "",
@@ -425,8 +425,8 @@
       {
         "name": "renderClass",
         "fqsen": "\\renderClass()",
-        "line": 364,
-        "end_line": 443,
+        "line": 365,
+        "end_line": 444,
         "docblock": {
           "summary": "Render a single class to Markdown.",
           "description": "",
@@ -458,8 +458,8 @@
       {
         "name": "renderFile",
         "fqsen": "\\renderFile()",
-        "line": 452,
-        "end_line": 496,
+        "line": 453,
+        "end_line": 497,
         "docblock": {
           "summary": "Render a full file entry to Markdown.",
           "description": "",
@@ -504,12 +504,16 @@
       {
         "name": "renderAll",
         "fqsen": "\\renderAll()",
-        "line": 504,
-        "end_line": 513,
+        "line": 507,
+        "end_line": 516,
         "docblock": {
           "summary": "Render an entire parsed JSON result (multiple files) to a map of Markdown strings.",
           "description": "",
           "tags": [
+            {
+              "name": "todo",
+              "description": "Add support for a config file with an arbitrary list of tags to include in the documentation in `renderAll`."
+            },
             {
               "name": "param",
               "description": "The full parsed JSON output (keyed by filename).",
