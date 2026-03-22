@@ -4,6 +4,13 @@ namespace Block2Docs\Parsers\WordPress;
 
 use phpDocumentor\Reflection\Metadata\Metadata;
 
+/**
+ * This class adds WordPress added hook metadata.
+ *
+ * @todo Add example of how to use this class in a strategy.
+ *
+ * @since 1.0.0
+ */
 final class AddedHook implements Metadata
 {
     private int $line;
