@@ -9,6 +9,7 @@
 - Added `@todo` tag to `MarkdownTemplater` for planned config file support in `renderAll`
 - Added `js-yaml` dev dependency for YAML parsing support
 - Added `issues` include config with `needs-docs` and `todo` tags to parser config
+- Added class-level docblock to `AddedHook` with summary, `@todo`, and `@since` tags
 
 ### Removed
 
@@ -20,6 +21,7 @@
 - Reformatted all PHP JSON documentation files to pretty-printed JSON for improved readability
 - Updated `MarkdownTemplater` docs to reflect new include path and line number adjustments
 - Updated `Hook` reassurance messages and added `@needs-docs` annotation
+- Updated `AddedHook` documentation to include new class-level docblock metadata
 
 ### Skills changes
 
