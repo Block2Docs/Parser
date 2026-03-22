@@ -28,7 +28,7 @@ class ParseCommand
         }
 
         if ($directory === null) {
-            fwrite(STDERR, "Usage: block2docs parse <directory> [output-dir] [--pretty]\n");
+            fwrite(STDERR, "Usage: doc2me parse <directory> [output-dir] [--pretty]\n");
             exit(1);
         }
 

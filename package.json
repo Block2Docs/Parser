@@ -1,7 +1,7 @@
 {
   "name": "parser",
   "version": "1.0.0",
-  "description": "[CloudFest Hackathon 2026 project](https://hackathon.cloudfest.com/project/block2docs/)",
+  "description": "[CloudFest Hackathon 2026 project](https://hackathon.cloudfest.com/project/blocks2docs/)",
   "type": "module",
   "main": "index.js",
   "directories": {

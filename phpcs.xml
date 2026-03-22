@@ -5,7 +5,7 @@
     <rule ref="PSR12" />
 
     <file>src/php</file>
-    <file>bin/block2docs</file>
+    <file>bin/doc2me</file>
 
     <exclude-pattern>vendor/*</exclude-pattern>
 </ruleset>

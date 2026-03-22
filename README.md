@@ -1,5 +1,5 @@
 # Doc2Me Parser
-[CloudFest Hackathon 2026 project](https://hackathon.cloudfest.com/project/block2docs/)
+[CloudFest Hackathon 2026 project](https://hackathon.cloudfest.com/project/doc2me/)
 
 ## Objective
 
@@ -37,7 +37,7 @@ npm install
 
 ### PHP
 
-From the repository root, install dependencies and run the `block2docs` entrypoint:
+From the repository root, install dependencies and run the `doc2me` entrypoint:
 
 ```bash
 bin/doc2me help
@@ -46,7 +46,7 @@ bin/doc2me help
 If the script is not executable on your system, invoke PHP explicitly:
 
 ```bash
-php bin/block2docs help
+php bin/doc2me help
 ```
 
 #### Commands:
@@ -56,7 +56,7 @@ php bin/block2docs help
 Parse PHP files in a directory and output structured JSON containing all classes, interfaces, traits, enums, functions, constants, methods, properties, and their docblocks.
 
 ```bash
-./bin/block2docs parse <directory> [output-dir] [--pretty]
+./bin/doc2me parse <directory> [output-dir] [--pretty]
 ```
 
 | Argument | Description |
@@ -69,13 +69,13 @@ Examples:
 
 ```bash
 # Parse a directory and print JSON to stdout
-./bin/block2docs parse src/
+./bin/doc2me parse src/
 
 # Parse with pretty-printed output
-./bin/block2docs parse src/ --pretty
+./bin/doc2me parse src/ --pretty
 
 # Write one JSON file per source file to a directory
-./bin/block2docs parse src/ output/ --pretty
+./bin/doc2me parse src/ output/ --pretty
 ```
 
 The output is a JSON object keyed by relative file path. Each file entry contains:
@@ -102,7 +102,7 @@ Classes, functions, and methods include their arguments, return types, visibilit
 Parse PHP files in a directory and output structured JSON containing all classes, interfaces, traits, enums, functions, constants, methods, properties, and their docblocks.
 
 ```bash
-./bin/block2docs field-guid [output-path]
+./bin/doc2me field-guid [output-path]
 ```
 
 | Argument | Description |
@@ -113,7 +113,7 @@ Examples:
 
 ```bash
 # Parse a directory and print JSON to stdout
-./bin/block2docs field-guide FIELD_GUIDE_TEMPLATE.md
+./bin/doc2me field-guide FIELD_GUIDE_TEMPLATE.md
 ```
 
 

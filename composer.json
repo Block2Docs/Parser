@@ -11,7 +11,7 @@
         }
     },
     "bin": [
-        "bin/block2docs"
+        "bin/doc2me"
     ],
     "config": {
     },
