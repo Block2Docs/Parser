@@ -10,7 +10,7 @@
                 "name": "Hook",
                 "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook",
                 "line": 19,
-                "end_line": 103,
+                "end_line": 106,
                 "docblock": {
                     "summary": "This class adds WordPress hook metadata.",
                     "description": "",
@@ -278,12 +278,16 @@
                     {
                         "name": "getType",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::getType()",
-                        "line": 76,
-                        "end_line": 79,
+                        "line": 79,
+                        "end_line": 82,
                         "docblock": {
                             "summary": "",
                             "description": "",
                             "tags": [
+                                {
+                                    "name": "todo",
+                                    "description": "What is even a type."
+                                },
                                 {
                                     "name": "return",
                                     "description": "",
@@ -303,8 +307,8 @@
                     {
                         "name": "getArgs",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::getArgs()",
-                        "line": 84,
-                        "end_line": 87,
+                        "line": 87,
+                        "end_line": 90,
                         "docblock": {
                             "summary": "",
                             "description": "",
@@ -328,8 +332,8 @@
                     {
                         "name": "format",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::format()",
-                        "line": 89,
-                        "end_line": 97,
+                        "line": 92,
+                        "end_line": 100,
                         "docblock": null,
                         "abstract": false,
                         "final": false,
@@ -343,8 +347,8 @@
                     {
                         "name": "getDocBlock",
                         "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::getDocBlock()",
-                        "line": 99,
-                        "end_line": 102,
+                        "line": 102,
+                        "end_line": 105,
                         "docblock": null,
                         "abstract": false,
                         "final": false,

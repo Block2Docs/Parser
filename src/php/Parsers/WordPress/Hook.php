@@ -71,6 +71,9 @@ final class Hook implements Metadata
     }
 
     /**
+     *
+     * @todo What is even a type.
+     *
      * @return string
      */
     public function getType()

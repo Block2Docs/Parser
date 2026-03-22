@@ -1,6 +1,6 @@
 # Hook
 
-> **Reassurance:** You're doing a great job.
+> **Reassurance:** This is the most beautiful code you've ever written.
 
 ## Description
 
