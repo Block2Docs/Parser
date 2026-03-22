@@ -1,1 +1,361 @@
-{"Parsers/WordPress/Hook.php":{"path":"/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/WordPress/Hook.php","docblock":null,"includes":[],"constants":[],"functions":[],"classes":[{"name":"Hook","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook","line":19,"end_line":101,"docblock":{"summary":"This class adds WordPress hook metadata.","description":"","tags":[{"name":"since","description":""},{"name":"package","description":"Block2Docs\\Parsers\\WordPress"},{"name":"author","description":null},{"name":"version","description":""},{"name":"license","description":"MIT"},{"name":"copyright","description":"2026 Block2Docs"},{"name":"link","description":null},{"name":"needs-reassurance","description":null}]},"final":true,"abstract":false,"parent":null,"interfaces":["\\phpDocumentor\\Reflection\\Metadata\\Metadata"],"traits":[],"constants":[],"properties":[{"name":"line","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::$line","line":21,"docblock":null,"static":false,"visibility":"private","type":"int","default":null},{"name":"name","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::$name","line":22,"docblock":null,"static":false,"visibility":"private","type":"string","default":null},{"name":"type","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::$type","line":23,"docblock":null,"static":false,"visibility":"private","type":"string","default":null},{"name":"args","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::$args","line":24,"docblock":null,"static":false,"visibility":"private","type":"array","default":null},{"name":"docblock","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::$docblock","line":25,"docblock":null,"static":false,"visibility":"private","type":"?array","default":null}],"methods":[{"name":"__construct","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::__construct()","line":36,"end_line":43,"docblock":{"summary":"Construct the hook metadata object.","description":"","tags":[{"name":"param","description":"The line number of the hook call.","variable":"line","type":"int"},{"name":"param","description":"The hook name.","variable":"name","type":"string"},{"name":"param","description":"The hook type (action, filter, etc.).","variable":"type","type":"string"},{"name":"param","description":"The hook arguments (excluding the hook name).","variable":"args","type":"array"},{"name":"param","description":"The parsed docblock, if any.","variable":"docblock","type":"array|null"}]},"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"mixed","arguments":[{"name":"line","type":"int","default":null,"by_reference":false,"variadic":false},{"name":"name","type":"string","default":null,"by_reference":false,"variadic":false},{"name":"type","type":"string","default":null,"by_reference":false,"variadic":false},{"name":"args","type":"array","default":null,"by_reference":false,"variadic":false},{"name":"docblock","type":"?array","default":null,"by_reference":false,"variadic":false}],"hooks":[],"added_hooks":[]},{"name":"key","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::key()","line":50,"end_line":53,"docblock":{"summary":"Get the key for the hook metadata.","description":"","tags":[{"name":"return","description":"The key for the hook metadata.","type":"string"}]},"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"string","arguments":[],"hooks":[],"added_hooks":[]},{"name":"getName","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::getName()","line":58,"end_line":61,"docblock":{"summary":"","description":"","tags":[{"name":"return","description":"","type":"string"}]},"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"mixed","arguments":[],"hooks":[],"added_hooks":[]},{"name":"getShortName","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::getShortName()","line":66,"end_line":69,"docblock":{"summary":"","description":"","tags":[{"name":"return","description":"","type":"string"}]},"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"mixed","arguments":[],"hooks":[],"added_hooks":[]},{"name":"getType","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::getType()","line":74,"end_line":77,"docblock":{"summary":"","description":"","tags":[{"name":"return","description":"","type":"string"}]},"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"mixed","arguments":[],"hooks":[],"added_hooks":[]},{"name":"getArgs","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::getArgs()","line":82,"end_line":85,"docblock":{"summary":"","description":"","tags":[{"name":"return","description":"","type":"array"}]},"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"mixed","arguments":[],"hooks":[],"added_hooks":[]},{"name":"format","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::format()","line":87,"end_line":95,"docblock":null,"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"mixed","arguments":[],"hooks":[],"added_hooks":[]},{"name":"getDocBlock","fqsen":"\\Block2Docs\\Parsers\\WordPress\\Hook::getDocBlock()","line":97,"end_line":100,"docblock":null,"abstract":false,"final":false,"static":false,"visibility":"public","return_type":"?array","arguments":[],"hooks":[],"added_hooks":[]}]}],"interfaces":[],"traits":[],"enums":[]}}
+{
+    "Parsers/WordPress/Hook.php": {
+        "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/WordPress/Hook.php",
+        "docblock": null,
+        "includes": [],
+        "constants": [],
+        "functions": [],
+        "classes": [
+            {
+                "name": "Hook",
+                "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook",
+                "line": 19,
+                "end_line": 101,
+                "docblock": {
+                    "summary": "This class adds WordPress hook metadata.",
+                    "description": "",
+                    "tags": [
+                        {
+                            "name": "since",
+                            "description": ""
+                        },
+                        {
+                            "name": "package",
+                            "description": "Block2Docs\\Parsers\\WordPress"
+                        },
+                        {
+                            "name": "author",
+                            "description": null
+                        },
+                        {
+                            "name": "version",
+                            "description": ""
+                        },
+                        {
+                            "name": "license",
+                            "description": "MIT"
+                        },
+                        {
+                            "name": "copyright",
+                            "description": "2026 Block2Docs"
+                        },
+                        {
+                            "name": "link",
+                            "description": null
+                        },
+                        {
+                            "name": "needs-reassurance",
+                            "description": null
+                        }
+                    ]
+                },
+                "final": true,
+                "abstract": false,
+                "parent": null,
+                "interfaces": [
+                    "\\phpDocumentor\\Reflection\\Metadata\\Metadata"
+                ],
+                "traits": [],
+                "constants": [],
+                "properties": [
+                    {
+                        "name": "line",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::$line",
+                        "line": 21,
+                        "docblock": null,
+                        "static": false,
+                        "visibility": "private",
+                        "type": "int",
+                        "default": null
+                    },
+                    {
+                        "name": "name",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::$name",
+                        "line": 22,
+                        "docblock": null,
+                        "static": false,
+                        "visibility": "private",
+                        "type": "string",
+                        "default": null
+                    },
+                    {
+                        "name": "type",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::$type",
+                        "line": 23,
+                        "docblock": null,
+                        "static": false,
+                        "visibility": "private",
+                        "type": "string",
+                        "default": null
+                    },
+                    {
+                        "name": "args",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::$args",
+                        "line": 24,
+                        "docblock": null,
+                        "static": false,
+                        "visibility": "private",
+                        "type": "array",
+                        "default": null
+                    },
+                    {
+                        "name": "docblock",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::$docblock",
+                        "line": 25,
+                        "docblock": null,
+                        "static": false,
+                        "visibility": "private",
+                        "type": "?array",
+                        "default": null
+                    }
+                ],
+                "methods": [
+                    {
+                        "name": "__construct",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::__construct()",
+                        "line": 36,
+                        "end_line": 43,
+                        "docblock": {
+                            "summary": "Construct the hook metadata object.",
+                            "description": "",
+                            "tags": [
+                                {
+                                    "name": "param",
+                                    "description": "The line number of the hook call.",
+                                    "variable": "line",
+                                    "type": "int"
+                                },
+                                {
+                                    "name": "param",
+                                    "description": "The hook name.",
+                                    "variable": "name",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "param",
+                                    "description": "The hook type (action, filter, etc.).",
+                                    "variable": "type",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "param",
+                                    "description": "The hook arguments (excluding the hook name).",
+                                    "variable": "args",
+                                    "type": "array"
+                                },
+                                {
+                                    "name": "param",
+                                    "description": "The parsed docblock, if any.",
+                                    "variable": "docblock",
+                                    "type": "array|null"
+                                }
+                            ]
+                        },
+                        "abstract": false,
+                        "final": false,
+                        "static": false,
+                        "visibility": "public",
+                        "return_type": "mixed",
+                        "arguments": [
+                            {
+                                "name": "line",
+                                "type": "int",
+                                "default": null,
+                                "by_reference": false,
+                                "variadic": false
+                            },
+                            {
+                                "name": "name",
+                                "type": "string",
+                                "default": null,
+                                "by_reference": false,
+                                "variadic": false
+                            },
+                            {
+                                "name": "type",
+                                "type": "string",
+                                "default": null,
+                                "by_reference": false,
+                                "variadic": false
+                            },
+                            {
+                                "name": "args",
+                                "type": "array",
+                                "default": null,
+                                "by_reference": false,
+                                "variadic": false
+                            },
+                            {
+                                "name": "docblock",
+                                "type": "?array",
+                                "default": null,
+                                "by_reference": false,
+                                "variadic": false
+                            }
+                        ],
+                        "hooks": [],
+                        "added_hooks": []
+                    },
+                    {
+                        "name": "key",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::key()",
+                        "line": 50,
+                        "end_line": 53,
+                        "docblock": {
+                            "summary": "Get the key for the hook metadata.",
+                            "description": "",
+                            "tags": [
+                                {
+                                    "name": "return",
+                                    "description": "The key for the hook metadata.",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "abstract": false,
+                        "final": false,
+                        "static": false,
+                        "visibility": "public",
+                        "return_type": "string",
+                        "arguments": [],
+                        "hooks": [],
+                        "added_hooks": []
+                    },
+                    {
+                        "name": "getName",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getName()",
+                        "line": 58,
+                        "end_line": 61,
+                        "docblock": {
+                            "summary": "",
+                            "description": "",
+                            "tags": [
+                                {
+                                    "name": "return",
+                                    "description": "",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "abstract": false,
+                        "final": false,
+                        "static": false,
+                        "visibility": "public",
+                        "return_type": "mixed",
+                        "arguments": [],
+                        "hooks": [],
+                        "added_hooks": []
+                    },
+                    {
+                        "name": "getShortName",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getShortName()",
+                        "line": 66,
+                        "end_line": 69,
+                        "docblock": {
+                            "summary": "",
+                            "description": "",
+                            "tags": [
+                                {
+                                    "name": "return",
+                                    "description": "",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "abstract": false,
+                        "final": false,
+                        "static": false,
+                        "visibility": "public",
+                        "return_type": "mixed",
+                        "arguments": [],
+                        "hooks": [],
+                        "added_hooks": []
+                    },
+                    {
+                        "name": "getType",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getType()",
+                        "line": 74,
+                        "end_line": 77,
+                        "docblock": {
+                            "summary": "",
+                            "description": "",
+                            "tags": [
+                                {
+                                    "name": "return",
+                                    "description": "",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "abstract": false,
+                        "final": false,
+                        "static": false,
+                        "visibility": "public",
+                        "return_type": "mixed",
+                        "arguments": [],
+                        "hooks": [],
+                        "added_hooks": []
+                    },
+                    {
+                        "name": "getArgs",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getArgs()",
+                        "line": 82,
+                        "end_line": 85,
+                        "docblock": {
+                            "summary": "",
+                            "description": "",
+                            "tags": [
+                                {
+                                    "name": "return",
+                                    "description": "",
+                                    "type": "array"
+                                }
+                            ]
+                        },
+                        "abstract": false,
+                        "final": false,
+                        "static": false,
+                        "visibility": "public",
+                        "return_type": "mixed",
+                        "arguments": [],
+                        "hooks": [],
+                        "added_hooks": []
+                    },
+                    {
+                        "name": "format",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::format()",
+                        "line": 87,
+                        "end_line": 95,
+                        "docblock": null,
+                        "abstract": false,
+                        "final": false,
+                        "static": false,
+                        "visibility": "public",
+                        "return_type": "mixed",
+                        "arguments": [],
+                        "hooks": [],
+                        "added_hooks": []
+                    },
+                    {
+                        "name": "getDocBlock",
+                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getDocBlock()",
+                        "line": 97,
+                        "end_line": 100,
+                        "docblock": null,
+                        "abstract": false,
+                        "final": false,
+                        "static": false,
+                        "visibility": "public",
+                        "return_type": "?array",
+                        "arguments": [],
+                        "hooks": [],
+                        "added_hooks": []
+                    }
+                ]
+            }
+        ],
+        "interfaces": [],
+        "traits": [],
+        "enums": []
+    }
+}
