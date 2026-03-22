@@ -1,6 +1,6 @@
 # Hook
 
-> **Reassurance:** The day is brighter with you around.
+> **Reassurance:** You're doing a great job.
 
 ## Description
 

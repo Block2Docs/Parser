@@ -12,8 +12,6 @@ use phpDocumentor\Reflection\Metadata\Metadata;
  * @author Doc2Me
  * @version 1.0.0
  * @license MIT
- * @copyright 2026 Doc2Me
- * @link https://block2docs.com
  * @needs-reassurance
  */
 final class Hook implements Metadata

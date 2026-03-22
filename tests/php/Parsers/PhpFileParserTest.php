@@ -102,7 +102,7 @@ class PhpFileParserTest extends TestCase
      */
     public function testParseDirectoryEmptyReturnsEmpty(): void
     {
-        $tmpDir = sys_get_temp_dir() . '/block2docs_test_' . uniqid();
+        $tmpDir = sys_get_temp_dir() . '/doc2me_test_' . uniqid();
         mkdir($tmpDir);
 
         $result = $this->parser->parseDirectory($tmpDir);

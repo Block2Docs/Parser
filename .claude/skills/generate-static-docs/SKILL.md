@@ -65,7 +65,7 @@ Run these from the **repo root**. Each step depends on the previous one succeedi
 
 ```bash
 npm run parse:js -- src/js documentation/static/js/json --pretty
-./bin/block2docs parse src/php documentation/static/php/json --pretty
+./bin/doc2me parse src/php documentation/static/php/json --pretty
 ```
 
 ### Phase 3b: Create the JS and PHP static docs
