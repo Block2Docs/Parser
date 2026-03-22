@@ -133,7 +133,7 @@ class PhpFileParser
     private function exportFile(PhpFile $file): array
     {
         $data = [
-            'path' => $file->getPath(),
+            'path' => $this->relativePath($file->getPath(), dirname(__DIR__, 3)),
             'docblock' => $this->exportDocBlock($file->getDocBlock()),
             'includes' => $file->getIncludes(),
             'constants' => [],

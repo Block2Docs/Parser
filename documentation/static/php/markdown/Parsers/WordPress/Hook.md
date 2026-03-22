@@ -1,6 +1,6 @@
 # Hook
 
-> **Reassurance:** This is the most beautiful code you've ever written.
+> **Reassurance:** The day is brighter with you around.
 
 ## Description
 

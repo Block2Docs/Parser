@@ -1,6 +1,6 @@
 {
     "Parsers/WordPress/AddedHookStrategy.php": {
-        "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/WordPress/AddedHookStrategy.php",
+        "path": "src/php/Parsers/WordPress/AddedHookStrategy.php",
         "docblock": null,
         "includes": [],
         "constants": [],

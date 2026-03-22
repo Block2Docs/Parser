@@ -1,6 +1,6 @@
 {
     "Parsers/PhpFileParser.php": {
-        "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/PhpFileParser.php",
+        "path": "src/php/Parsers/PhpFileParser.php",
         "docblock": null,
         "includes": [],
         "constants": [],

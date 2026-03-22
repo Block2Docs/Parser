@@ -12,17 +12,18 @@ Doc2Me will be a tool that bridges the gap between code and documentation by int
 ### Parser/Workflow engine
 
 The core static parsers scan PHP/JavaScript code, extracting DocBlocks and documentation, and needs to:
--[x] Generate API Docs: Create structured API documentation from inline comments.
--[] Generate Changelogs: Extract version history from @since and @changelog tags.
--[] Structure Field Guides: Automatically build release documentation frameworks.
--[] Create GitHub Issues: Generate issues for items tagged @needs-docs, routed by doc type (dev note, end-user guide, how-to, tutorial).
+
+- Generate API Docs: Create structured API documentation from inline comments.
+- Generate Changelogs: Extract version history from git diffs.
+- Structure Field Guides: Automatically build release documentation frameworks.
+- Create GitHub Issues: Generate issues for items with configurable tags.
 
 ### Flexible Configuration
 
-- Config-driven: Use YAML/JSON for easy project customization.
-- Template System: Extensible templates; override defaults or create new ones.
+- Config-driven: Use YAML for easy project customization.
+- Template System: Starts with set templates; plans for configurable templates and overrides.
 - Language Agnostic: Starts with PHP/JavaScript; architecture supports future languages.
-- CI/CD Ready: Integrates into existing development pipelines.
+- CI/CD: Could be integrated into existing development pipelines.
 
 ## Local setup
 
@@ -97,7 +98,7 @@ The output is a JSON object keyed by relative file path. Each file entry contain
 Classes, functions, and methods include their arguments, return types, visibility, and full docblock data (summary, description, and tags such as `@param`, `@return`, `@since`, `@deprecated`).
 
 - `field-guide-template` — Generate the Field Guide Template and save to the output file.
--
+
 Parse PHP files in a directory and output structured JSON containing all classes, interfaces, traits, enums, functions, constants, methods, properties, and their docblocks.
 
 ```bash

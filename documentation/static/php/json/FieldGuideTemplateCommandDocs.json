@@ -1,6 +1,6 @@
 {
     "Command/FieldGuideTemplateCommand.php": {
-        "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Command/FieldGuideTemplateCommand.php",
+        "path": "src/php/Command/FieldGuideTemplateCommand.php",
         "docblock": null,
         "includes": [],
         "constants": [],

@@ -1,6 +1,6 @@
 {
     "Parsers/WordPress/BlockParser.php": {
-        "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Parsers/WordPress/BlockParser.php",
+        "path": "src/php/Parsers/WordPress/BlockParser.php",
         "docblock": null,
         "includes": [],
         "constants": [],

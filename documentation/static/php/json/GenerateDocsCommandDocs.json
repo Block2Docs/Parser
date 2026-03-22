@@ -1,6 +1,6 @@
 {
     "Command/GenerateDocsCommand.php": {
-        "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Command/GenerateDocsCommand.php",
+        "path": "src/php/Command/GenerateDocsCommand.php",
         "docblock": null,
         "includes": [],
         "constants": [],

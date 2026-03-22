@@ -1,6 +1,6 @@
 {
     "Command/ParseCommand.php": {
-        "path": "/Users/jjjay/Play/cloudfest-2026/Parser/src/php/Command/ParseCommand.php",
+        "path": "src/php/Command/ParseCommand.php",
         "docblock": null,
         "includes": [],
         "constants": [],
