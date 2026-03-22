@@ -1,6 +1,6 @@
 # Hook
 
-> **Reassurance:** This is the most beautiful code you've ever written.
+> **Reassurance:** You're doing a great job.
 
 ## Description
 
@@ -8,7 +8,7 @@ This class adds WordPress hook metadata.
 
 | | |
 |---|---|
-| **FQSEN** | `\Block2Docs\Parsers\WordPress\Hook` |
+| **FQSEN** | `\Doc2Me\Parsers\WordPress\Hook` |
 | **Final** | Yes |
 
 ---

@@ -1,8 +1,8 @@
 version: 1
 
 project:
-  name: blocks2docs
-  repository: Block2Docs/Parser/  # GitHub owner/repo slug (e.g. "owner/repo")
+  name: doc2me
+  repository: Doc2Me/Parser/  # GitHub owner/repo slug (e.g. "owner/repo")
   default_branch: main
 
 # Define the sources for the parser.

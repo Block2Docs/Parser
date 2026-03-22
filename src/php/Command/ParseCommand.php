@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Block2Docs\Command;
+namespace Doc2Me\Command;
 
-use Block2Docs\Parsers\PhpFileParser;
+use Doc2Me\Parsers\PhpFileParser;
 
 class ParseCommand
 {

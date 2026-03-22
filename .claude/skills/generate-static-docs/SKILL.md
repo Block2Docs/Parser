@@ -23,7 +23,7 @@ Compare local HEAD against `origin/main`:
 git rev-list --count HEAD..origin/main
 ```
 
-If the count is greater than 0, run `git merge main`. If no, continue to step 2.
+If the count is greater than 0, run `git merge origin/main`. If no, continue to step 2.
 
 If there is a merge conflict or any errors, output the errors and exit.
 

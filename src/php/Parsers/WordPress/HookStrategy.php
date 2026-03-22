@@ -1,14 +1,14 @@
 <?php
 
-namespace Block2Docs\Parsers\WordPress;
+namespace Doc2Me\Parsers\WordPress;
 
 use phpDocumentor\Reflection\DocBlockFactory;
-use phpDocumentor\Reflection\DocBlock\Tags\Param;
-use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\Php\ProjectFactoryStrategy;
 use phpDocumentor\Reflection\Php\StrategyContainer;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Stmt\Expression;
+use phpDocumentor\Reflection\DocBlock\Tags\Param;
+use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\Php\Factory\ContextStack;
 
 final class HookStrategy implements ProjectFactoryStrategy

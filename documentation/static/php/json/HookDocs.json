@@ -8,7 +8,7 @@
         "classes": [
             {
                 "name": "Hook",
-                "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook",
+                "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook",
                 "line": 19,
                 "end_line": 103,
                 "docblock": {
@@ -21,7 +21,7 @@
                         },
                         {
                             "name": "package",
-                            "description": "Block2Docs\\Parsers\\WordPress"
+                            "description": "Doc2Me\\Parsers\\WordPress"
                         },
                         {
                             "name": "author",
@@ -37,7 +37,7 @@
                         },
                         {
                             "name": "copyright",
-                            "description": "2026 Block2Docs"
+                            "description": "2026 Doc2Me"
                         },
                         {
                             "name": "link",
@@ -60,7 +60,7 @@
                 "properties": [
                     {
                         "name": "line",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::$line",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::$line",
                         "line": 21,
                         "docblock": null,
                         "static": false,
@@ -70,7 +70,7 @@
                     },
                     {
                         "name": "name",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::$name",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::$name",
                         "line": 22,
                         "docblock": null,
                         "static": false,
@@ -80,7 +80,7 @@
                     },
                     {
                         "name": "type",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::$type",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::$type",
                         "line": 23,
                         "docblock": null,
                         "static": false,
@@ -90,7 +90,7 @@
                     },
                     {
                         "name": "args",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::$args",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::$args",
                         "line": 24,
                         "docblock": null,
                         "static": false,
@@ -100,7 +100,7 @@
                     },
                     {
                         "name": "docblock",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::$docblock",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::$docblock",
                         "line": 25,
                         "docblock": null,
                         "static": false,
@@ -112,7 +112,7 @@
                 "methods": [
                     {
                         "name": "__construct",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::__construct()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::__construct()",
                         "line": 38,
                         "end_line": 45,
                         "docblock": {
@@ -202,7 +202,7 @@
                     },
                     {
                         "name": "key",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::key()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::key()",
                         "line": 52,
                         "end_line": 55,
                         "docblock": {
@@ -227,7 +227,7 @@
                     },
                     {
                         "name": "getName",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getName()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::getName()",
                         "line": 60,
                         "end_line": 63,
                         "docblock": {
@@ -252,7 +252,7 @@
                     },
                     {
                         "name": "getShortName",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getShortName()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::getShortName()",
                         "line": 68,
                         "end_line": 71,
                         "docblock": {
@@ -277,7 +277,7 @@
                     },
                     {
                         "name": "getType",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getType()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::getType()",
                         "line": 76,
                         "end_line": 79,
                         "docblock": {
@@ -302,7 +302,7 @@
                     },
                     {
                         "name": "getArgs",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getArgs()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::getArgs()",
                         "line": 84,
                         "end_line": 87,
                         "docblock": {
@@ -327,7 +327,7 @@
                     },
                     {
                         "name": "format",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::format()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::format()",
                         "line": 89,
                         "end_line": 97,
                         "docblock": null,
@@ -342,7 +342,7 @@
                     },
                     {
                         "name": "getDocBlock",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\Hook::getDocBlock()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\Hook::getDocBlock()",
                         "line": 99,
                         "end_line": 102,
                         "docblock": null,

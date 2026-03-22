@@ -1,6 +1,6 @@
 <?php
 
-namespace Block2Docs\Command;
+namespace Doc2Me\Command;
 
 class FieldGuideTemplateCommand
 {

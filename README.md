@@ -1,9 +1,9 @@
-# Block2Docs Parser
+# Doc2Me Parser
 [CloudFest Hackathon 2026 project](https://hackathon.cloudfest.com/project/block2docs/)
 
 ## Objective
 
-Block2Docs will be a tool that bridges the gap between code and documentation by intelligent DocBlock parsing. It reads annotations from your code to identify what needs documentation, and routes everything to the appropriate output—changelog entries, GitHub issues, API references, field guides, and more.
+Doc2Me will be a tool that bridges the gap between code and documentation by intelligent DocBlock parsing. It reads annotations from your code to identify what needs documentation, and routes everything to the appropriate output—changelog entries, GitHub issues, API references, field guides, and more.
 
 ## The Documentation System
 
@@ -39,7 +39,7 @@ npm install
 From the repository root, install dependencies and run the `block2docs` entrypoint:
 
 ```bash
-bin/blocks2docs help
+bin/doc2me help
 ```
 
 If the script is not executable on your system, invoke PHP explicitly:
@@ -50,7 +50,7 @@ php bin/block2docs help
 
 #### Commands:
 
-- `parse` — run the parser (see `Block2Docs\Command\ParseCommand`).
+- `parse` — run the parser (see `Doc2Me\Command\ParseCommand`).
 
 Parse PHP files in a directory and output structured JSON containing all classes, interfaces, traits, enums, functions, constants, methods, properties, and their docblocks.
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Block2Docs\Parsers\WordPress;
+namespace Doc2Me\Parsers\WordPress;
 
 use phpDocumentor\Reflection\Metadata\Metadata;
 
@@ -8,11 +8,11 @@ use phpDocumentor\Reflection\Metadata\Metadata;
  * This class adds WordPress hook metadata.
  *
  * @since 1.0.0
- * @package Block2Docs\Parsers\WordPress
- * @author Block2Docs
+ * @package Doc2Me\Parsers\WordPress
+ * @author Doc2Me
  * @version 1.0.0
  * @license MIT
- * @copyright 2026 Block2Docs
+ * @copyright 2026 Doc2Me
  * @link https://block2docs.com
  * @needs-reassurance
  */

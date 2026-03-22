@@ -8,7 +8,7 @@
         "classes": [
             {
                 "name": "AddedHook",
-                "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook",
+                "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook",
                 "line": 14,
                 "end_line": 96,
                 "docblock": {
@@ -36,7 +36,7 @@
                 "properties": [
                     {
                         "name": "line",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::$line",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::$line",
                         "line": 16,
                         "docblock": null,
                         "static": false,
@@ -46,7 +46,7 @@
                     },
                     {
                         "name": "name",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::$name",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::$name",
                         "line": 17,
                         "docblock": null,
                         "static": false,
@@ -56,7 +56,7 @@
                     },
                     {
                         "name": "type",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::$type",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::$type",
                         "line": 18,
                         "docblock": null,
                         "static": false,
@@ -66,7 +66,7 @@
                     },
                     {
                         "name": "args",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::$args",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::$args",
                         "line": 19,
                         "docblock": null,
                         "static": false,
@@ -76,7 +76,7 @@
                     },
                     {
                         "name": "docblock",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::$docblock",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::$docblock",
                         "line": 20,
                         "docblock": null,
                         "static": false,
@@ -88,7 +88,7 @@
                 "methods": [
                     {
                         "name": "__construct",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::__construct()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::__construct()",
                         "line": 31,
                         "end_line": 38,
                         "docblock": {
@@ -174,7 +174,7 @@
                     },
                     {
                         "name": "key",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::key()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::key()",
                         "line": 45,
                         "end_line": 48,
                         "docblock": {
@@ -199,7 +199,7 @@
                     },
                     {
                         "name": "getName",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::getName()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::getName()",
                         "line": 53,
                         "end_line": 56,
                         "docblock": {
@@ -224,7 +224,7 @@
                     },
                     {
                         "name": "getShortName",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::getShortName()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::getShortName()",
                         "line": 61,
                         "end_line": 64,
                         "docblock": {
@@ -249,7 +249,7 @@
                     },
                     {
                         "name": "getType",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::getType()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::getType()",
                         "line": 69,
                         "end_line": 72,
                         "docblock": {
@@ -274,7 +274,7 @@
                     },
                     {
                         "name": "getArgs",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::getArgs()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::getArgs()",
                         "line": 77,
                         "end_line": 80,
                         "docblock": {
@@ -299,7 +299,7 @@
                     },
                     {
                         "name": "format",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::format()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::format()",
                         "line": 82,
                         "end_line": 90,
                         "docblock": null,
@@ -314,7 +314,7 @@
                     },
                     {
                         "name": "getDocBlock",
-                        "fqsen": "\\Block2Docs\\Parsers\\WordPress\\AddedHook::getDocBlock()",
+                        "fqsen": "\\Doc2Me\\Parsers\\WordPress\\AddedHook::getDocBlock()",
                         "line": 92,
                         "end_line": 95,
                         "docblock": null,

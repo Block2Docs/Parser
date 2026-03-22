@@ -8,7 +8,7 @@
         "classes": [
             {
                 "name": "GenerateDocsCommand",
-                "fqsen": "\\Block2Docs\\Command\\GenerateDocsCommand",
+                "fqsen": "\\Doc2Me\\Command\\GenerateDocsCommand",
                 "line": 5,
                 "end_line": 20,
                 "docblock": null,
@@ -22,7 +22,7 @@
                 "methods": [
                     {
                         "name": "execute",
-                        "fqsen": "\\Block2Docs\\Command\\GenerateDocsCommand::execute()",
+                        "fqsen": "\\Doc2Me\\Command\\GenerateDocsCommand::execute()",
                         "line": 15,
                         "end_line": 19,
                         "docblock": {

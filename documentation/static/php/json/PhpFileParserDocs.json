@@ -8,7 +8,7 @@
         "classes": [
             {
                 "name": "PhpFileParser",
-                "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser",
+                "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser",
                 "line": 30,
                 "end_line": 494,
                 "docblock": null,
@@ -21,7 +21,7 @@
                 "properties": [
                     {
                         "name": "factory",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::$factory",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::$factory",
                         "line": 37,
                         "docblock": {
                             "summary": "The project factory.",
@@ -42,7 +42,7 @@
                 "methods": [
                     {
                         "name": "__construct",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::__construct()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::__construct()",
                         "line": 46,
                         "end_line": 52,
                         "docblock": {
@@ -71,7 +71,7 @@
                     },
                     {
                         "name": "parseDirectory",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::parseDirectory()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::parseDirectory()",
                         "line": 60,
                         "end_line": 81,
                         "docblock": {
@@ -110,7 +110,7 @@
                     },
                     {
                         "name": "parseFile",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::parseFile()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::parseFile()",
                         "line": 88,
                         "end_line": 99,
                         "docblock": {
@@ -143,7 +143,7 @@
                     },
                     {
                         "name": "findPhpFiles",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::findPhpFiles()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::findPhpFiles()",
                         "line": 107,
                         "end_line": 122,
                         "docblock": {
@@ -182,7 +182,7 @@
                     },
                     {
                         "name": "exportFile",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportFile()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportFile()",
                         "line": 133,
                         "end_line": 172,
                         "docblock": {
@@ -229,7 +229,7 @@
                     },
                     {
                         "name": "exportClass",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportClass()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportClass()",
                         "line": 180,
                         "end_line": 214,
                         "docblock": {
@@ -268,7 +268,7 @@
                     },
                     {
                         "name": "exportInterface",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportInterface()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportInterface()",
                         "line": 222,
                         "end_line": 244,
                         "docblock": {
@@ -307,7 +307,7 @@
                     },
                     {
                         "name": "exportTrait",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportTrait()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportTrait()",
                         "line": 252,
                         "end_line": 273,
                         "docblock": {
@@ -346,7 +346,7 @@
                     },
                     {
                         "name": "exportEnum",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportEnum()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportEnum()",
                         "line": 281,
                         "end_line": 307,
                         "docblock": {
@@ -385,7 +385,7 @@
                     },
                     {
                         "name": "exportFunction",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportFunction()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportFunction()",
                         "line": 315,
                         "end_line": 326,
                         "docblock": {
@@ -424,7 +424,7 @@
                     },
                     {
                         "name": "exportMethod",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportMethod()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportMethod()",
                         "line": 334,
                         "end_line": 351,
                         "docblock": {
@@ -463,7 +463,7 @@
                     },
                     {
                         "name": "exportProperty",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportProperty()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportProperty()",
                         "line": 359,
                         "end_line": 371,
                         "docblock": {
@@ -502,7 +502,7 @@
                     },
                     {
                         "name": "exportConstant",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportConstant()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportConstant()",
                         "line": 379,
                         "end_line": 388,
                         "docblock": {
@@ -541,7 +541,7 @@
                     },
                     {
                         "name": "exportArguments",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportArguments()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportArguments()",
                         "line": 396,
                         "end_line": 405,
                         "docblock": {
@@ -580,7 +580,7 @@
                     },
                     {
                         "name": "exportDocBlock",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportDocBlock()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportDocBlock()",
                         "line": 413,
                         "end_line": 441,
                         "docblock": {
@@ -619,7 +619,7 @@
                     },
                     {
                         "name": "exportHooks",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportHooks()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportHooks()",
                         "line": 449,
                         "end_line": 459,
                         "docblock": {
@@ -658,7 +658,7 @@
                     },
                     {
                         "name": "exportAddedHooks",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::exportAddedHooks()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::exportAddedHooks()",
                         "line": 467,
                         "end_line": 477,
                         "docblock": {
@@ -697,7 +697,7 @@
                     },
                     {
                         "name": "relativePath",
-                        "fqsen": "\\Block2Docs\\Parsers\\PhpFileParser::relativePath()",
+                        "fqsen": "\\Doc2Me\\Parsers\\PhpFileParser::relativePath()",
                         "line": 486,
                         "end_line": 493,
                         "docblock": {

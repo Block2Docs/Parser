@@ -5,7 +5,7 @@
          colors="true"
          cacheDirectory=".phpunit.cache">
     <testsuites>
-        <testsuite name="Block2Docs">
+        <testsuite name="Doc2Me">
             <directory>tests/php</directory>
         </testsuite>
     </testsuites>

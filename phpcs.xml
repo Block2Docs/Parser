@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Block2Docs">
-    <description>Coding standards for Block2Docs Parser</description>
+<ruleset name="Doc2Me">
+    <description>Coding standards for Doc2Me Parser</description>
 
     <rule ref="PSR12" />
 
